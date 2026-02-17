@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import heroBg from "@/assets/maincarbg.webp";
+import heroBg from "@/assets/fairbg.png";
 
 // Modern icon imports
 import {
@@ -68,7 +68,6 @@ const Hero = () => {
         {/* EXACT overlays from enhanced version - updated with theme colors */}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/90 to-transparent opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-transparent to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-bl from-primary/75 via-primary/50 to-primary/5" />
         <div className="absolute inset-0 bg-gradient-to-br z-1 opacity-50 from-primary/75 via-primary/50 to-primary/5" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(255,255,255,0.12)_0%,_transparent_60%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(255,255,255,0.08)_0%,_transparent_60%)]" />

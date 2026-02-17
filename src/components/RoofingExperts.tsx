@@ -4,7 +4,7 @@ import {
     useReducedMotion
 } from "framer-motion";
 import { useRef, useEffect, useState, useCallback, useMemo, memo } from "react";
-import RoofingExperince from "@/assets/roofingmain.jpg";
+import RoofingExperince from "@/assets/fairabout.png";
 
 // ======================
 // Animated Counter Component

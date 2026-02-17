@@ -4,7 +4,7 @@
 
 @media (min-width: 350px) and (max-width: 750px) {
   .logooo {
-    transform: translateX(-13px);
+    transform: translateX(-35px) !important;
   }
 }
 

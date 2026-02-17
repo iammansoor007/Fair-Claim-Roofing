@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, X, Menu, Quote, Star, Shield, Zap, Calendar, Building2, Home, Users, Briefcase, MessageSquare, Phone, FileText, CheckCircle, Wrench, ClipboardCheck, Clock } from "lucide-react";
 
 // Import your logo
-import logo from "../assets/logo.png";
-import logo2nd from "../assets/logosecond.png";
+import logo from "../assets/FairClaimsLogo.png";
+import logo2nd from "../assets/fairclaimlogo.jpeg";
 
 // Icon component factories
 const createIconComponent = (IconComponent: any) => () => (
@@ -12,7 +12,7 @@ const createIconComponent = (IconComponent: any) => () => (
 );
 
 const createServiceIcon = (IconComponent: any) => ({ isHovered = false }: { isHovered?: boolean }) => (
-  <IconComponent className={`h-5 w-5 ${isHovered ? 'text-foreground' : 'text-primary'} transition-colors duration-300`} />
+  <IconComponent className={`h-5 w-5 ${isHovered ? 'text-white' : 'text-primary'} transition-colors duration-300`} />
 );
 
 const services = [
@@ -187,8 +187,6 @@ const Navbar = () => {
           : "bg-transparent py-4"
           }`}
       >
-        {/* Decorative accent line */}
-        <div className="absolute top-0 left-0 w-full h-[0.75px] bg-gradient-to-r from-primary via-primary to-primary" />
 
         <div className="container mx-auto px-4 lg:px-8">
           <div className="flex items-center justify-between">
@@ -200,7 +198,7 @@ const Navbar = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              <div className="h-16 w-48 rounded-2xl flex items-center justify-center overflow-hidden">
+              <div className="h-20 w-48 rounded-2xl flex items-center justify-center overflow-hidden">
                 <img
                   src={logo}
                   alt="Company Logo"
@@ -236,7 +234,7 @@ const Navbar = () => {
                   <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary/80 group-hover:w-4/5 transition-all duration-500" />
                 </motion.button>
 
-                {/* Mega Menu */}
+                {/* Mega Menu - LIGHT THEME */}
                 <AnimatePresence>
                   {activeMegaMenu === "services" && (
                     <motion.div
@@ -246,7 +244,7 @@ const Navbar = () => {
                       exit={{ opacity: 0, y: 10, scale: 0.98 }}
                       onMouseEnter={handleMegaMenuMouseEnter}
                       onMouseLeave={handleMegaMenuMouseLeave}
-                      className="absolute left-1/2 transform -translate-x-1/2 xl:left-0 xl:transform-none top-full mt-2 w-[90vw] max-w-[900px] bg-card rounded-2xl shadow-2xl border border-border p-6 overflow-hidden"
+                      className="absolute left-1/2 transform -translate-x-1/2 xl:left-0 xl:transform-none top-full mt-2 w-[90vw] max-w-[900px] bg-white rounded-2xl shadow-2xl border border-gray-200 p-6 overflow-hidden"
                       style={{ zIndex: 1000 }}
                     >
                       {/* Services Grid */}
@@ -263,7 +261,7 @@ const Navbar = () => {
                             onMouseLeave={() => {
                               setHoveredService(null);
                             }}
-                            className="group block p-5 rounded-xl border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-card"
+                            className="group block p-5 rounded-xl border border-gray-200 hover:border-primary/30 hover:shadow-lg transition-all duration-300 bg-white"
                             whileHover={{ y: -3 }}
                           >
                             <div className="flex items-start space-x-3 mb-4">
@@ -272,20 +270,20 @@ const Navbar = () => {
                                 <service.Icon isHovered={hoveredService === service.title} />
                               </div>
                               <div>
-                                <h3 className={`font-bold text-base mb-1 transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-card-foreground group-hover:text-primary'
+                                <h3 className={`font-bold text-base mb-1 transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-gray-900 group-hover:text-primary'
                                   }`}>
                                   {service.title}
                                 </h3>
-                                <p className="text-muted-foreground text-xs">{service.description}</p>
+                                <p className="text-gray-500 text-xs">{service.description}</p>
                               </div>
                             </div>
 
                             <div className="space-y-2 mb-4">
                               {service.items.map((item) => (
                                 <div key={item} className="flex items-center text-sm transition-colors">
-                                  <ChevronDown className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-muted-foreground group-hover:text-primary'
+                                  <ChevronDown className={`h-3 w-3 mr-2 rotate-90 flex-shrink-0 transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-gray-400 group-hover:text-primary'
                                     }`} />
-                                  <span className={`truncate transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-card-foreground group-hover:text-primary'
+                                  <span className={`truncate transition-colors ${hoveredService === service.title ? 'text-primary' : 'text-gray-700 group-hover:text-primary'
                                     }`}>
                                     {item}
                                   </span>
@@ -308,21 +306,21 @@ const Navbar = () => {
                       </div>
 
                       {/* CTA Section */}
-                      <div className="pt-6 border-t border-border">
+                      <div className="pt-6 border-t border-gray-200">
                         <div className="flex flex-col md:flex-row items-center justify-between bg-gradient-to-r from-primary to-primary/80 rounded-xl p-5">
                           <div className="flex items-center space-x-3 mb-4 md:mb-0">
-                            <div className="h-12 w-12 rounded-xl bg-foreground flex items-center justify-center">
+                            <div className="h-12 w-12 rounded-xl bg-white flex items-center justify-center">
                               <Quote className="h-5 w-5 text-primary" />
                             </div>
-                            <div className="text-foreground">
+                            <div className="text-white">
                               <h4 className="font-bold text-base">Get Your Free Quote</h4>
-                              <p className="text-foreground/80 text-sm">Detailed estimate within 24 hours</p>
+                              <p className="text-white/80 text-sm">Detailed estimate within 24 hours</p>
                             </div>
                           </div>
                           <motion.a
                             href="#quote"
                             onClick={handleLinkClick}
-                            className="bg-foreground text-primary px-5 py-2.5 rounded-lg font-semibold hover:shadow-xl hover:bg-foreground/90 transition-all duration-300 inline-flex items-center space-x-2"
+                            className="bg-white text-primary px-5 py-2.5 rounded-lg font-semibold hover:shadow-xl hover:bg-white/90 transition-all duration-300 inline-flex items-center space-x-2"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                           >
@@ -450,7 +448,7 @@ const Navbar = () => {
                 <div className="p-6 border-b border-gray-200 flex-shrink-0">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-3">
-                      <div className="h-12 w-24 rounded-xl flex items-center justify-center overflow-hidden">
+                      <div className="h-12 w-36 rounded-xl flex items-center justify-center overflow-hidden">
                         <img
                           src={logo2nd}
                           alt="Company Logo"

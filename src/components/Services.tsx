@@ -9,7 +9,24 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import serviceDetail from "@/assets/bgabout.jpg";
+import serviceDetail from "@/assets/fairservice.png";
+import {
+  Wrench,
+  Home,
+  Building2,
+  Sun,
+  CloudRain,
+  Shield,
+  TreePine,
+  Droplets,
+  Hammer,
+  Square,
+  Award,
+  Star,
+  Clock,
+  Calendar,
+  ArrowRight
+} from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -82,7 +99,7 @@ const CompactServiceCard = ({ service }) => {
 
       <div className="relative z-10 flex items-start gap-4">
         <div className="relative">
-          <span className="text-3xl text-primary">{service.icon}</span>
+          <service.icon className="w-8 h-8 text-primary" />
           {isHovered && (
             <motion.div
               initial={{ scale: 0 }}
@@ -98,7 +115,7 @@ const CompactServiceCard = ({ service }) => {
               {service.number}
             </span>
           </div>
-          <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
+          <p className="text-sm text-gray-600 leading-relaxed line-clamp-2">{service.description}</p>
           <motion.div
             className="flex items-center gap-2 mt-3"
             animate={isHovered ? { x: 5 } : { x: 0 }}
@@ -108,9 +125,9 @@ const CompactServiceCard = ({ service }) => {
             </span>
             <motion.span
               animate={isHovered ? { x: 3 } : { x: 0 }}
-              className="text-primary text-lg"
+              className="text-primary"
             >
-              →
+              <ArrowRight className="w-4 h-4" />
             </motion.span>
           </motion.div>
         </div>
@@ -230,7 +247,7 @@ const ServiceCard = ({ service, index }) => {
         {/* Header with animated icon */}
         <div className="flex items-start justify-between mb-5">
           <div className="relative">
-            <span className="text-4xl text-primary relative z-10">{service.icon}</span>
+            <service.icon className="w-8 h-8 text-primary relative z-10" />
             <motion.div
               className="absolute -inset-2 bg-primary/10 rounded-full"
               initial={{ scale: 0 }}
@@ -254,22 +271,13 @@ const ServiceCard = ({ service, index }) => {
         </div>
 
         {/* Title with word animation */}
-        <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
-          {service.title.split(' ').map((word, i) => (
-            <motion.span
-              key={i}
-              className="inline-block mr-2"
-              animate={isHovered ? { y: -2, color: '#C30505' } : { y: 0, color: '#111827' }}
-              transition={{ duration: 0.2, delay: i * 0.05 }}
-            >
-              {word}
-            </motion.span>
-          ))}
+        <h3 className="text-xl font-bold text-gray-900 mb-2 leading-tight line-clamp-2">
+          {service.title}
         </h3>
 
         {/* Description with rich formatting */}
         <div className="flex-1">
-          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+          <p className="text-gray-600 text-sm leading-relaxed line-clamp-3 mb-3">
             {service.description}
           </p>
 
@@ -277,38 +285,30 @@ const ServiceCard = ({ service, index }) => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: isHovered ? 1 : 0.7 }}
-            className="space-y-2 mt-3"
+            className="space-y-1.5 mt-2"
           >
-            <div className="flex items-center gap-2 text-xs text-gray-500">
-              <span className="w-1 h-1 bg-primary rounded-full" />
-              <span>Premium materials</span>
-            </div>
-            <div className="flex items-center gap-2 text-xs text-gray-500">
-              <span className="w-1 h-1 bg-primary rounded-full" />
-              <span>Certified installers</span>
-            </div>
+            {service.features?.slice(0, 4).map((feature, i) => (
+              <div key={i} className="flex items-center gap-2 text-xs text-gray-500">
+                <span className="w-1 h-1 bg-primary rounded-full flex-shrink-0" />
+                <span className="truncate">{feature}</span>
+              </div>
+            ))}
           </motion.div>
         </div>
 
         {/* Enhanced CTA */}
         <motion.div
-          className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200"
+          className="flex items-center justify-between mt-4 pt-3 border-t border-gray-200"
           animate={isHovered ? { y: 0 } : { y: 5 }}
         >
           <span className="text-xs font-semibold tracking-wider uppercase text-primary">
             Explore service
           </span>
           <motion.div
-            className="flex items-center gap-2"
+            className="flex items-center gap-1"
             animate={isHovered ? { x: 5 } : { x: 0 }}
           >
-            <span className="text-sm text-gray-400">→</span>
-            <motion.span
-              animate={isHovered ? { x: 3, color: '#C30505' } : { x: 0, color: '#9ca3af' }}
-              className="text-xl"
-            >
-              →
-            </motion.span>
+            <ArrowRight className={`w-4 h-4 transition-colors ${isHovered ? 'text-primary' : 'text-gray-400'}`} />
           </motion.div>
         </motion.div>
       </div>
@@ -335,7 +335,7 @@ const Services = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 350,  // Very responsive
+    stiffness: 350,
     damping: 28,
     restDelta: 0.001
   });
@@ -354,37 +354,82 @@ const Services = () => {
     {
       number: "01",
       title: "Roof Repair Services",
-      description: "Our professional roof repair services are designed to find the true source of the problem, not just the visible symptoms. By restoring your roof’s strength, stability, and protective barrier, we help prevent further deterioration and protect the comfort, safety, and value of your home or business for the long term.",
-      icon: "⌗",
-      tag: "Heritage"
+      description: "Professional roof repair services designed to find the true source of the problem, not just visible symptoms.",
+      icon: Wrench,
+      tag: "Repair",
+      features: ["Emergency Repairs", "Leak Detection", "Storm Damage", "Shingle Replacement"]
     },
     {
       number: "02",
-      title: "Roof Replacement",
-      description: "When a roof becomes too old or severely damaged, replacement becomes the safest and most reliable long-term investment for protecting your property.",
-      icon: "⎔",
-      tag: "Industrial"
+      title: "Roof Installation & Replacement",
+      description: "Expert installation and complete roof replacement using premium materials for superior craftsmanship.",
+      icon: Home,
+      tag: "Installation",
+      features: ["New Construction", "Complete Replacement", "Material Upgrades", "Code Compliance"]
     },
     {
       number: "03",
-      title: "Roof Inspections and Preventive Maintenance",
-      description: "Comprehensive restoration programs that extend roof lifecycle by decades. Hidden wear can often go unnoticed.",
-      icon: "↻",
-      tag: "Sustainable"
+      title: "Commercial Roofing",
+      description: "Expert commercial roofing services including installation, replacement, and repair for businesses.",
+      icon: Building2,
+      tag: "Commercial",
+      features: ["Flat Roof Systems", "TPO/EPDM", "Metal Roofing", "Maintenance Programs"]
     },
     {
       number: "04",
-      title: "Residential Roofing Services",
-      description: "A well-built roofing system protects your family, preserves interior comfort, and maintains the long-term value and stability of your property.",
-      icon: "⚡",
-      tag: "Safety"
+      title: "GAF Solar Panel Roofing System",
+      description: "Integrate solar technology with your roofing system through GAF's innovative solar solutions.",
+      icon: Sun,
+      tag: "Solar",
+      features: ["Energy Savings", "Tax Incentives", "Seamless Integration", "Warranty Protection"]
     },
     {
       number: "05",
-      title: "Commercial Roofing Solutions",
-      description: "Commercial roofing systems play a critical role in protecting daily business operations, employees, equipment, and valuable inventory",
-      icon: "◈",
-      tag: "Commercial"
+      title: "Roof Storm / Hail Damage Assessment",
+      description: "Professional assessment and documentation of storm and hail damage for insurance claims.",
+      icon: CloudRain,
+      tag: "Insurance",
+      features: ["Damage Documentation", "Insurance Claims", "Emergency Tarping", "Restoration"]
+    },
+    {
+      number: "06",
+      title: "Roof Maintenance",
+      description: "Biannual and quarterly inspection programs to extend roof life and prevent costly repairs.",
+      icon: Shield,
+      tag: "Preventative",
+      features: ["Regular Inspections", "Gutter Cleaning", "Minor Repairs", "Leak Prevention"]
+    },
+    {
+      number: "07",
+      title: "Patio Addition and Improvement",
+      description: "Custom patio additions and improvements to enhance your outdoor living space.",
+      icon: TreePine,
+      tag: "Outdoor",
+      features: ["Custom Design", "Covered Patios", "Outdoor Kitchens", "Pergolas"]
+    },
+    {
+      number: "08",
+      title: "Roof Gutter Installation",
+      description: "Professional gutter installation and replacement to protect your home from water damage.",
+      icon: Droplets,
+      tag: "Drainage",
+      features: ["Seamless Gutters", "Leaf Guards", "Downspouts", "Water Diversion"]
+    },
+    {
+      number: "09",
+      title: "Metal Roofing",
+      description: "Durable, energy-efficient metal roofing systems offering superior protection and longevity.",
+      icon: Hammer,
+      tag: "Metal",
+      features: ["Standing Seam", "Metal Shingles", "Energy Efficient", "50+ Year Lifespan"]
+    },
+    {
+      number: "10",
+      title: "Tile Roofing",
+      description: "Beautiful and durable tile roofing options including clay and concrete tiles.",
+      icon: Square,
+      tag: "Tile",
+      features: ["Clay Tile", "Concrete Tile", "Synthetic Tile", "Classic Aesthetics"]
     }
   ];
 
@@ -452,26 +497,30 @@ const Services = () => {
             >
               {/* Badge */}
               <div className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10 mb-6 w-fit">
-                <span className="text-primary text-lg">⌗</span>
+                <Award className="w-4 h-4 text-primary" />
                 <span className="text-primary uppercase tracking-wider text-xs font-semibold">
-                  Precision Engineering
+                  Award Winning Support
                 </span>
               </div>
 
               {/* Headline - Slower reveal */}
               <div className="overflow-hidden mb-4">
                 <h2 className="split-text text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
-                  Our Roofing <br />
+                  The Woodlands &<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-                    Services
+                    Greater Houston's
                   </span>
+                  <span className="block text-gray-900 text-4xl md:text-5xl mt-2">Top Rated Roofing Company</span>
                 </h2>
               </div>
 
               {/* Description */}
               <div className="overflow-hidden mt-2">
                 <p className="text-gray-600 text-lg leading-relaxed">
-                  Our professional roof repair services are designed to find the true source of the problem, not just the visible symptoms. By restoring your roof's strength, stability, and protective barrier, we help prevent further deterioration and protect the comfort, safety, and value of your home or business for the long term.
+                  FairClaims Roofing & Construction leads with core values of honor, integrity, reliability and service. From small repair jobs to large scale installations, our team is ready to take on any project.
+                </p>
+                <p className="text-gray-600 text-lg mt-4">
+                  <span className="font-semibold text-primary">License Number: 03-0999</span>
                 </p>
               </div>
 
@@ -487,7 +536,7 @@ const Services = () => {
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-bold text-primary">
-                    <Counter value={17} suffix="+" />
+                    <Counter value={20} suffix="+" />
                   </div>
                   <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
                     Years
@@ -495,10 +544,10 @@ const Services = () => {
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-bold text-primary">
-                    <Counter value={100} suffix="%" />
+                    <Counter value={4.8} suffix="" />
                   </div>
                   <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
-                    Precision
+                    Rating
                   </div>
                 </div>
               </div>
@@ -522,7 +571,7 @@ const Services = () => {
                   <div className="relative aspect-[4/5]">
                     <motion.img
                       src={serviceDetail}
-                      alt="Architectural roofing detail"
+                      alt="FairClaims Roofing & Construction"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{ scale: imageScale }}
                     />
@@ -543,7 +592,7 @@ const Services = () => {
                     >
                       <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
                         <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
-                        Standing Seam • 16ga
+                        License #03-0999
                       </span>
                     </motion.div>
                   </div>
@@ -564,7 +613,7 @@ const Services = () => {
           <div className="flex items-center gap-3 mb-10">
             <div className="w-10 h-0.5 bg-gradient-to-r from-primary to-primary/60" />
             <span className="text-xs font-semibold tracking-wider uppercase text-primary">
-              Our Expertise
+              Roofing & Construction Services
             </span>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -572,6 +621,24 @@ const Services = () => {
               <ServiceCard key={service.number} service={service} index={index} />
             ))}
           </div>
+        </div>
+
+        {/* ====================== */}
+        {/* CTA SECTION */}
+        {/* ====================== */}
+        <div className="mt-16 text-center">
+          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Ready for an Inspection?</h3>
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto mb-8">
+            FairClaims Roofing provides custom consultations and specializes in insurance claim assistance. Contact us to schedule your one on one custom roofing consultation.
+          </p>
+          <motion.a
+            href="#contact"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            className="inline-block px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          >
+            Request Estimate
+          </motion.a>
         </div>
       </div>
 

@@ -9,8 +9,7 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import ceo from "@/assets/owner1.jpg";
-import cfo from "@/assets/owner2.jpg";
+import ceo from "@/assets/fairowner.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,9 +17,6 @@ gsap.registerPlugin(ScrollTrigger);
 // PREMIUM UNSPLASH IMAGES - CURATED
 // ======================
 const Images = {
-  // CEO & Founder
-
-
   // Heritage
   Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   Studio: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
@@ -87,7 +83,7 @@ const ParallaxLayer = ({ children, speed = 0.1, className = "" }) => {
 };
 
 // ======================
-// HERO PORTRAIT - CEO SECTION (Image Left, Text Right)
+// CEO PORTRAIT - Justin O'Neal
 // ======================
 const CeoPortrait = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -112,7 +108,7 @@ const CeoPortrait = () => {
         <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
           <img
             src={ceo}
-            alt="David Taggart - Founder & CEO"
+            alt="Justin O'Neal - CEO, FCR Services, LLC"
             className="w-full h-[500px] md:h-[600px] object-cover"
           />
 
@@ -152,7 +148,7 @@ const CeoPortrait = () => {
           <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
             <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Sparkle />
-              FOUNDER & CEO
+              CEO • FCR SERVICES
             </span>
           </div>
         </motion.div>
@@ -166,7 +162,7 @@ const CeoPortrait = () => {
           <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
             <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Award />
-              CRAFT • INTEGRITY
+              HAAG • GAF • TRI
             </span>
           </div>
         </motion.div>
@@ -176,96 +172,7 @@ const CeoPortrait = () => {
 };
 
 // ======================
-// CFO PORTRAIT - (Image Right, Text Left)
-// ======================
-const CfoPortrait = () => {
-  const [isHovered, setIsHovered] = useState(false);
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-50px" });
-
-  return (
-    <motion.div
-      ref={ref}
-      initial={{ opacity: 0, y: 40 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className="relative group"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <div className="relative">
-        {/* Gradient Border */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/20 to-primary/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
-
-        {/* Image Container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
-          <img
-            src={cfo}
-            alt="Jaqueline Taggart - Chief Financial Officer"
-            className="w-full h-[500px] md:h-[600px] object-cover"
-          />
-
-          {/* Overlay Gradient - lighter for light theme */}
-          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
-
-          {/* Animated Border */}
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            <motion.rect
-              x="2"
-              y="2"
-              width="calc(100% - 4px)"
-              height="calc(100% - 4px)"
-              fill="none"
-              stroke="url(#cfoGradient)"
-              strokeWidth="1.2"
-              initial={{ pathLength: 0, opacity: 0 }}
-              animate={isHovered ? { pathLength: 1, opacity: 0.8 } : { pathLength: 0, opacity: 0 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            />
-            <defs>
-              <linearGradient id="cfoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#C30505" />
-                <stop offset="100%" stopColor="#8B0000" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-
-        {/* Floating Badges */}
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.3 }}
-          className="absolute top-6 left-6"
-        >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-primary">
-              <Icons.Sparkle />
-              CHIEF FINANCIAL OFFICER
-            </span>
-          </div>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 20 }}
-          animate={inView ? { opacity: 1, x: 0 } : {}}
-          transition={{ delay: 0.4 }}
-          className="absolute bottom-6 right-6"
-        >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-primary">
-              <Icons.Award />
-              STRATEGY • GROWTH
-            </span>
-          </div>
-        </motion.div>
-      </div>
-    </motion.div>
-  );
-};
-
-// ======================
-// LEADERSHIP SECTION
+// LEADERSHIP SECTION - SINGLE LEADER
 // ======================
 const Leadership = () => {
   const sectionRef = useRef(null);
@@ -378,9 +285,9 @@ const Leadership = () => {
         </div>
 
         {/* ====================== */}
-        {/* CEO - IMAGE LEFT, TEXT RIGHT */}
+        {/* CEO - JUSTIN O'NEAL */}
         {/* ====================== */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="leadership-reveal">
             <CeoPortrait />
           </div>
@@ -388,9 +295,9 @@ const Leadership = () => {
           <div className="space-y-8 leadership-reveal">
             <div>
               <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                David Taggart
+                Justin O'Neal
                 <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
-                  Founder & CEO
+                  CEO • FCR Services, LLC
                 </span>
               </h3>
 
@@ -399,87 +306,38 @@ const Leadership = () => {
                   <Icons.Quote />
                 </div>
                 <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
-                  David Taggart founded the company with a clear vision: to create an organization built on precision craftsmanship, honest communication, and long-term relationships. With years of hands-on industry experience and leadership across residential and commercial projects, he understands that every structure is more than construction—it is protection for families, businesses, and investments.
+                  Justin started in the roofing business in 2000 as a part time estimator while attending college. He quickly discovered success and a love for the roofing industry. Justin has personally sold over $30 million worth of roofing projects in his career and understands customers' needs. He has a passion for being the best in the industry and differentiating his company from the competition.
                 </p>
+              </div>
+
+              <div className="mt-6 space-y-3 text-gray-600 text-sm md:text-base">
+                <p>Justin has HAAG engineering training on roof damage assessment, has served on the Professional Roof Advisory Council for Certainteed, is Pro Field Guide Certified from GAF, is Tile Roof Certified by the Tile Roof Institute, and has completed multiple trainings from the Center for the Advancement of Roofing Excellence.</p>
+                <p>He is a proud husband and father of 3 children ages 13, 14, and 17.</p>
               </div>
 
               <div className="flex items-center gap-4 mt-8">
                 <motion.a
-                  href="#"
+                  href="https://www.linkedin.com/in/justinwoneal"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <Icons.Linkedin />
                 </motion.a>
                 <motion.a
-                  href="#"
+                  href="mailto:justin@fcrservicesllc.com"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
+                  aria-label="Email"
                 >
                   <Icons.Mail />
                 </motion.a>
+                <span className="text-sm text-gray-500 ml-2">justin@fcrservicesllc.com</span>
               </div>
             </div>
           </div>
-        </div>
-
-        {/* ====================== */}
-        {/* CFO - IMAGE RIGHT, TEXT LEFT */}
-        {/* ====================== */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className="space-y-8 order-2 lg:order-1 leadership-reveal">
-            <div>
-              <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                Jaqueline Taggart
-                <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
-                  Chief Financial Officer
-                </span>
-              </h3>
-
-              <div className="mt-6 relative">
-                <div className="absolute -left-4 top-0 text-primary/20">
-                  <Icons.Quote />
-                </div>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
-                  Jaqueline Taggart brings strategic financial leadership with over 15 years of experience in corporate finance and operational scaling. As CFO, she ensures sustainable growth, financial transparency, and long-term stability. Her expertise in resource allocation and financial planning enables the company to invest in quality materials, advanced training, and exceptional talent—all while maintaining competitive pricing for clients.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-4 mt-8">
-                <motion.a
-                  href="#"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
-                >
-                  <Icons.Linkedin />
-                </motion.a>
-                <motion.a
-                  href="#"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
-                >
-                  <Icons.Mail />
-                </motion.a>
-              </div>
-            </div>
-          </div>
-
-          <div className="order-1 lg:order-2 leadership-reveal">
-            <CfoPortrait />
-          </div>
-        </div>
-
-        {/* ====================== */}
-        {/* FOOTER NOTE */}
-        {/* ====================== */}
-        <div className="text-center mt-32">
-          <p className="text-xs text-gray-400 font-mono">
-            Quality over shortcuts • Service over sales pressure
-          </p>
         </div>
       </div>
     </section>
