@@ -19,8 +19,8 @@ const Icons = {
                 <path d="M12 7v5l3 3" stroke="url(#experienceGradient)" strokeWidth="1.5" strokeLinecap="round" />
                 <defs>
                     <linearGradient id="experienceGradient" x1="3" y1="3" x2="21" y2="21">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -30,8 +30,8 @@ const Icons = {
                 <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z" stroke="url(#honestGradient)" strokeWidth="1.5" />
                 <defs>
                     <linearGradient id="honestGradient" x1="2" y1="2" x2="22" y2="22">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -42,8 +42,8 @@ const Icons = {
                 <path d="M8 8h8v8H8V8z" stroke="url(#materialsGradient)" strokeWidth="1.5" />
                 <defs>
                     <linearGradient id="materialsGradient" x1="4" y1="4" x2="20" y2="20">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -53,8 +53,8 @@ const Icons = {
                 <path d="M21 12a9 9 0 0 1-9 9m9-9a9 9 0 0 0-9-9m9 9H3m9 9a9 9 0 0 1-9-9m9 9c1.66 0 3-4 3-9s-1.34-9-3-9m0 18c-1.66 0-3-4-3-9s1.34-9 3-9" stroke="url(#commGradient)" strokeWidth="1.5" />
                 <defs>
                     <linearGradient id="commGradient" x1="3" y1="3" x2="21" y2="21">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -65,8 +65,8 @@ const Icons = {
                 <path d="M12 8v4M12 16h.01" stroke="url(#customerGradient)" strokeWidth="1.5" strokeLinecap="round" />
                 <defs>
                     <linearGradient id="customerGradient" x1="2" y1="2" x2="22" y2="22">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -77,8 +77,8 @@ const Icons = {
                 <path d="M8 12l3 3 5-5" stroke="url(#certifiedGradient)" strokeWidth="1.5" strokeLinecap="round" />
                 <defs>
                     <linearGradient id="certifiedGradient" x1="3" y1="2" x2="21" y2="22">
-                        <stop stopColor="#2563eb" />
-                        <stop offset="1" stopColor="#1e40af" />
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
                     </linearGradient>
                 </defs>
             </svg>
@@ -96,8 +96,8 @@ const SubtleBackground = () => (
             className="absolute inset-0 opacity-[0.03]"
             style={{
                 backgroundImage: `
-                    linear-gradient(to right, #2563eb 1px, transparent 1px),
-                    linear-gradient(to bottom, #2563eb 1px, transparent 1px)
+                    linear-gradient(to right, #C30505 1px, transparent 1px),
+                    linear-gradient(to bottom, #C30505 1px, transparent 1px)
                 `,
                 backgroundSize: '80px 80px',
             }}
@@ -112,13 +112,13 @@ const SubtleBackground = () => (
                 scale: [1, 1.1, 1, 1.05, 1],
             }}
             transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute top-40 -right-20 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl"
+            className="absolute top-40 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
             aria-hidden="true"
         />
 
         {/* Gradient fades */}
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-50/20 to-transparent" aria-hidden="true" />
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-blue-50/20 to-transparent" aria-hidden="true" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" aria-hidden="true" />
     </div>
 );
 
@@ -147,8 +147,8 @@ const FeatureCard = ({ feature, index }) => {
                 relative bg-white rounded-2xl p-7 h-full
                 transition-all duration-500
                 ${isHovered
-                    ? 'shadow-2xl shadow-blue-500/15'
-                    : 'shadow-lg shadow-blue-500/5'
+                    ? 'shadow-2xl shadow-primary/15'
+                    : 'shadow-lg shadow-primary/5'
                 }
             `}>
                 {/* Icon with glow */}
@@ -162,12 +162,12 @@ const FeatureCard = ({ feature, index }) => {
                             y: 0,
                         }}
                         transition={{ duration: 0.3 }}
-                        className="relative z-10 text-blue-600"
+                        className="relative z-10 text-primary"
                     >
                         {feature.icon}
                     </motion.div>
                     <motion.div
-                        className="absolute inset-0 bg-blue-500/20 rounded-full blur-xl"
+                        className="absolute inset-0 bg-primary/20 rounded-full blur-xl"
                         animate={isHovered ? { scale: 1.4, opacity: 0.5 } : { scale: 1, opacity: 0.2 }}
                         transition={{ duration: 0.4 }}
                     />
@@ -175,14 +175,14 @@ const FeatureCard = ({ feature, index }) => {
 
                 {/* Content */}
                 <h3
-                    className="text-lg md:text-xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors duration-300"
+                    className="text-lg md:text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300"
                     itemProp="name"
                 >
                     {feature.title}
                 </h3>
 
                 <p
-                    className="text-sm md:text-base text-slate-600 leading-relaxed"
+                    className="text-sm md:text-base text-gray-600 leading-relaxed"
                     itemProp="description"
                 >
                     {feature.description}
@@ -235,10 +235,10 @@ const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
             itemScope
             itemType="https://schema.org/QuantitativeValue"
         >
-            <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-blue-700 to-blue-900 bg-clip-text text-transparent">
+            <div className="text-3xl md:text-4xl font-black bg-gradient-to-br from-primary to-primary/80 bg-clip-text text-transparent">
                 <span itemProp="value">{displayValue}</span>{suffix}
             </div>
-            <div className="text-xs font-semibold tracking-wider text-slate-500 mt-1 uppercase" itemProp="unitText">
+            <div className="text-xs font-semibold tracking-wider text-gray-500 mt-1 uppercase" itemProp="unitText">
                 {label}
             </div>
         </motion.div>
@@ -261,8 +261,8 @@ const CrystalCTABanner = () => {
             itemScope
             itemType="https://schema.org/Offer"
         >
-            {/* Clean blue gradient background - no extra border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-900 to-blue-800" />
+            {/* Clean red gradient background - no extra border */}
+            <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80" />
 
             {/* Subtle crystal pattern */}
             <div className="absolute inset-0 opacity-10">
@@ -284,7 +284,7 @@ const CrystalCTABanner = () => {
                         y: [0, -20, 30, 20, 0],
                     }}
                     transition={{ duration: 20, repeat: Infinity }}
-                    className="absolute -top-20 -right-20 w-80 h-80 bg-blue-500/20 rounded-full blur-3xl"
+                    className="absolute -top-20 -right-20 w-80 h-80 bg-white/20 rounded-full blur-3xl"
                 />
             </div>
 
@@ -293,12 +293,12 @@ const CrystalCTABanner = () => {
                 <div className="max-w-2xl">
                     <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 leading-tight">
                         Ready to Start Your<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-200 to-white">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">
                             Roofing Project?
                         </span>
                     </h3>
 
-                    <p className="text-blue-100/90 text-base md:text-lg leading-relaxed">
+                    <p className="text-white/90 text-base md:text-lg leading-relaxed">
                         Contact our team today for a free consultation and detailed estimate.
                     </p>
                 </div>
@@ -310,7 +310,7 @@ const CrystalCTABanner = () => {
                         whileTap={{ scale: 0.98 }}
                         onMouseEnter={() => setIsHovered(true)}
                         onMouseLeave={() => setIsHovered(false)}
-                        className="group relative px-8 py-4 bg-white text-blue-900 text-xs font-bold tracking-[0.2em] uppercase rounded-full overflow-hidden shadow-2xl"
+                        className="group relative px-8 py-4 bg-white text-primary text-xs font-bold tracking-[0.2em] uppercase rounded-full overflow-hidden shadow-2xl"
                     >
                         <span className="relative z-10 flex items-center gap-2">
                             Get Free Quote
@@ -319,7 +319,7 @@ const CrystalCTABanner = () => {
                             </svg>
                         </span>
                         <motion.div
-                            className="absolute inset-0 bg-gradient-to-r from-blue-100 via-white to-blue-100"
+                            className="absolute inset-0 bg-gradient-to-r from-red-50 via-white to-red-50"
                             initial={{ x: '-100%' }}
                             whileHover={{ x: 0 }}
                             transition={{ duration: 0.5 }}
@@ -438,26 +438,25 @@ const WhyChooseUs = () => {
                 {/* ====================== */}
                 <header className="text-center max-w-3xl mx-auto mb-16 reveal">
                     <div className="flex items-center justify-center gap-3 mb-5">
-                        <div className="w-12 h-[2px] bg-gradient-to-r from-blue-400 to-blue-600" />
-                        <span className="text-xs font-bold tracking-[0.25em] uppercase text-blue-700">
+                        <div className="w-12 h-[2px] bg-gradient-to-r from-primary to-primary/60" />
+                        <span className="text-xs font-bold tracking-[0.25em] uppercase text-primary">
                             WHY CHOOSE US
                         </span>
-                        <div className="w-12 h-[2px] bg-gradient-to-r from-blue-600 to-blue-400" />
+                        <div className="w-12 h-[2px] bg-gradient-to-r from-primary/60 to-primary" />
                     </div>
 
-                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 mb-4 leading-tight">
+                    <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                         The Trusted Choice for<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
                             Premium Roofing
                         </span>
                     </h1>
 
-                    <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
+                    <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
                         Since 2007, A5 Roofing has delivered precision-crafted roofing systems to discerning
                         homeowners and commercial property owners.
                     </p>
                 </header>
-
 
                 {/* ====================== */}
                 {/* FEATURES GRID - 6 CARDS */}
@@ -496,8 +495,6 @@ const WhyChooseUs = () => {
                     })
                 }} />
             </div>
-
-
         </section>
     );
 };

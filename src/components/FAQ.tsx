@@ -104,21 +104,21 @@ const SubtleBackground = () => (
       className="absolute inset-0 opacity-[0.05]"
       style={{
         backgroundImage: `
-          linear-gradient(to right, #2563eb 1px, transparent 1px),
-          linear-gradient(to bottom, #2563eb 1px, transparent 1px)
+          linear-gradient(to right, #C30505 1px, transparent 1px),
+          linear-gradient(to bottom, #C30505 1px, transparent 1px)
         `,
         backgroundSize: '80px 80px',
       }}
     />
-    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-50/20 to-transparent" />
-    <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-blue-50/20 to-transparent" />
+    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
+    <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
     <motion.div
       animate={{
         x: [0, 20, 0, -20, 0],
         y: [0, -15, 25, 15, 0],
       }}
       transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
-      className="absolute top-40 -right-20 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl"
+      className="absolute top-40 -right-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-3xl"
     />
   </div>
 );
@@ -131,7 +131,7 @@ const FloatingParticles = () => (
     {[...Array(8)].map((_, i) => (
       <motion.div
         key={i}
-        className="absolute w-0.5 h-0.5 bg-blue-400/20 rounded-full"
+        className="absolute w-0.5 h-0.5 bg-primary/20 rounded-full"
         style={{
           left: `${Math.random() * 100}%`,
           top: `${Math.random() * 100}%`,
@@ -209,8 +209,8 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
         />
         <defs>
           <radialGradient id="liquidGradient">
-            <stop offset="0%" stopColor="#2563eb" stopOpacity="0.2" />
-            <stop offset="100%" stopColor="#1e40af" stopOpacity="0.05" />
+            <stop offset="0%" stopColor="#C30505" stopOpacity="0.2" />
+            <stop offset="100%" stopColor="#8B0000" stopOpacity="0.05" />
           </radialGradient>
         </defs>
       </svg>
@@ -231,7 +231,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
       >
         <span className={`
           text-[90px] font-black leading-none tracking-tighter
-          ${isOpen ? 'text-blue-900/15' : 'text-slate-200/80'}
+          ${isOpen ? 'text-primary/15' : 'text-gray-200/80'}
           transition-colors duration-500
         `}>
           {String(index + 1).padStart(2, '0')}
@@ -248,8 +248,8 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           relative bg-white/90 backdrop-blur-sm rounded-2xl
           border transition-all duration-500
           ${isOpen
-            ? 'border-blue-300/70 shadow-2xl shadow-blue-900/15'
-            : 'border-blue-100/50 hover:border-blue-200/80 shadow-lg shadow-blue-900/5'
+            ? 'border-primary/30 shadow-2xl shadow-primary/15'
+            : 'border-primary/10 hover:border-primary/20 shadow-lg shadow-primary/5'
           }
         `}
       >
@@ -276,8 +276,8 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           />
           <defs>
             <linearGradient id="borderGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#3b82f6" />
-              <stop offset="100%" stopColor="#1e40af" />
+              <stop offset="0%" stopColor="#C30505" />
+              <stop offset="100%" stopColor="#8B0000" />
             </linearGradient>
           </defs>
         </svg>
@@ -290,8 +290,8 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                 key={i}
                 className="absolute w-1 h-1 rounded-full z-20"
                 style={{
-                  background: i % 2 === 0 ? '#3b82f6' : '#2563eb',
-                  boxShadow: `0 0 8px ${i % 2 === 0 ? '#3b82f6' : '#2563eb'}`,
+                  background: i % 2 === 0 ? '#C30505' : '#8B0000',
+                  boxShadow: `0 0 8px ${i % 2 === 0 ? '#C30505' : '#8B0000'}`,
                 }}
                 initial={{
                   x: '50%',
@@ -327,8 +327,8 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
             <h3 className={`
               text-base md:text-lg lg:text-xl font-light transition-all duration-500
               ${isOpen
-                ? 'text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900 font-medium'
-                : 'text-slate-800 group-hover:text-slate-900'
+                ? 'text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80 font-medium'
+                : 'text-gray-800 group-hover:text-gray-900'
               }
             `}>
               {item.question}
@@ -340,20 +340,20 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                 animate={isOpen ? {
                   rotate: 180,
                   scale: 1.1,
-                  backgroundColor: '#2563eb',
-                  borderColor: '#2563eb',
+                  backgroundColor: '#C30505',
+                  borderColor: '#C30505',
                 } : {
                   rotate: 0,
                   scale: 1,
                   backgroundColor: 'white',
-                  borderColor: isHovered ? '#2563eb' : '#e2e8f0',
+                  borderColor: isHovered ? '#C30505' : '#e2e8f0',
                 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 className={`
                   w-10 h-10 md:w-12 md:h-12 rounded-full border-2
                   flex items-center justify-center
                   transition-all duration-500
-                  ${isOpen ? 'bg-blue-600 border-blue-600' : 'bg-white'}
+                  ${isOpen ? 'bg-primary border-primary' : 'bg-white'}
                 `}
               >
                 <motion.svg
@@ -365,7 +365,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                 >
                   <motion.path
                     d={isOpen ? "M5 12h14" : "M12 5v14M5 12h14"}
-                    stroke={isOpen ? 'white' : isHovered ? '#2563eb' : '#94a3b8'}
+                    stroke={isOpen ? 'white' : isHovered ? '#C30505' : '#94a3b8'}
                     strokeWidth="1.8"
                     strokeLinecap="round"
                     animate={isOpen ? {
@@ -381,7 +381,7 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
               {/* Pulse Ring for Open State */}
               {isOpen && (
                 <motion.div
-                  className="absolute inset-0 rounded-full border-2 border-blue-400"
+                  className="absolute inset-0 rounded-full border-2 border-primary"
                   animate={{
                     scale: [1, 1.3, 1],
                     opacity: [0.4, 0, 0.4]
@@ -412,9 +412,9 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
             >
               <div className="px-7 md:px-9 pb-7 md:pb-9">
                 {/* Decorative Timeline */}
-                <div className="relative pl-6 border-l-2 border-blue-200/50">
+                <div className="relative pl-6 border-l-2 border-primary/20">
                   {/* Answer Text */}
-                  <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-5">
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">
                     {item.answer}
                   </p>
 
@@ -429,9 +429,9 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                           transition={{ delay: 0.2 + i * 0.1 }}
                           className="flex items-center gap-2 text-xs"
                         >
-                          <span className="w-1 h-1 bg-blue-500 rounded-full" />
-                          <span className="text-slate-500">{meta.label}:</span>
-                          <span className="font-medium text-slate-700">{meta.value}</span>
+                          <span className="w-1 h-1 bg-primary rounded-full" />
+                          <span className="text-gray-500">{meta.label}:</span>
+                          <span className="font-medium text-gray-700">{meta.value}</span>
                         </motion.div>
                       ))}
                     </div>
@@ -443,14 +443,14 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 0.3 }}
-                      className="flex flex-wrap items-center gap-4 pt-4 border-t border-blue-100/50"
+                      className="flex flex-wrap items-center gap-4 pt-4 border-t border-primary/10"
                     >
                       {item.links.map((link, i) => (
                         <motion.a
                           key={i}
                           href={link.url}
                           whileHover={{ x: 5 }}
-                          className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 hover:text-blue-800 transition-colors group"
+                          className="inline-flex items-center gap-1.5 text-xs font-medium text-primary hover:text-primary/80 transition-colors group"
                         >
                           <span>{link.label}</span>
                           <motion.svg
@@ -480,11 +480,11 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           animate={isHovered ? {
             width: 14,
             height: 14,
-            borderColor: 'rgba(37,99,235,0.5)'
+            borderColor: 'rgba(195,5,5,0.5)'
           } : {
             width: 24,
             height: 24,
-            borderColor: 'rgba(37,99,235,0.2)'
+            borderColor: 'rgba(195,5,5,0.2)'
           }}
           transition={{ duration: 0.4 }}
         />
@@ -493,11 +493,11 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           animate={isHovered ? {
             width: 14,
             height: 14,
-            borderColor: 'rgba(37,99,235,0.5)'
+            borderColor: 'rgba(195,5,5,0.5)'
           } : {
             width: 24,
             height: 24,
-            borderColor: 'rgba(37,99,235,0.2)'
+            borderColor: 'rgba(195,5,5,0.2)'
           }}
           transition={{ duration: 0.4 }}
         />
@@ -524,14 +524,14 @@ const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
             relative px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300
             ${activeCategory === category.id
               ? 'text-white'
-              : 'text-slate-600 hover:text-slate-900 bg-white/50 hover:bg-blue-50/50'
+              : 'text-gray-600 hover:text-gray-900 bg-white/50 hover:bg-primary/5'
             }
           `}
         >
           {activeCategory === category.id && (
             <motion.div
               layoutId="activeCategory"
-              className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"
+              className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full"
               initial={false}
               transition={{ type: "spring", stiffness: 400, damping: 35 }}
             />
@@ -566,11 +566,11 @@ const SearchBar = ({ onSearch }) => {
       <div className={`
         relative flex items-center bg-white rounded-full border transition-all duration-300
         ${isFocused
-          ? 'border-blue-400 shadow-lg shadow-blue-900/10'
-          : 'border-slate-200 hover:border-slate-300 shadow-md'
+          ? 'border-primary shadow-lg shadow-primary/10'
+          : 'border-gray-200 hover:border-gray-300 shadow-md'
         }
       `}>
-        <div className="absolute left-4 text-slate-400">
+        <div className="absolute left-4 text-gray-400">
           <Icons.Search />
         </div>
 
@@ -581,7 +581,7 @@ const SearchBar = ({ onSearch }) => {
           onChange={(e) => onSearch(e.target.value)}
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
-          className="w-full pl-11 pr-4 py-3 md:py-3.5 bg-transparent rounded-full text-sm md:text-base text-slate-900 placeholder:text-slate-400 focus:outline-none"
+          className="w-full pl-11 pr-4 py-3 md:py-3.5 bg-transparent rounded-full text-sm md:text-base text-gray-900 placeholder:text-gray-400 focus:outline-none"
         />
 
         {isFocused && (
@@ -589,7 +589,7 @@ const SearchBar = ({ onSearch }) => {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            className="absolute right-3 text-xs text-slate-400"
+            className="absolute right-3 text-xs text-gray-400"
           >
             ⏎
           </motion.div>
@@ -621,15 +621,15 @@ const KnowledgeCard = () => {
           rotateX: 2,
           rotateY: 2,
           scale: 1.02,
-          boxShadow: "0 30px 60px -15px rgba(37,99,235,0.3)"
+          boxShadow: "0 30px 60px -15px rgba(195,5,5,0.3)"
         } : {
           rotateX: 0,
           rotateY: 0,
           scale: 1,
-          boxShadow: "0 20px 40px -15px rgba(37,99,235,0.15)"
+          boxShadow: "0 20px 40px -15px rgba(195,5,5,0.15)"
         }}
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-        className="relative bg-gradient-to-br from-blue-900 to-blue-800 rounded-3xl p-8 md:p-10 overflow-hidden"
+        className="relative bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-8 md:p-10 overflow-hidden"
         style={{ transformPerspective: 1000 }}
       >
         {/* Animated Grid Pattern */}
@@ -688,7 +688,7 @@ const KnowledgeCard = () => {
               <h4 className="text-xl md:text-2xl font-semibold text-white mb-2">
                 Still have questions?
               </h4>
-              <p className="text-blue-200 text-base md:text-lg">
+              <p className="text-white/80 text-base md:text-lg">
                 Our roofing specialists are ready to help with your specific project needs.
               </p>
             </div>
@@ -699,7 +699,7 @@ const KnowledgeCard = () => {
             href="/contact"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative px-7 py-3.5 md:px-8 md:py-4 bg-white text-blue-900 text-xs md:text-sm font-medium rounded-full shadow-2xl overflow-hidden group/btn whitespace-nowrap"
+            className="relative px-7 py-3.5 md:px-8 md:py-4 bg-white text-primary text-xs md:text-sm font-medium rounded-full shadow-2xl overflow-hidden group/btn whitespace-nowrap"
           >
             <span className="relative z-10 flex items-center gap-2">
               Contact Our Team
@@ -715,7 +715,7 @@ const KnowledgeCard = () => {
               </motion.svg>
             </span>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-blue-100 to-white"
+              className="absolute inset-0 bg-gradient-to-r from-red-50 to-white"
               initial={{ x: '-100%' }}
               whileHover={{ x: 0 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -948,16 +948,16 @@ const FAQ = () => {
         {/* SECTION HEADER - ROOFING FOCUSED */}
         {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 faq-reveal">
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-blue-600 mb-3 block">
+          <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3 block">
             Knowledge Base
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 mb-4">
             Frequently Asked Questions
           </h2>
-          <p className="text-slate-500 text-base md:text-lg">
+          <p className="text-gray-500 text-base md:text-lg">
             Expert answers to common questions about roofing, repairs, materials, and protection for your property.
           </p>
-          <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mt-6 rounded-full" />
+          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-6 rounded-full" />
         </div>
 
         {/* ====================== */}
@@ -992,10 +992,10 @@ const FAQ = () => {
               animate={{ opacity: 1 }}
               className="text-center py-16"
             >
-              <div className="text-slate-400 mb-3">
+              <div className="text-gray-400 mb-3">
                 <Icons.Document />
               </div>
-              <p className="text-slate-500 text-base">
+              <p className="text-gray-500 text-base">
                 No questions found matching your criteria.
               </p>
               <button
@@ -1003,7 +1003,7 @@ const FAQ = () => {
                   setActiveCategory('all');
                   setSearchQuery('');
                 }}
-                className="mt-4 text-sm text-blue-600 hover:text-blue-800 underline underline-offset-4"
+                className="mt-4 text-sm text-primary hover:text-primary/80 underline underline-offset-4"
               >
                 Clear filters
               </button>

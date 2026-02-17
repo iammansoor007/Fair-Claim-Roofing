@@ -63,11 +63,11 @@ const CompactServiceCard = ({ service }) => {
       transition={{ duration: 0.7, delay: 0.2 }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative bg-white rounded-xl border border-blue-200/70 hover:border-blue-400 transition-all duration-500 overflow-hidden shadow-md hover:shadow-xl hover:shadow-blue-500/20 p-6"
+      className="relative bg-white rounded-xl border border-gray-200 hover:border-primary transition-all duration-500 overflow-hidden shadow-md hover:shadow-xl hover:shadow-primary/20 p-6"
     >
       {/* Animated gradient background */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-blue-100/40 via-white to-white pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-white pointer-events-none"
         animate={{
           opacity: isHovered ? 1 : 0,
           scale: isHovered ? 1.02 : 1
@@ -77,38 +77,38 @@ const CompactServiceCard = ({ service }) => {
 
       {/* Decorative corner accent */}
       <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-blue-400/20 to-transparent rounded-bl-3xl" />
+        <div className="absolute top-0 right-0 w-8 h-8 bg-gradient-to-br from-primary/20 to-transparent rounded-bl-3xl" />
       </div>
 
       <div className="relative z-10 flex items-start gap-4">
         <div className="relative">
-          <span className="text-3xl text-blue-600">{service.icon}</span>
+          <span className="text-3xl text-primary">{service.icon}</span>
           {isHovered && (
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
-              className="absolute -inset-1 bg-blue-400/20 rounded-full blur-sm -z-10"
+              className="absolute -inset-1 bg-primary/20 rounded-full blur-sm -z-10"
             />
           )}
         </div>
         <div className="flex-1">
           <div className="flex items-center justify-between mb-1">
-            <h4 className="text-lg font-bold text-slate-900">{service.title}</h4>
-            <span className="text-[10px] font-mono tracking-wider text-blue-400 bg-blue-50 px-2 py-1 rounded-full">
+            <h4 className="text-lg font-bold text-gray-900">{service.title}</h4>
+            <span className="text-[10px] font-mono tracking-wider text-primary bg-primary/5 px-2 py-1 rounded-full">
               {service.number}
             </span>
           </div>
-          <p className="text-sm text-slate-600 leading-relaxed">{service.description}</p>
+          <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
           <motion.div
             className="flex items-center gap-2 mt-3"
             animate={isHovered ? { x: 5 } : { x: 0 }}
           >
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-700">
+            <span className="text-xs font-semibold tracking-wider uppercase text-primary">
               Learn more
             </span>
             <motion.span
               animate={isHovered ? { x: 3 } : { x: 0 }}
-              className="text-blue-600 text-lg"
+              className="text-primary text-lg"
             >
               →
             </motion.span>
@@ -167,11 +167,11 @@ const ServiceCard = ({ service, index }) => {
         rotateY: rotateY,
         transformPerspective: 1000
       }}
-      className="relative h-[420px] bg-white rounded-2xl border border-blue-200/50 hover:border-blue-400 transition-all duration-700 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-blue-600/20 group"
+      className="relative h-[420px] bg-white rounded-2xl border border-gray-200 hover:border-primary transition-all duration-700 overflow-hidden shadow-lg hover:shadow-2xl hover:shadow-primary/20 group"
     >
       {/* Premium gradient background */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-blue-50 via-white to-white pointer-events-none"
+        className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-white pointer-events-none"
         animate={{ opacity: isHovered ? 1 : 0.3 }}
         transition={{ duration: 0.5 }}
       />
@@ -181,15 +181,15 @@ const ServiceCard = ({ service, index }) => {
         className="absolute inset-0 rounded-2xl"
         animate={{
           boxShadow: isHovered
-            ? 'inset 0 0 0 2px rgba(37,99,235,0.15), inset 0 0 20px rgba(37,99,235,0.1)'
-            : 'inset 0 0 0 0px rgba(37,99,235,0)'
+            ? 'inset 0 0 0 2px rgba(195,5,5,0.15), inset 0 0 20px rgba(195,5,5,0.1)'
+            : 'inset 0 0 0 0px rgba(195,5,5,0)'
         }}
         transition={{ duration: 0.4 }}
       />
 
       {/* Top accent bar with animation */}
       <motion.div
-        className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-400 via-blue-600 to-blue-400"
+        className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary to-primary"
         initial={{ scaleX: 0, opacity: 0 }}
         animate={{ scaleX: isHovered ? 1 : 0, opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
@@ -202,7 +202,7 @@ const ServiceCard = ({ service, index }) => {
           {[...Array(3)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute w-1 h-1 rounded-full bg-blue-400/30"
+              className="absolute w-1 h-1 rounded-full bg-primary/30"
               initial={{
                 x: '50%',
                 y: '50%',
@@ -230,23 +230,23 @@ const ServiceCard = ({ service, index }) => {
         {/* Header with animated icon */}
         <div className="flex items-start justify-between mb-5">
           <div className="relative">
-            <span className="text-4xl text-blue-700 relative z-10">{service.icon}</span>
+            <span className="text-4xl text-primary relative z-10">{service.icon}</span>
             <motion.div
-              className="absolute -inset-2 bg-blue-100 rounded-full"
+              className="absolute -inset-2 bg-primary/10 rounded-full"
               initial={{ scale: 0 }}
               animate={{ scale: isHovered ? 1 : 0 }}
               transition={{ duration: 0.3 }}
             />
           </div>
           <div className="flex flex-col items-end">
-            <span className="text-xs font-mono tracking-wider text-blue-400 bg-blue-50/80 px-3 py-1 rounded-full">
+            <span className="text-xs font-mono tracking-wider text-primary bg-primary/5 px-3 py-1 rounded-full">
               {service.number}
             </span>
             <motion.span
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
               transition={{ duration: 0.3 }}
-              className="text-[10px] font-bold tracking-wider uppercase text-blue-700 mt-2"
+              className="text-[10px] font-bold tracking-wider uppercase text-primary mt-2"
             >
               {service.tag}
             </motion.span>
@@ -254,12 +254,12 @@ const ServiceCard = ({ service, index }) => {
         </div>
 
         {/* Title with word animation */}
-        <h3 className="text-2xl font-bold text-slate-900 mb-3 leading-tight">
+        <h3 className="text-2xl font-bold text-gray-900 mb-3 leading-tight">
           {service.title.split(' ').map((word, i) => (
             <motion.span
               key={i}
               className="inline-block mr-2"
-              animate={isHovered ? { y: -2, color: '#1e40af' } : { y: 0, color: '#0f172a' }}
+              animate={isHovered ? { y: -2, color: '#C30505' } : { y: 0, color: '#111827' }}
               transition={{ duration: 0.2, delay: i * 0.05 }}
             >
               {word}
@@ -269,7 +269,7 @@ const ServiceCard = ({ service, index }) => {
 
         {/* Description with rich formatting */}
         <div className="flex-1">
-          <p className="text-slate-600 text-sm leading-relaxed mb-4">
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
             {service.description}
           </p>
 
@@ -279,33 +279,32 @@ const ServiceCard = ({ service, index }) => {
             animate={{ opacity: isHovered ? 1 : 0.7 }}
             className="space-y-2 mt-3"
           >
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <span className="w-1 h-1 bg-blue-500 rounded-full" />
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <span className="w-1 h-1 bg-primary rounded-full" />
               <span>Premium materials</span>
             </div>
-            <div className="flex items-center gap-2 text-xs text-slate-500">
-              <span className="w-1 h-1 bg-blue-500 rounded-full" />
+            <div className="flex items-center gap-2 text-xs text-gray-500">
+              <span className="w-1 h-1 bg-primary rounded-full" />
               <span>Certified installers</span>
             </div>
-
           </motion.div>
         </div>
 
         {/* Enhanced CTA */}
         <motion.div
-          className="flex items-center justify-between mt-6 pt-4 border-t border-blue-100"
+          className="flex items-center justify-between mt-6 pt-4 border-t border-gray-200"
           animate={isHovered ? { y: 0 } : { y: 5 }}
         >
-          <span className="text-xs font-semibold tracking-wider uppercase text-blue-700">
+          <span className="text-xs font-semibold tracking-wider uppercase text-primary">
             Explore service
           </span>
           <motion.div
             className="flex items-center gap-2"
             animate={isHovered ? { x: 5 } : { x: 0 }}
           >
-            <span className="text-sm text-slate-400">→</span>
+            <span className="text-sm text-gray-400">→</span>
             <motion.span
-              animate={isHovered ? { x: 3, color: '#2563eb' } : { x: 0, color: '#94a3b8' }}
+              animate={isHovered ? { x: 3, color: '#C30505' } : { x: 0, color: '#9ca3af' }}
               className="text-xl"
             >
               →
@@ -316,7 +315,7 @@ const ServiceCard = ({ service, index }) => {
 
       {/* Corner decoration */}
       <div className="absolute bottom-0 right-0 w-20 h-20 overflow-hidden">
-        <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-blue-100/50 to-transparent rounded-tl-3xl" />
+        <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-primary/10 to-transparent rounded-tl-3xl" />
       </div>
     </motion.div>
   );
@@ -348,18 +347,8 @@ const Services = () => {
     ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"]
   );
 
-  // BOTTOM IMAGE REVEAL - DONE BY 15% SCROLL
-  const bottomClipPath = useTransform(
-    smoothProgress,
-    [0.05, 0.15],
-    ["inset(0% 100% 0% 0%)", "inset(0% 0% 0% 0%)"]
-  );
-
   const imageScale = useTransform(smoothProgress, [0, 0.1], [1.15, 1]);
   const overlayOpacity = useTransform(smoothProgress, [0, 0.08], [0.5, 0.1]);
-
-  const bottomImageScale = useTransform(smoothProgress, [0.05, 0.15], [1.2, 1]);
-  const bottomOverlayOpacity = useTransform(smoothProgress, [0.05, 0.12], [0, 0.95]);
 
   const services = [
     {
@@ -372,7 +361,7 @@ const Services = () => {
     {
       number: "02",
       title: "Roof Replacement",
-      description: "When a roof becomes too old or severely damaged, replacement becomes the safest and most reliable long-term investment for protecting your property.  ",
+      description: "When a roof becomes too old or severely damaged, replacement becomes the safest and most reliable long-term investment for protecting your property.",
       icon: "⎔",
       tag: "Industrial"
     },
@@ -386,7 +375,7 @@ const Services = () => {
     {
       number: "04",
       title: "Residential Roofing Services",
-      description: "A well-built roofing system protects your family, preserves interior comfort, and maintains the long-term value and stability of your property..",
+      description: "A well-built roofing system protects your family, preserves interior comfort, and maintains the long-term value and stability of your property.",
       icon: "⚡",
       tag: "Safety"
     },
@@ -440,11 +429,11 @@ const Services = () => {
       ref={sectionRef}
       className="relative bg-white overflow-hidden py-20 md:py-24"
     >
-      {/* Clean white background with subtle blue grid */}
+      {/* Clean white background with subtle red grid */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e6f0ff_1px,transparent_1px),linear-gradient(to_bottom,#e6f0ff_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-50/40 to-transparent" />
-        <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-blue-50/40 to-transparent" />
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fee7e7_1px,transparent_1px),linear-gradient(to_bottom,#fee7e7_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
+        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
+        <div className="absolute bottom-0 right-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
@@ -462,18 +451,18 @@ const Services = () => {
               className="flex flex-col h-full"
             >
               {/* Badge */}
-              <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-200 mb-6 w-fit">
-                <span className="text-blue-600 text-lg">⌗</span>
-                <span className="text-blue-700 uppercase tracking-wider text-xs font-semibold">
+              <div className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10 mb-6 w-fit">
+                <span className="text-primary text-lg">⌗</span>
+                <span className="text-primary uppercase tracking-wider text-xs font-semibold">
                   Precision Engineering
                 </span>
               </div>
 
               {/* Headline - Slower reveal */}
               <div className="overflow-hidden mb-4">
-                <h2 className="split-text text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 leading-tight">
+                <h2 className="split-text text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight">
                   Our Roofing <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
                     Services
                   </span>
                 </h2>
@@ -481,34 +470,34 @@ const Services = () => {
 
               {/* Description */}
               <div className="overflow-hidden mt-2">
-                <p className="text-slate-600 text-lg leading-relaxed">
-                  Our professional roof repair services are designed to find the true source of the problem, not just the visible symptoms. By restoring your roof’s strength, stability, and protective barrier, we help prevent further deterioration and protect the comfort, safety, and value of your home or business for the long term.
+                <p className="text-gray-600 text-lg leading-relaxed">
+                  Our professional roof repair services are designed to find the true source of the problem, not just the visible symptoms. By restoring your roof's strength, stability, and protective barrier, we help prevent further deterioration and protect the comfort, safety, and value of your home or business for the long term.
                 </p>
               </div>
 
               {/* Stats */}
-              <div className="flex items-center gap-8 mt-8 pt-6 border-t border-blue-200">
+              <div className="flex items-center gap-8 mt-8 pt-6 border-t border-gray-200">
                 <div>
-                  <div className="text-3xl md:text-4xl font-bold text-blue-700">
+                  <div className="text-3xl md:text-4xl font-bold text-primary">
                     <Counter value={500} suffix="+" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider uppercase text-blue-500 mt-1">
+                  <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
                     Projects
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl md:text-4xl font-bold text-blue-700">
+                  <div className="text-3xl md:text-4xl font-bold text-primary">
                     <Counter value={17} suffix="+" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider uppercase text-blue-500 mt-1">
+                  <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
                     Years
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl md:text-4xl font-bold text-blue-700">
+                  <div className="text-3xl md:text-4xl font-bold text-primary">
                     <Counter value={100} suffix="%" />
                   </div>
-                  <div className="text-xs font-semibold tracking-wider uppercase text-blue-500 mt-1">
+                  <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
                     Precision
                   </div>
                 </div>
@@ -527,7 +516,7 @@ const Services = () => {
               <div className="relative w-full">
                 {/* Image Container */}
                 <motion.div
-                  className="relative rounded-2xl overflow-hidden shadow-2xl shadow-blue-900/15"
+                  className="relative rounded-2xl overflow-hidden shadow-2xl shadow-primary/15"
                   style={{ clipPath: clipPathLeftToRight }}
                 >
                   <div className="relative aspect-[4/5]">
@@ -538,9 +527,9 @@ const Services = () => {
                       style={{ scale: imageScale }}
                     />
 
-                    {/* Subtle Blue Gradient Overlay */}
+                    {/* Subtle Red Gradient Overlay */}
                     <motion.div
-                      className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 via-transparent to-transparent"
+                      className="absolute inset-0 bg-gradient-to-tr from-primary/30 via-transparent to-transparent"
                       style={{ opacity: overlayOpacity }}
                     />
 
@@ -550,10 +539,10 @@ const Services = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: 0.5, duration: 0.6 }}
-                      className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-lg border border-blue-200"
+                      className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-lg border border-gray-200"
                     >
-                      <span className="text-xs font-semibold text-blue-700 flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 bg-blue-500 rounded-full animate-pulse" />
+                      <span className="text-xs font-semibold text-primary flex items-center gap-1.5">
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
                         Standing Seam • 16ga
                       </span>
                     </motion.div>
@@ -561,8 +550,8 @@ const Services = () => {
                 </motion.div>
 
                 {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-blue-300/50 rounded-br-2xl" />
-                <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-blue-300/50 rounded-tl-2xl" />
+                <div className="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-primary/30 rounded-br-2xl" />
+                <div className="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-primary/30 rounded-tl-2xl" />
               </div>
             </div>
           </div>
@@ -573,8 +562,8 @@ const Services = () => {
         {/* ====================== */}
         <div className="mb-24">
           <div className="flex items-center gap-3 mb-10">
-            <div className="w-10 h-0.5 bg-gradient-to-r from-blue-500 to-blue-700" />
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-700">
+            <div className="w-10 h-0.5 bg-gradient-to-r from-primary to-primary/60" />
+            <span className="text-xs font-semibold tracking-wider uppercase text-primary">
               Our Expertise
             </span>
           </div>
@@ -584,8 +573,6 @@ const Services = () => {
             ))}
           </div>
         </div>
-
-
       </div>
 
       {/* Subtle bottom wave */}
@@ -596,14 +583,14 @@ const Services = () => {
           preserveAspectRatio="none"
         >
           <path
-            fill="url(#blueGradient)"
+            fill="url(#redGradient)"
             d="M0,24L60,26.7C120,29,240,34,360,34C480,34,600,29,720,26.7C840,24,960,24,1080,26.7C1200,29,1320,34,1380,36.7L1440,39L1440,60L1380,60C1320,60,1200,60,1080,60C960,60,840,60,720,60C600,60,480,60,360,60C240,60,120,60,60,60L0,60Z"
           />
           <defs>
-            <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.04" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.06" />
-              <stop offset="100%" stopColor="#2563eb" stopOpacity="0.04" />
+            <linearGradient id="redGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#C30505" stopOpacity="0.04" />
+              <stop offset="50%" stopColor="#C30505" stopOpacity="0.06" />
+              <stop offset="100%" stopColor="#C30505" stopOpacity="0.04" />
             </linearGradient>
           </defs>
         </svg>

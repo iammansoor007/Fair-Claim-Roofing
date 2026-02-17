@@ -179,7 +179,7 @@ const QuantumParticles = () => {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-blue-400/20"
+          className="absolute rounded-full bg-primary/20"
           style={{
             left: `${particle.x}%`,
             top: `${particle.y}%`,
@@ -225,10 +225,10 @@ const NewsletterForm = () => {
     <div className="relative">
       <form onSubmit={handleSubmit} className="relative">
         <div className={`
-          relative flex items-center bg-white/5 backdrop-blur-sm rounded-full border transition-all duration-500
+          relative flex items-center bg-gray-50 backdrop-blur-sm rounded-full border transition-all duration-500
           ${isFocused
-            ? 'border-blue-500/50 shadow-[0_0_30px_rgba(37,99,235,0.1)]'
-            : 'border-white/10 hover:border-white/20'
+            ? 'border-primary/50 shadow-[0_0_30px_rgba(195,5,5,0.1)]'
+            : 'border-gray-200 hover:border-gray-300'
           }
         `}>
           <input
@@ -238,14 +238,14 @@ const NewsletterForm = () => {
             onChange={(e) => setEmail(e.target.value)}
             onFocus={() => setIsFocused(true)}
             onBlur={() => setIsFocused(false)}
-            className="w-full bg-transparent px-6 py-4 text-sm text-white placeholder:text-white/40 focus:outline-none"
+            className="w-full bg-transparent px-6 py-4 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none"
             required
           />
           <motion.button
             type="submit"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="absolute right-2 px-4 py-2 bg-white/10 backdrop-blur-sm text-white text-xs font-medium rounded-full hover:bg-white/20 transition-all duration-300 flex items-center gap-2"
+            className="absolute right-2 px-4 py-2 bg-primary text-white text-xs font-medium rounded-full hover:bg-primary/90 transition-all duration-300 flex items-center gap-2"
           >
             Subscribe
             <Icons.ArrowRight />
@@ -262,7 +262,7 @@ const NewsletterForm = () => {
             exit={{ opacity: 0, y: -10 }}
             className="absolute -bottom-8 left-0 right-0 text-center"
           >
-            <span className="text-xs text-blue-400">
+            <span className="text-xs text-primary">
               ✓ Thank you for subscribing
             </span>
           </motion.div>
@@ -291,7 +291,7 @@ const ServiceLinks = () => {
 
   return (
     <div className="space-y-4">
-      <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/50 flex items-center gap-2">
+      <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
         <Icons.Sparkle />
         Our Services
       </h4>
@@ -301,9 +301,9 @@ const ServiceLinks = () => {
             key={service.label}
             href={service.href}
             whileHover={{ x: 5 }}
-            className="inline-flex items-center gap-3 text-sm text-white/70 hover:text-white transition-all duration-300 group py-1"
+            className="inline-flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-all duration-300 group py-1"
           >
-            <span className="text-blue-400/50 group-hover:text-blue-400 transition-colors">
+            <span className="text-gray-400 group-hover:text-primary transition-colors">
               <service.icon />
             </span>
             <span>{service.label}</span>
@@ -327,7 +327,7 @@ const MaterialsSection = () => {
 
   return (
     <div className="space-y-3 mt-4">
-      <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-blue-400/60">
+      <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
         Materials We Install
       </h5>
       <div className="space-y-2">
@@ -336,9 +336,9 @@ const MaterialsSection = () => {
             key={material.label}
             href={material.href}
             whileHover={{ x: 5 }}
-            className="inline-flex items-center gap-2 text-xs text-white/50 hover:text-white/80 transition-colors"
+            className="inline-flex items-center gap-2 text-xs text-gray-500 hover:text-primary/80 transition-colors"
           >
-            <span className="text-[8px] text-blue-400/40">●</span>
+            <span className="text-[8px] text-primary/40">●</span>
             {material.label}
           </motion.a>
         ))}
@@ -354,31 +354,31 @@ const ContactInfo = () => {
   return (
     <div className="space-y-6">
       <div className="space-y-4">
-        <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/50 flex items-center gap-2">
+        <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
           <Icons.Sparkle />
           Contact Us
         </h4>
         <div className="space-y-4">
-          <a href="mailto:studio@a5roofing.com" className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group">
-            <span className="text-blue-400/70 group-hover:text-blue-400">
+          <a href="mailto:studio@a5roofing.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+            <span className="text-gray-400 group-hover:text-primary">
               <Icons.Mail />
             </span>
             studio@a5roofing.com
           </a>
-          <a href="tel:+12125550170" className="flex items-center gap-3 text-sm text-white/70 hover:text-white transition-colors group">
-            <span className="text-blue-400/70 group-hover:text-blue-400">
+          <a href="tel:+12125550170" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+            <span className="text-gray-400 group-hover:text-primary">
               <Icons.Phone />
             </span>
             +1 (212) 555-0170
           </a>
-          <div className="flex items-center gap-3 text-sm text-white/70">
-            <span className="text-blue-400/70">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
+            <span className="text-gray-400">
               <Icons.Location />
             </span>
             <span>Houston, Dallas, Austin, San Antonio & Across Texas</span>
           </div>
-          <div className="flex items-center gap-3 text-sm text-white/70">
-            <span className="text-blue-400/70">
+          <div className="flex items-center gap-3 text-sm text-gray-600">
+            <span className="text-gray-400">
               <Icons.Infinity />
             </span>
             <span>24/7 Emergency: (212) 555-0199</span>
@@ -388,10 +388,10 @@ const ContactInfo = () => {
 
       {/* Service Areas */}
       <div className="space-y-3">
-        <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-blue-400/60">
+        <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
           Service Areas
         </h5>
-        <p className="text-xs text-white/50 leading-relaxed">
+        <p className="text-xs text-gray-500 leading-relaxed">
           Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano • El Paso • Corpus Christi • Lubbock & Surrounding Texas Communities
         </p>
       </div>
@@ -421,15 +421,15 @@ const CertificationsGrid = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.05 }}
-          className="relative p-3 bg-white/5 backdrop-blur-sm rounded-lg border border-white/10 hover:border-blue-500/30 transition-all duration-300 group"
+          className="relative p-3 bg-gray-50 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-primary/30 transition-all duration-300 group"
         >
           <div className="flex items-center gap-2">
-            <span className="text-blue-400/50 group-hover:text-blue-400 transition-colors">
+            <span className="text-gray-400 group-hover:text-primary transition-colors">
               <cert.icon />
             </span>
             <div>
-              <span className="text-xs font-mono text-blue-400/80">{cert.cert}</span>
-              <p className="text-[10px] text-white/40">{cert.number}</p>
+              <span className="text-xs font-mono text-primary/80">{cert.cert}</span>
+              <p className="text-[10px] text-gray-500">{cert.number}</p>
             </div>
           </div>
         </motion.div>
@@ -456,12 +456,12 @@ const SocialLinks = () => {
           href={social.href}
           whileHover={{ y: -3, scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
-          className="relative w-10 h-10 rounded-full bg-white/5 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
+          className="relative w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
           aria-label={social.label}
         >
           <social.icon />
           <motion.div
-            className="absolute inset-0 rounded-full bg-blue-500/20 blur-lg"
+            className="absolute inset-0 rounded-full bg-primary/20 blur-lg"
             initial={{ opacity: 0, scale: 0.8 }}
             whileHover={{ opacity: 1, scale: 1.2 }}
             transition={{ duration: 0.3 }}
@@ -477,7 +477,7 @@ const SocialLinks = () => {
 // ======================
 const LegacyMarquee = () => {
   return (
-    <div className="relative overflow-hidden py-8 border-t border-white/10">
+    <div className="relative overflow-hidden py-8 border-t border-gray-200">
       <motion.div
         className="flex whitespace-nowrap"
         animate={{ x: [0, -1000] }}
@@ -485,22 +485,22 @@ const LegacyMarquee = () => {
       >
         {[...Array(8)].map((_, i) => (
           <div key={i} className="flex items-center gap-8 mx-8 group">
-            <span className="text-xs font-mono text-blue-400/40 group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
               PRECISION ROOFING
             </span>
-            <span className="text-xs font-mono text-blue-400/40 group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
               SINCE 2007
             </span>
-            <span className="text-xs font-mono text-blue-400/40 group-hover:text-blue-400 transition-colors duration-300">
+            <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
-            <span className="text-sm uppercase tracking-[0.3em] text-white/20 group-hover:text-white transition-colors duration-300">
+            <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
               TRUST • QUALITY • PROTECTION
             </span>
           </div>
@@ -550,9 +550,9 @@ const Footer = () => {
   return (
     <footer
       ref={sectionRef}
-      className="relative bg-slate-950 overflow-hidden"
+      className="relative bg-white overflow-hidden"
       style={{
-        background: 'radial-gradient(circle at 50% 0%, #0f1a2a, #030712)'
+        background: 'radial-gradient(circle at 50% 0%, #f9fafb, #ffffff)'
       }}
     >
       {/* ====================== */}
@@ -565,8 +565,8 @@ const Footer = () => {
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, #3b82f6 1px, transparent 1px),
-              linear-gradient(to bottom, #3b82f6 1px, transparent 1px)
+              linear-gradient(to right, #C30505 1px, transparent 1px),
+              linear-gradient(to bottom, #C30505 1px, transparent 1px)
             `,
             backgroundSize: '60px 60px',
           }}
@@ -574,7 +574,7 @@ const Footer = () => {
       </div>
 
       {/* Ambient Light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-blue-950/30 to-transparent opacity-60 blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
 
       {/* Parallax Layers */}
       <ParallaxLayer speed={0.03} className="z-0">
@@ -608,7 +608,7 @@ const Footer = () => {
         {/* ====================== */}
         {/* TOP SECTION - THREE COLUMNS */}
         {/* ====================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-gray-200">
 
           {/* Column 1 - Logo, Social, Newsletter (3 columns) */}
           <div className="lg:col-span-3 space-y-6">
@@ -619,16 +619,16 @@ const Footer = () => {
               className="space-y-4"
             >
               <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center shadow-2xl shadow-blue-600/30">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl shadow-primary/30">
                   <span className="text-white font-bold text-xl">A5</span>
                 </div>
                 <div>
-                  <span className="text-white/90 font-light text-lg block">A5 Roofing</span>
-                  <span className="text-[10px] text-blue-400/60 font-mono tracking-wider">PRECISION • PROTECTION • TRUST</span>
+                  <span className="text-gray-900 font-light text-lg block">A5 Roofing</span>
+                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">PRECISION • PROTECTION • TRUST</span>
                 </div>
               </div>
 
-              <p className="text-white/50 text-xs leading-relaxed">
+              <p className="text-gray-600 text-xs leading-relaxed">
                 Precision roofing built for long-term protection. Dependable inspections, repairs, replacements, and maintenance focused on durability, safety, and honest communication.
               </p>
 
@@ -637,7 +637,7 @@ const Footer = () => {
 
             {/* Newsletter */}
             <div className="space-y-3">
-              <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-white/40">
+              <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-gray-500">
                 Subscribe to insights
               </h4>
               <NewsletterForm />
@@ -645,13 +645,13 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <a href="/warranty" className="text-[10px] text-white/30 hover:text-blue-400 transition-colors flex items-center gap-1">
+              <a href="/warranty" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
                 <Icons.Warranty /> Warranty
               </a>
-              <a href="/financing" className="text-[10px] text-white/30 hover:text-blue-400 transition-colors flex items-center gap-1">
+              <a href="/financing" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
                 <Icons.Financing /> Financing
               </a>
-              <a href="/insurance" className="text-[10px] text-white/30 hover:text-blue-400 transition-colors flex items-center gap-1">
+              <a href="/insurance" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
                 <Icons.Warranty /> Insurance Support
               </a>
             </div>
@@ -668,8 +668,8 @@ const Footer = () => {
             <ContactInfo />
 
             {/* Certifications Grid - Added Back */}
-            <div className="mt-6 pt-4 border-t border-white/5">
-              <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-white/50 flex items-center gap-2 mb-3">
+            <div className="mt-6 pt-4 border-t border-gray-200">
+              <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2 mb-3">
                 <Icons.Sparkle />
                 Certifications & Accreditations
               </h4>
@@ -686,19 +686,19 @@ const Footer = () => {
         {/* ====================== */}
         {/* BOTTOM BAR */}
         {/* ====================== */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-white/30">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-gray-500">
           <div className="flex items-center gap-4">
             <span>© 2026 A5 Roofing</span>
-            <span className="w-1 h-1 rounded-full bg-white/20" />
+            <span className="w-1 h-1 rounded-full bg-gray-300" />
             <span>All rights reserved</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
-            <a href="/terms" className="hover:text-white transition-colors">Terms</a>
-            <a href="/licenses" className="hover:text-white transition-colors">Licenses</a>
-            <a href="/sitemap" className="hover:text-white transition-colors">Sitemap</a>
+            <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
+            <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
+            <a href="/licenses" className="hover:text-primary transition-colors">Licenses</a>
+            <a href="/sitemap" className="hover:text-primary transition-colors">Sitemap</a>
           </div>
-          <div className="text-white/20">
+          <div className="text-gray-400">
             <span className="font-mono">A5 PRECISION. A5 RESULTS.</span>
           </div>
         </div>
@@ -719,9 +719,9 @@ const Footer = () => {
           />
           <defs>
             <linearGradient id="footerWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.03" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#2563eb" stopOpacity="0.03" />
+              <stop offset="0%" stopColor="#C30505" stopOpacity="0.03" />
+              <stop offset="50%" stopColor="#C30505" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#C30505" stopOpacity="0.03" />
             </linearGradient>
           </defs>
         </svg>

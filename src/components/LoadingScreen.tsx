@@ -9,7 +9,7 @@ const EASE = [0.65, 0, 0.35, 1] as const;
 const SimpleDark = () => {
   return (
     <motion.div
-      className="absolute inset-0 bg-[#030712]"
+      className="absolute inset-0 bg-background"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -24,7 +24,7 @@ const SimpleDark = () => {
 const RoofDraw = () => {
   return (
     <motion.div
-      className="absolute inset-0 flex items-center justify-center bg-[#030712]"
+      className="absolute inset-0 flex items-center justify-center bg-background"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -35,7 +35,7 @@ const RoofDraw = () => {
         <motion.path
           d="M40 70 L100 30 L160 70"
           fill="none"
-          stroke="#60a5fa"
+          stroke="hsl(var(--primary))"
           strokeWidth="2.2"
           strokeLinecap="round"
           initial={{ pathLength: 0 }}
@@ -48,7 +48,7 @@ const RoofDraw = () => {
           y1="70"
           x2="145"
           y2="70"
-          stroke="#60a5fa"
+          stroke="hsl(var(--primary))"
           strokeWidth="2.2"
           initial={{ pathLength: 0 }}
           animate={{ pathLength: 1 }}
@@ -65,7 +65,7 @@ const RoofDraw = () => {
 const LogoText = () => {
   return (
     <motion.div
-      className="absolute inset-0 flex flex-col items-center justify-center bg-[#030712]"
+      className="absolute inset-0 flex flex-col items-center justify-center bg-background"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -73,16 +73,16 @@ const LogoText = () => {
     >
       <div className="text-center px-4">
         {/* Simple, clean text - NO ANIMATIONS on the text itself */}
-        <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] text-white mb-4">
-          <span style={{ color: "#60a5fa" }}>A5</span> ROOFING
+        <div className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-[0.15em] text-foreground mb-4">
+          <span style={{ color: "hsl(var(--primary))" }}>Fair </span> Claims    <span style={{ color: "hsl(var(--primary))" }}>Roofing </span>
         </div>
 
-        {/* Simple underline - NO gradients */}
-        <div className="mx-auto w-16 h-0.5 bg-blue-400" />
+        {/* Simple underline - using primary color */}
+        <div className="mx-auto w-16 h-0.5 bg-primary" />
 
         {/* Simple subtitle */}
-        <div className="mt-6 text-[10px] md:text-xs tracking-[0.25em] text-gray-400 uppercase">
-          Since 2007
+        <div className="mt-6 text-[10px] md:text-xs tracking-[0.25em] text-muted-foreground uppercase">
+          Since 2002
         </div>
       </div>
     </motion.div>
@@ -100,13 +100,13 @@ const Ready = ({ onComplete }: { onComplete: () => void }) => {
 
   return (
     <motion.div
-      className="absolute inset-0 bg-[#030712] flex items-center justify-center"
+      className="absolute inset-0 bg-background flex items-center justify-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-
+      {/* You can add content here if needed */}
     </motion.div>
   );
 };

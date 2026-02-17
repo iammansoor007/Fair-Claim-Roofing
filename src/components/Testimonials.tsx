@@ -23,26 +23,26 @@ const Icons = {
       <path d="M18 11H14V7H18V11Z" stroke="url(#quoteGradient)" strokeWidth="1.2" />
       <defs>
         <linearGradient id="quoteGradient" x1="6" y1="7" x2="18" y2="11">
-          <stop stopColor="#2563eb" />
-          <stop offset="1" stopColor="#1e40af" />
+          <stop stopColor="#C30505" />
+          <stop offset="1" stopColor="#8B0000" />
         </linearGradient>
       </defs>
     </svg>
   ),
   Verified: () => (
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" stroke="#2563eb" strokeWidth="1.2" />
-      <path d="M8 12L11 15L16 9" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" />
+      <circle cx="12" cy="12" r="10" stroke="#C30505" strokeWidth="1.2" />
+      <path d="M8 12L11 15L16 9" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
   ArrowLeft: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
   ArrowRight: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="#2563eb" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
     </svg>
   ),
 };
@@ -56,14 +56,14 @@ const SubtleBackground = () => (
       className="absolute inset-0 opacity-[0.08]"
       style={{
         backgroundImage: `
-                    linear-gradient(to right, #2563eb 1px, transparent 1px),
-                    linear-gradient(to bottom, #2563eb 1px, transparent 1px)
+                    linear-gradient(to right, #C30505 1px, transparent 1px),
+                    linear-gradient(to bottom, #C30505 1px, transparent 1px)
                 `,
         backgroundSize: '60px 60px',
       }}
     />
-    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-blue-50/20 to-transparent" />
-    <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-blue-50/20 to-transparent" />
+    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
+    <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
   </div>
 );
 
@@ -75,7 +75,7 @@ const FloatingParticles = () => (
     {[...Array(12)].map((_, i) => (
       <motion.div
         key={i}
-        className="absolute w-0.5 h-0.5 bg-blue-400/20 rounded-full"
+        className="absolute w-0.5 h-0.5 bg-primary/20 rounded-full"
         style={{
           left: `${Math.random() * 100}%`,
           top: `${Math.random() * 100}%`,
@@ -146,8 +146,8 @@ const TestimonialCard = ({ testimonial, isActive = false }) => {
                 relative bg-white rounded-2xl p-8 md:p-10 lg:p-12
                 border transition-all duration-500
                 ${isActive
-          ? 'border-blue-200 shadow-2xl shadow-blue-900/10'
-          : 'border-blue-100/50 shadow-xl shadow-blue-900/5'
+          ? 'border-primary/20 shadow-2xl shadow-primary/10'
+          : 'border-primary/10 shadow-xl shadow-primary/5'
         }
             `}>
         {/* Quote Icon */}
@@ -156,7 +156,7 @@ const TestimonialCard = ({ testimonial, isActive = false }) => {
         </div>
 
         {/* Testimonial Text */}
-        <p className="text-slate-700 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-10 font-light">
+        <p className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-10 font-light">
           "{testimonial.text}"
         </p>
 
@@ -164,8 +164,8 @@ const TestimonialCard = ({ testimonial, isActive = false }) => {
         <div className="flex items-center gap-4">
           {/* Avatar */}
           <div className="relative">
-            <div className="absolute inset-0 bg-blue-500/10 rounded-full blur-md" />
-            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-800 font-medium text-base md:text-lg">
+            <div className="absolute inset-0 bg-primary/10 rounded-full blur-md" />
+            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary font-medium text-base md:text-lg">
               {testimonial.avatar}
             </div>
           </div>
@@ -173,22 +173,22 @@ const TestimonialCard = ({ testimonial, isActive = false }) => {
           {/* Author Info */}
           <div className="flex-1">
             <div className="flex items-center gap-2">
-              <h4 className="text-base md:text-lg font-semibold text-slate-900">
+              <h4 className="text-base md:text-lg font-semibold text-gray-900">
                 {testimonial.name}
               </h4>
-              <span className="text-blue-600">
+              <span className="text-primary">
                 <Icons.Verified />
               </span>
             </div>
-            <p className="text-sm md:text-base text-slate-500">
+            <p className="text-sm md:text-base text-gray-500">
               {testimonial.position}, {testimonial.company}
             </p>
           </div>
         </div>
 
         {/* Minimal Corner Accent */}
-        <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-blue-200/50" />
-        <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-blue-200/50" />
+        <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-primary/20" />
+        <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-primary/20" />
       </div>
     </motion.div>
   );
@@ -205,7 +205,7 @@ const CarouselNavigation = ({ total, current, onChange }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => onChange(current - 1)}
-        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-blue-200 flex items-center justify-center hover:border-blue-400 hover:bg-blue-50 transition-all duration-300"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
         aria-label="Previous testimonial"
       >
         <Icons.ArrowLeft />
@@ -213,13 +213,13 @@ const CarouselNavigation = ({ total, current, onChange }) => {
 
       {/* Index Indicator */}
       <div className="flex items-center gap-3 px-4">
-        <span className="text-sm font-mono font-medium text-blue-600">
+        <span className="text-sm font-mono font-medium text-primary">
           {String(current + 1).padStart(2, '0')}
         </span>
-        <span className="text-sm font-mono text-slate-300">
+        <span className="text-sm font-mono text-gray-300">
           /
         </span>
-        <span className="text-sm font-mono text-slate-400">
+        <span className="text-sm font-mono text-gray-400">
           {String(total).padStart(2, '0')}
         </span>
       </div>
@@ -229,7 +229,7 @@ const CarouselNavigation = ({ total, current, onChange }) => {
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => onChange(current + 1)}
-        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-blue-200 flex items-center justify-center hover:border-blue-400 hover:bg-blue-50 transition-all duration-300"
+        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
         aria-label="Next testimonial"
       >
         <Icons.ArrowRight />
@@ -295,16 +295,16 @@ const TestimonialMarquee = ({ testimonials }) => {
         {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
           <div
             key={`marquee-1-${i}`}
-            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-blue-100/30 shadow-sm"
+            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-primary/10 shadow-sm"
           >
-            <p className="text-slate-600 text-xs md:text-sm mb-2 line-clamp-2">
+            <p className="text-gray-600 text-xs md:text-sm mb-2 line-clamp-2">
               "{t.text.slice(0, 70)}..."
             </p>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-800 text-[10px] font-medium">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary text-[10px] font-medium">
                 {t.avatar}
               </div>
-              <span className="text-xs font-medium text-slate-700">{t.name}</span>
+              <span className="text-xs font-medium text-gray-700">{t.name}</span>
             </div>
           </div>
         ))}
@@ -315,16 +315,16 @@ const TestimonialMarquee = ({ testimonials }) => {
         {[...testimonials, ...testimonials, ...testimonials].reverse().map((t, i) => (
           <div
             key={`marquee-2-${i}`}
-            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-blue-100/30 shadow-sm"
+            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-primary/10 shadow-sm"
           >
-            <p className="text-slate-600 text-xs md:text-sm mb-2 line-clamp-2">
+            <p className="text-gray-600 text-xs md:text-sm mb-2 line-clamp-2">
               "{t.text.slice(0, 70)}..."
             </p>
             <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-blue-800 text-[10px] font-medium">
+              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary text-[10px] font-medium">
                 {t.avatar}
               </div>
-              <span className="text-xs font-medium text-slate-700">{t.name}</span>
+              <span className="text-xs font-medium text-gray-700">{t.name}</span>
             </div>
           </div>
         ))}
@@ -437,19 +437,19 @@ const Testimonials = () => {
         {/* SECTION HEADER - PROFESSIONAL MODERN */}
         {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 reveal-element">
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-blue-600 mb-3 block">
+          <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3 block">
             Testimonials
           </span>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-slate-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 mb-4">
             Client Voices
           </h2>
 
-          <p className="text-slate-500 text-base md:text-lg">
+          <p className="text-gray-500 text-base md:text-lg">
             Trusted by industry leaders across the nation.
           </p>
 
-          <div className="w-16 h-0.5 bg-gradient-to-r from-blue-500 to-blue-700 mx-auto mt-6 rounded-full" />
+          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-6 rounded-full" />
         </div>
 
         {/* ====================== */}
@@ -488,8 +488,8 @@ const Testimonials = () => {
         {/* ====================== */}
         <div className="reveal-element">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-[1px] bg-gradient-to-r from-blue-400 to-blue-600" />
-            <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-slate-400">
+            <div className="w-6 h-[1px] bg-gradient-to-r from-primary to-primary/60" />
+            <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-400">
               More Client Stories
             </span>
           </div>
@@ -499,25 +499,25 @@ const Testimonials = () => {
         {/* ====================== */}
         {/* TRUST INDICATORS - MINIMAL */}
         {/* ====================== */}
-        <div className="flex flex-wrap items-center justify-between gap-6 pt-8 md:pt-10 mt-8 border-t border-blue-100/50 reveal-element">
+        <div className="flex flex-wrap items-center justify-between gap-6 pt-8 md:pt-10 mt-8 border-t border-primary/10 reveal-element">
           <div className="flex items-center gap-3">
             <div className="flex -space-x-2">
               {testimonials.slice(0, 4).map((t, i) => (
                 <div
                   key={i}
-                  className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 border-2 border-white flex items-center justify-center text-blue-800 text-xs font-medium shadow-sm"
+                  className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-white flex items-center justify-center text-primary text-xs font-medium shadow-sm"
                 >
                   {t.avatar}
                 </div>
               ))}
             </div>
-            <div className="text-xs md:text-sm text-slate-600">
-              <span className="font-semibold text-slate-900">500+</span> projects delivered
+            <div className="text-xs md:text-sm text-gray-600">
+              <span className="font-semibold text-gray-900">500+</span> projects delivered
             </div>
           </div>
 
-          <div className="text-xs md:text-sm text-slate-400 font-mono">
-            <span className="text-blue-600">✦</span> Since 2007
+          <div className="text-xs md:text-sm text-gray-400 font-mono">
+            <span className="text-primary">✦</span> Since 2007
           </div>
         </div>
       </div>

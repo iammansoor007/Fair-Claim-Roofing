@@ -106,18 +106,18 @@ const CeoPortrait = () => {
     >
       <div className="relative">
         {/* Gradient Border */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-700/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/20 to-primary/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
 
         {/* Image Container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
           <img
             src={ceo}
             alt="David Taggart - Founder & CEO"
             className="w-full h-[500px] md:h-[600px] object-cover"
           />
 
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+          {/* Overlay Gradient - lighter for light theme */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
 
           {/* Animated Border */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -135,8 +135,8 @@ const CeoPortrait = () => {
             />
             <defs>
               <linearGradient id="ceoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#60a5fa" />
-                <stop offset="100%" stopColor="#2563eb" />
+                <stop offset="0%" stopColor="#C30505" />
+                <stop offset="100%" stopColor="#8B0000" />
               </linearGradient>
             </defs>
           </svg>
@@ -149,8 +149,8 @@ const CeoPortrait = () => {
           transition={{ delay: 0.3 }}
           className="absolute top-6 left-6"
         >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-blue-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-blue-800">
+          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
+            <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Sparkle />
               FOUNDER & CEO
             </span>
@@ -163,8 +163,8 @@ const CeoPortrait = () => {
           transition={{ delay: 0.4 }}
           className="absolute bottom-6 right-6"
         >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-blue-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-blue-800">
+          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
+            <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Award />
               CRAFT • INTEGRITY
             </span>
@@ -195,18 +195,18 @@ const CfoPortrait = () => {
     >
       <div className="relative">
         {/* Gradient Border */}
-        <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/20 via-blue-600/20 to-blue-700/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
+        <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/20 to-primary/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
 
         {/* Image Container */}
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
           <img
             src={cfo}
             alt="Jaqueline Taggart - Chief Financial Officer"
             className="w-full h-[500px] md:h-[600px] object-cover"
           />
 
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent" />
+          {/* Overlay Gradient - lighter for light theme */}
+          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
 
           {/* Animated Border */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
@@ -224,8 +224,8 @@ const CfoPortrait = () => {
             />
             <defs>
               <linearGradient id="cfoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#60a5fa" />
-                <stop offset="100%" stopColor="#2563eb" />
+                <stop offset="0%" stopColor="#C30505" />
+                <stop offset="100%" stopColor="#8B0000" />
               </linearGradient>
             </defs>
           </svg>
@@ -238,8 +238,8 @@ const CfoPortrait = () => {
           transition={{ delay: 0.3 }}
           className="absolute top-6 left-6"
         >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-blue-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-blue-800">
+          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
+            <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Sparkle />
               CHIEF FINANCIAL OFFICER
             </span>
@@ -252,8 +252,8 @@ const CfoPortrait = () => {
           transition={{ delay: 0.4 }}
           className="absolute bottom-6 right-6"
         >
-          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-blue-200">
-            <span className="flex items-center gap-2 text-xs font-bold text-blue-800">
+          <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
+            <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Award />
               STRATEGY • GROWTH
             </span>
@@ -316,8 +316,8 @@ const Leadership = () => {
           className="absolute inset-0 opacity-[0.02]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, #2563eb 1px, transparent 1px),
-              linear-gradient(to bottom, #2563eb 1px, transparent 1px)
+              linear-gradient(to right, #C30505 1px, transparent 1px),
+              linear-gradient(to bottom, #C30505 1px, transparent 1px)
             `,
             backgroundSize: '80px 80px',
           }}
@@ -325,7 +325,7 @@ const Leadership = () => {
       </div>
 
       {/* Ambient Light */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-blue-50 to-transparent opacity-60 blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
 
       {/* Heritage Pattern */}
       <ParallaxLayer speed={0.05} className="z-0">
@@ -358,21 +358,21 @@ const Leadership = () => {
         {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-20 leadership-reveal">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <div className="w-8 h-[2px] bg-gradient-to-r from-blue-300 to-blue-500" />
-            <span className="text-xs font-medium tracking-[0.2em] uppercase text-blue-600">
+            <div className="w-8 h-[2px] bg-gradient-to-r from-primary/30 to-primary" />
+            <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
               Our Leadership
             </span>
-            <div className="w-8 h-[2px] bg-gradient-to-r from-blue-500 to-blue-300" />
+            <div className="w-8 h-[2px] bg-gradient-to-r from-primary to-primary/30" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-slate-900 mb-6 leading-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
             Guiding with<br />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900">
+            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
               vision & integrity
             </span>
           </h2>
 
-          <p className="text-slate-600 text-lg md:text-xl font-light max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto">
             Experienced leadership committed to excellence in every project, partnership, and promise.
           </p>
         </div>
@@ -387,18 +387,18 @@ const Leadership = () => {
 
           <div className="space-y-8 leadership-reveal">
             <div>
-              <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-3">
+              <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
                 David Taggart
-                <span className="block text-sm font-mono text-blue-600 mt-2 tracking-[0.2em] uppercase">
+                <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
                   Founder & CEO
                 </span>
               </h3>
 
               <div className="mt-6 relative">
-                <div className="absolute -left-4 top-0 text-blue-400/30">
+                <div className="absolute -left-4 top-0 text-primary/20">
                   <Icons.Quote />
                 </div>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed pl-6">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
                   David Taggart founded the company with a clear vision: to create an organization built on precision craftsmanship, honest communication, and long-term relationships. With years of hands-on industry experience and leadership across residential and commercial projects, he understands that every structure is more than construction—it is protection for families, businesses, and investments.
                 </p>
               </div>
@@ -408,7 +408,7 @@ const Leadership = () => {
                   href="#"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
                 >
                   <Icons.Linkedin />
                 </motion.a>
@@ -416,7 +416,7 @@ const Leadership = () => {
                   href="#"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
                 >
                   <Icons.Mail />
                 </motion.a>
@@ -431,18 +431,18 @@ const Leadership = () => {
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8 order-2 lg:order-1 leadership-reveal">
             <div>
-              <h3 className="text-3xl md:text-4xl font-light text-slate-900 mb-3">
+              <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
                 Jaqueline Taggart
-                <span className="block text-sm font-mono text-blue-600 mt-2 tracking-[0.2em] uppercase">
+                <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
                   Chief Financial Officer
                 </span>
               </h3>
 
               <div className="mt-6 relative">
-                <div className="absolute -left-4 top-0 text-blue-400/30">
+                <div className="absolute -left-4 top-0 text-primary/20">
                   <Icons.Quote />
                 </div>
-                <p className="text-slate-600 text-base md:text-lg leading-relaxed pl-6">
+                <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
                   Jaqueline Taggart brings strategic financial leadership with over 15 years of experience in corporate finance and operational scaling. As CFO, she ensures sustainable growth, financial transparency, and long-term stability. Her expertise in resource allocation and financial planning enables the company to invest in quality materials, advanced training, and exceptional talent—all while maintaining competitive pricing for clients.
                 </p>
               </div>
@@ -452,7 +452,7 @@ const Leadership = () => {
                   href="#"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
                 >
                   <Icons.Linkedin />
                 </motion.a>
@@ -460,7 +460,7 @@ const Leadership = () => {
                   href="#"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-blue-50 text-blue-600 hover:bg-blue-100 transition-colors"
+                  className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
                 >
                   <Icons.Mail />
                 </motion.a>
@@ -477,7 +477,7 @@ const Leadership = () => {
         {/* FOOTER NOTE */}
         {/* ====================== */}
         <div className="text-center mt-32">
-          <p className="text-xs text-slate-400 font-mono">
+          <p className="text-xs text-gray-400 font-mono">
             Quality over shortcuts • Service over sales pressure
           </p>
         </div>

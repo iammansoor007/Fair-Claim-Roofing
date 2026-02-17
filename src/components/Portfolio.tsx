@@ -30,7 +30,7 @@ const projects = [
     image: portfolio1,
     location: "Greenwich, CT",
     year: "2024",
-    accent: "from-blue-600 to-blue-800",
+    accent: "from-primary to-primary/80",
     architect: "Foster + Partners",
     scope: "Full Restoration",
     desc: "A complete restoration of this historic Greenwich estate, preserving its architectural heritage while modernizing its structural systems."
@@ -42,7 +42,7 @@ const projects = [
     image: portfolio2,
     location: "Austin, TX",
     year: "2023",
-    accent: "from-blue-500 to-blue-700",
+    accent: "from-primary to-primary/70",
     architect: "Gensler",
     scope: "New Construction",
     desc: "A cutting-edge tech campus featuring sustainable materials and innovative roofing systems designed for the Texas climate."
@@ -54,7 +54,7 @@ const projects = [
     image: portfolio3,
     location: "Boston, MA",
     year: "2024",
-    accent: "from-blue-700 to-blue-900",
+    accent: "from-primary/90 to-primary/60",
     architect: "Renzo Piano",
     scope: "Preservation",
     desc: "Emergency restoration after severe storm damage, preserving priceless artifacts and structural integrity."
@@ -66,7 +66,7 @@ const projects = [
     image: portfolio4,
     location: "Chicago, IL",
     year: "2023",
-    accent: "from-blue-600 to-blue-800",
+    accent: "from-primary to-primary/80",
     architect: "SOM",
     scope: "Structural Upgrade",
     desc: "Large-scale industrial facility upgrade with enhanced load-bearing capacity and weather resistance."
@@ -78,7 +78,7 @@ const projects = [
     image: portfolio5,
     location: "Los Angeles, CA",
     year: "2024",
-    accent: "from-blue-500 to-blue-700",
+    accent: "from-primary/80 to-primary/60",
     architect: "Olson Kundig",
     scope: "Storm Damage Repair",
     desc: "Comprehensive restoration of this luxury hillside estate after wildfire damage."
@@ -132,7 +132,7 @@ const MarqueeItem = ({ project }) => {
       className="relative w-[200px] sm:w-[240px] md:w-[280px] h-[280px] sm:h-[320px] md:h-[360px] flex-shrink-0 cursor-pointer will-change-transform transition-transform duration-300"
     >
       {/* Card */}
-      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl shadow-black/20">
+      <div className="relative w-full h-full rounded-xl overflow-hidden shadow-2xl shadow-gray-300/50">
         {/* Background Image */}
         <img
           src={project.image}
@@ -145,11 +145,11 @@ const MarqueeItem = ({ project }) => {
         />
 
         {/* Base Gradient Overlay - Always visible but subtle */}
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/40 to-transparent" />
 
-        {/* Blue Overlay on Hover - Slight blue tint */}
+        {/* Red Overlay on Hover - Slight red tint */}
         <motion.div
-          className="absolute inset-0 bg-blue-900/20 mix-blend-overlay"
+          className="absolute inset-0 bg-primary/20 mix-blend-overlay"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 0.3 : 0 }}
           transition={{ duration: 0.3 }}
@@ -164,7 +164,7 @@ const MarqueeItem = ({ project }) => {
               width="calc(100% - 4px)"
               height="calc(100% - 4px)"
               fill="none"
-              stroke="#3b82f6"
+              stroke="#C30505"
               strokeWidth="1.5"
               strokeDasharray="6 6"
               initial={{ pathLength: 0, opacity: 0 }}
@@ -217,7 +217,7 @@ const MarqueeItem = ({ project }) => {
                     </p>
                   </div>
                   <motion.button
-                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-blue-600/30 backdrop-blur-sm rounded-lg text-white text-[8px] sm:text-[10px] font-medium flex items-center gap-0.5 sm:gap-1 hover:bg-blue-600/50 transition-colors border border-blue-400/30"
+                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-primary/30 backdrop-blur-sm rounded-lg text-white text-[8px] sm:text-[10px] font-medium flex items-center gap-0.5 sm:gap-1 hover:bg-primary/50 transition-colors border border-primary/30"
                     whileHover={{ x: 3 }}
                     onClick={(e) => {
                       e.stopPropagation();
@@ -390,25 +390,25 @@ const Portfolio = () => {
       ref={sectionRef}
       className="relative bg-white overflow-hidden py-12 sm:py-16 md:py-20 lg:py-24"
     >
-      {/* Background blue grid and gradients */}
+      {/* Background red grid and gradients */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Blue gradient lines */}
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-30" />
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-blue-400 to-transparent opacity-30" />
-        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-400/20 to-transparent" />
-        <div className="absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-blue-400/20 to-transparent" />
+        {/* Red gradient lines */}
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent opacity-30" />
+        <div className="absolute left-1/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
+        <div className="absolute left-3/4 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-primary/20 to-transparent" />
 
-        {/* Additional blue accents */}
-        <div className="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-20" />
-        <div className="absolute inset-x-0 bottom-20 h-px bg-gradient-to-r from-transparent via-blue-300 to-transparent opacity-20" />
+        {/* Additional red accents */}
+        <div className="absolute inset-x-0 top-20 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-20" />
+        <div className="absolute inset-x-0 bottom-20 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent opacity-20" />
 
-        {/* Light blue grid pattern - Reduced opacity on mobile */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e6f0ff_1px,transparent_1px),linear-gradient(to_bottom,#e6f0ff_1px,transparent_1px)] bg-[size:2rem_2rem] sm:bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] opacity-10 sm:opacity-15 md:opacity-20" />
+        {/* Light red grid pattern - Reduced opacity on mobile */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#fee7e7_1px,transparent_1px),linear-gradient(to_bottom,#fee7e7_1px,transparent_1px)] bg-[size:2rem_2rem] sm:bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] opacity-10 sm:opacity-15 md:opacity-20" />
 
         {/* Gradient orbs - Hidden on very small screens */}
-        <div className="hidden sm:block absolute top-40 -left-20 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-blue-400/5 rounded-full blur-3xl" />
-        <div className="hidden sm:block absolute bottom-40 -right-20 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] bg-blue-600/5 rounded-full blur-3xl" />
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-blue-500/5 rounded-full blur-3xl" />
+        <div className="hidden sm:block absolute top-40 -left-20 w-[200px] sm:w-[300px] md:w-[400px] h-[200px] sm:h-[300px] md:h-[400px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="hidden sm:block absolute bottom-40 -right-20 w-[250px] sm:w-[400px] md:w-[500px] h-[250px] sm:h-[400px] md:h-[500px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[450px] md:w-[600px] h-[300px] sm:h-[450px] md:h-[600px] bg-primary/5 rounded-full blur-3xl" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
@@ -418,15 +418,15 @@ const Portfolio = () => {
           className="text-center mb-8 sm:mb-12 md:mb-16"
         >
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-2 sm:mb-3 md:mb-4">
-            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-r from-blue-500 to-blue-700" />
-            <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase text-blue-700">
+            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-r from-primary to-primary/60" />
+            <span className="text-[10px] sm:text-xs font-medium tracking-[0.2em] sm:tracking-[0.25em] uppercase text-primary">
               Our Work
             </span>
-            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-l from-blue-500 to-blue-700" />
+            <div className="w-8 sm:w-10 md:w-12 h-0.5 bg-gradient-to-l from-primary to-primary/60" />
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-slate-900 leading-[1.1] tracking-tight px-2">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-[1.1] tracking-tight px-2">
             Featured<br className="block xs:hidden" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-900">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70">
               {" "}Projects
             </span>
           </h2>
@@ -448,7 +448,7 @@ const Portfolio = () => {
         >
           <button
             onClick={() => setLightbox(portfolio1)}
-            className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white text-xs sm:text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2 hover:scale-105 hover:from-blue-700 hover:to-blue-900"
+            className="px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 bg-gradient-to-r from-primary to-primary/80 text-white text-xs sm:text-sm font-medium rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-1 sm:gap-2 hover:scale-105 hover:from-primary/90 hover:to-primary/70"
           >
             View All Projects
             <svg
@@ -489,9 +489,9 @@ const Portfolio = () => {
           />
           <defs>
             <linearGradient id="portfolioWave" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#2563eb" stopOpacity="0.03" />
-              <stop offset="50%" stopColor="#3b82f6" stopOpacity="0.05" />
-              <stop offset="100%" stopColor="#2563eb" stopOpacity="0.03" />
+              <stop offset="0%" stopColor="#C30505" stopOpacity="0.03" />
+              <stop offset="50%" stopColor="#C30505" stopOpacity="0.05" />
+              <stop offset="100%" stopColor="#C30505" stopOpacity="0.03" />
             </linearGradient>
           </defs>
         </svg>
@@ -515,14 +515,14 @@ const PremiumLightbox = ({ image, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed inset-0 z-[100] bg-slate-900/98 backdrop-blur-xl flex items-center justify-center cursor-pointer p-3 sm:p-4 md:p-6"
+      className="fixed inset-0 z-[100] bg-gray-900/98 backdrop-blur-xl flex items-center justify-center cursor-pointer p-3 sm:p-4 md:p-6"
       onClick={onClose}
     >
       <motion.button
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -20 }}
-        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-gradient-to-r from-blue-600 to-blue-800 backdrop-blur-md border border-blue-400/30 rounded-full px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 text-white text-[10px] sm:text-xs font-medium hover:from-blue-700 hover:to-blue-900 transition-all"
+        className="absolute top-3 sm:top-4 md:top-6 right-3 sm:right-4 md:right-6 z-50 bg-gradient-to-r from-primary to-primary/80 backdrop-blur-md border border-primary/30 rounded-full px-3 sm:px-4 md:px-5 py-1 sm:py-1.5 md:py-2 text-white text-[10px] sm:text-xs font-medium hover:from-primary/90 hover:to-primary/70 transition-all"
         onClick={onClose}
       >
         Close

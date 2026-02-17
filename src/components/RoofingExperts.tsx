@@ -83,12 +83,12 @@ const ParticlesBackground = memo(() => {
                 value: 12,
                 density: { enable: true, area: 800 }
             },
-            color: { value: ["#2563eb", "#1e40af"] },
+            color: { value: ["#C30505", "#8B0000"] },
             shape: { type: "circle" },
             opacity: {
-                value: 0.3,
+                value: 0.15,
                 random: true,
-                animation: { enable: true, speed: 0.5, minimumValue: 0.1 }
+                animation: { enable: true, speed: 0.5, minimumValue: 0.05 }
             },
             size: {
                 value: { min: 0.5, max: 2 },
@@ -106,8 +106,8 @@ const ParticlesBackground = memo(() => {
             links: {
                 enable: true,
                 distance: 150,
-                color: "#2563eb",
-                opacity: 0.15,
+                color: "#C30505",
+                opacity: 0.1,
                 width: 0.5
             }
         },
@@ -146,15 +146,15 @@ const StatCard = memo(({ value, suffix, label }) => {
         <motion.div
             whileHover={{ y: -4 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="relative bg-white/70 backdrop-blur-sm p-4 rounded-2xl border border-blue-100/50 shadow-lg shadow-blue-500/5 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300"
+            className="relative bg-white p-4 rounded-2xl border border-gray-200 shadow-lg shadow-gray-200/50 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300"
         >
             <div className="relative">
-                <span className="text-3xl md:text-4xl font-black bg-gradient-to-br from-blue-900 to-blue-700 bg-clip-text text-transparent">
+                <span className="text-3xl md:text-4xl font-black text-gray-900">
                     <Counter value={value} suffix={suffix} />
                 </span>
-                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 rounded-full" />
+                <div className="absolute -bottom-2 left-0 w-12 h-0.5 bg-primary rounded-full" />
             </div>
-            <p className="text-xs md:text-sm font-semibold text-blue-800/80 mt-3">
+            <p className="text-xs md:text-sm font-semibold text-gray-700 mt-3">
                 {label}
             </p>
         </motion.div>
@@ -196,16 +196,16 @@ export default function AggressiveRoofingSection() {
 
     // Trust badges
     const trustBadges = useMemo(() => [
-        { color: "from-blue-500 to-blue-600", delay: 0.6 },
-        { color: "from-blue-600 to-blue-700", delay: 0.7 },
-        { color: "from-blue-700 to-blue-800", delay: 0.8 },
-        { color: "from-blue-800 to-blue-900", delay: 0.9 }
+        { color: "from-primary to-primary/90", delay: 0.6 },
+        { color: "from-primary/90 to-primary/80", delay: 0.7 },
+        { color: "from-primary/80 to-primary/70", delay: 0.8 },
+        { color: "from-primary/70 to-primary/60", delay: 0.9 }
     ], []);
 
     return (
         <section
             ref={sectionRef}
-            className="relative bg-gradient-to-br from-slate-50 via-white to-slate-50 overflow-hidden py-12 md:py-14 lg:py-16"
+            className="relative bg-white overflow-hidden py-12 md:py-14 lg:py-16"
             aria-label="Roofing services overview"
         >
             {/* ====================== */}
@@ -220,9 +220,9 @@ export default function AggressiveRoofingSection() {
                 >
                     <defs>
                         <linearGradient id="premium-divider-header" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#1e40af" stopOpacity="0.1" />
-                            <stop offset="50%" stopColor="#2563eb" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#1e40af" stopOpacity="0.1" />
+                            <stop offset="0%" stopColor="#C30505" stopOpacity="0.05" />
+                            <stop offset="50%" stopColor="#C30505" stopOpacity="0.1" />
+                            <stop offset="100%" stopColor="#C30505" stopOpacity="0.05" />
                         </linearGradient>
                     </defs>
                     <path
@@ -236,13 +236,13 @@ export default function AggressiveRoofingSection() {
             <div className="absolute inset-0">
                 <ParticlesBackground />
 
-                {/* Static gradients */}
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(37,99,235,0.03)_0%,_transparent_50%)]" />
-                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(37,99,235,0.03)_0%,_transparent_50%)]" />
+                {/* Static gradients - light theme */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_left,_rgba(195,5,5,0.02)_0%,_transparent_50%)]" />
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(195,5,5,0.02)_0%,_transparent_50%)]" />
 
-                {/* Grid pattern */}
+                {/* Grid pattern - light */}
                 <div className="absolute inset-0 opacity-[0.02]"
-                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' patternUnits='userSpaceOnUse' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%232563eb' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")` }} />
+                    style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cpattern id='grid' patternUnits='userSpaceOnUse' width='60' height='60'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23C30505' stroke-width='0.5'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%25' height='100%25' fill='url(%23grid)'/%3E%3C/svg%3E")` }} />
             </div>
 
             {/* Animated Orbs - Only if reduced motion not preferred */}
@@ -259,7 +259,7 @@ export default function AggressiveRoofingSection() {
                             repeat: Infinity,
                             ease: "linear"
                         }}
-                        className="absolute -top-40 -left-40 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"
+                        className="absolute -top-40 -left-40 w-96 h-96 bg-primary/5 rounded-full blur-3xl"
                     />
                     <motion.div
                         animate={{
@@ -273,7 +273,7 @@ export default function AggressiveRoofingSection() {
                             ease: "linear",
                             delay: 2
                         }}
-                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-blue-600/10 rounded-full blur-3xl"
+                        className="absolute -bottom-40 -right-40 w-[30rem] h-[30rem] bg-primary/5 rounded-full blur-3xl"
                     />
                 </>
             )}
@@ -291,9 +291,9 @@ export default function AggressiveRoofingSection() {
                         custom={0}
                         className="relative group"
                     >
-                        <div className="absolute -inset-4 bg-gradient-to-r from-blue-600/10 to-blue-800/10 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary/10 to-primary/5 rounded-3xl opacity-0 group-hover:opacity-100 blur-2xl transition-all duration-700" />
 
-                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-900/20">
+                        <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-300/50">
                             <div className="relative aspect-[4/5] lg:aspect-[3/4]">
                                 <img
                                     src={RoofingExperince}
@@ -304,8 +304,8 @@ export default function AggressiveRoofingSection() {
                                     height="1000"
                                 />
 
-                                {/* Gradient overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/30 via-transparent to-transparent" />
+                                {/* Gradient overlay - light */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
 
                                 {/* Premium badge */}
                                 <motion.div
@@ -314,8 +314,8 @@ export default function AggressiveRoofingSection() {
                                     transition={{ delay: 0.8, duration: 0.6 }}
                                     className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6"
                                 >
-                                    <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-white/50">
-                                        <span className="flex items-center gap-2 text-sm font-bold text-blue-800">
+                                    <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
+                                        <span className="flex items-center gap-2 text-sm font-bold text-primary">
                                             <span className="text-lg">✓</span>
                                             17+ Years Excellence
                                         </span>
@@ -338,10 +338,10 @@ export default function AggressiveRoofingSection() {
                         <motion.div
                             variants={variants}
                             custom={2}
-                            className="inline-flex items-center gap-2 bg-blue-50/80 backdrop-blur-sm px-4 py-2 rounded-full border border-blue-200/50"
+                            className="inline-flex items-center gap-2 bg-primary/5 px-4 py-2 rounded-full border border-primary/10"
                         >
-                            <span className="text-blue-600 text-lg">⚡</span>
-                            <span className="text-blue-700 uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
+                            <span className="text-primary text-lg">⚡</span>
+                            <span className="text-primary uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
                                 Since 2009
                             </span>
                         </motion.div>
@@ -353,13 +353,13 @@ export default function AggressiveRoofingSection() {
                                 custom={3}
                                 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black leading-[1.1] tracking-tight"
                             >
-                                <span className="block text-slate-900">
+                                <span className="block text-gray-900">
                                     Fast Roofing
                                 </span>
-                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-blue-800 to-blue-900">
+                                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
                                     Long-Term
                                 </span>
-                                <span className="block text-slate-900">
+                                <span className="block text-gray-900">
                                     Relationships.
                                 </span>
                             </motion.h2>
@@ -367,7 +367,7 @@ export default function AggressiveRoofingSection() {
                             <motion.div
                                 variants={variants}
                                 custom={4}
-                                className="w-24 h-1.5 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"
+                                className="w-24 h-1.5 bg-gradient-to-r from-primary to-primary/60 rounded-full"
                             />
                         </div>
 
@@ -377,7 +377,7 @@ export default function AggressiveRoofingSection() {
                             custom={5}
                             className="text-gray-600 text-lg md:text-xl leading-relaxed"
                         >
-                            Engineering <span className="font-semibold text-blue-700">high-performance roofing systems</span>{" "}
+                            Engineering <span className="font-semibold text-primary">high-performance roofing systems</span>{" "}
                             designed to withstand extreme weather conditions with premium materials and precision installation.
                         </motion.p>
 
@@ -391,7 +391,7 @@ export default function AggressiveRoofingSection() {
                                 href="#contact"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="group relative px-8 py-4 bg-gradient-to-r from-blue-700 to-blue-900 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-block"
+                                className="group relative px-8 py-4 bg-gradient-to-r from-primary to-primary/80 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 inline-block"
                             >
                                 <span className="relative z-10 flex items-center gap-2">
                                     FREE INSPECTION
@@ -415,7 +415,7 @@ export default function AggressiveRoofingSection() {
                                 href="#portfolio"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="group inline-block px-8 py-4 bg-white text-blue-800 font-bold rounded-full border-2 border-blue-200 hover:border-blue-600 shadow-lg hover:shadow-xl transition-all duration-300"
+                                className="group inline-block px-8 py-4 bg-white text-primary font-bold rounded-full border-2 border-primary/20 hover:border-primary shadow-lg hover:shadow-xl transition-all duration-300"
                             >
                                 <span className="flex items-center gap-2">
                                     VIEW PORTFOLIO
@@ -471,18 +471,18 @@ export default function AggressiveRoofingSection() {
                                     ))}
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold text-blue-900">500+</p>
+                                    <p className="text-sm font-bold text-primary">500+</p>
                                     <p className="text-xs text-gray-600">Happy Clients</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center gap-2">
-                                <svg className="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
                                     <path d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 110-12 6 6 0 010 12z" />
                                     <path d="M10 4a1 1 0 011 1v4.586l2.707 2.707a1 1 0 01-1.414 1.414l-3-3A1 1 0 019 10V5a1 1 0 011-1z" />
                                 </svg>
                                 <div>
-                                    <p className="text-sm font-bold text-blue-900">24/7</p>
+                                    <p className="text-sm font-bold text-primary">24/7</p>
                                     <p className="text-xs text-gray-600">Emergency</p>
                                 </div>
                             </div>
@@ -503,9 +503,9 @@ export default function AggressiveRoofingSection() {
                 >
                     <defs>
                         <linearGradient id="premium-divider-footer" x1="0%" y1="0%" x2="100%" y2="0%">
-                            <stop offset="0%" stopColor="#1e40af" stopOpacity="0.1" />
-                            <stop offset="50%" stopColor="#2563eb" stopOpacity="0.2" />
-                            <stop offset="100%" stopColor="#1e40af" stopOpacity="0.1" />
+                            <stop offset="0%" stopColor="#C30505" stopOpacity="0.05" />
+                            <stop offset="50%" stopColor="#C30505" stopOpacity="0.1" />
+                            <stop offset="100%" stopColor="#C30505" stopOpacity="0.05" />
                         </linearGradient>
                     </defs>
                     <path
