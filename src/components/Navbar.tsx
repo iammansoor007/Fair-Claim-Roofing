@@ -358,7 +358,7 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Primary CTA Button */}
+            {/* Primary CTA Button - CHANGES BASED ON SCROLL STATE */}
             <motion.div
               className="hidden lg:flex items-center"
               whileHover={{ scale: 1.02 }}
@@ -368,10 +368,17 @@ const Navbar = () => {
                 href="#contact"
                 onClick={handleLinkClick}
                 onMouseEnter={() => setActiveMegaMenu(null)}
-                className="group relative bg-primary text-foreground px-7 py-3.5 rounded-xl font-semibold border border-primary/20 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20 transition-all duration-300"
+                className={`
+                  group relative px-7 py-3.5 rounded-xl font-semibold 
+                  transition-all duration-300 border
+                  ${scrolled
+                    ? 'bg-primary text-foreground border-primary/20 hover:bg-primary/90 hover:shadow-lg hover:shadow-primary/20'
+                    : 'bg-white text-primary border-white/20 hover:bg-white/90 hover:shadow-lg hover:shadow-white/20'
+                  }
+                `}
               >
                 <span className="relative z-10 flex items-center space-x-2">
-                  <Calendar className="h-4 w-4 text-foreground" />
+                  <Calendar className={`h-4 w-4 ${scrolled ? 'text-foreground' : 'text-primary'}`} />
                   <span>Get Free Quote</span>
                 </span>
               </a>
