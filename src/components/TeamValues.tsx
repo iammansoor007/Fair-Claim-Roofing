@@ -72,7 +72,7 @@ const CeoPortrait = () => {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
-  
+
   const { ceo: ceoData } = completeData.leadership;
 
   return (
@@ -154,7 +154,7 @@ const CeoPortrait = () => {
 const Leadership = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
-  
+
   const { section, ceo } = completeData.leadership;
 
   useEffect(() => {
@@ -238,7 +238,7 @@ const Leadership = () => {
           </div>
 
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight"
-              dangerouslySetInnerHTML={{ __html: section.headline }}
+            dangerouslySetInnerHTML={{ __html: section.headline }}
           />
 
           <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto">

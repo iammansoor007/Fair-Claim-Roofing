@@ -9,21 +9,16 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// PREMIUM UNSplash IMAGES
-// ======================
 const Images = {
   Hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   Abstract: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
 };
 
-// ======================
-// PREMIUM SVG ICONS
-// ======================
 const Icons = {
   Linkedin: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -136,9 +131,22 @@ const Icons = {
   ),
 };
 
-// ======================
-// CINEMATIC PARALLAX LAYER
-// ======================
+const iconMap = {
+  Repair: Icons.Repair,
+  Replacement: Icons.Replacement,
+  Inspection: Icons.Inspection,
+  Maintenance: Icons.Maintenance,
+  Residential: Icons.Residential,
+  Commercial: Icons.Commercial,
+  Emergency: Icons.Emergency,
+  Roofing: Icons.Roofing,
+  Warranty: Icons.Warranty,
+  Financing: Icons.Financing,
+  Linkedin: Icons.Linkedin,
+  Twitter: Icons.Twitter,
+  Instagram: Icons.Instagram
+};
+
 const ParallaxLayer = ({ children, speed = 0.05, className = "" }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -160,9 +168,6 @@ const ParallaxLayer = ({ children, speed = 0.05, className = "" }) => {
   );
 };
 
-// ======================
-// QUANTUM PARTICLE FIELD
-// ======================
 const QuantumParticles = () => {
   const particles = [...Array(20)].map((_, i) => ({
     id: i,
@@ -204,9 +209,6 @@ const QuantumParticles = () => {
   );
 };
 
-// ======================
-// NEWSLETTER FORM
-// ======================
 const NewsletterForm = () => {
   const [email, setEmail] = useState('');
   const [isFocused, setIsFocused] = useState(false);
@@ -253,7 +255,6 @@ const NewsletterForm = () => {
         </div>
       </form>
 
-      {/* Success Message */}
       <AnimatePresence>
         {isSubscribed && (
           <motion.div
@@ -272,66 +273,47 @@ const NewsletterForm = () => {
   );
 };
 
-// ======================
-// COMPREHENSIVE SERVICES SECTION
-// ======================
 const ServiceLinks = () => {
-  const mainServices = [
-    { label: 'Roof Repair Solutions', href: '/roof-repair', icon: Icons.Repair },
-    { label: 'Full Roof Replacement', href: '/roof-replacement', icon: Icons.Replacement },
-    { label: 'Roof Inspections & Preventive Care', href: '/roof-inspection', icon: Icons.Inspection },
-    { label: 'Preventive Maintenance', href: '/maintenance', icon: Icons.Maintenance },
-    { label: 'Residential Roofing', href: '/residential', icon: Icons.Residential },
-    { label: 'Commercial Roofing Systems', href: '/commercial', icon: Icons.Commercial },
-    { label: 'Emergency Services', href: '/emergency', icon: Icons.Emergency },
-    { label: 'Storm Damage Restoration', href: '/storm-damage', icon: Icons.Repair },
-    { label: 'New Roof Installation', href: '/new-roof', icon: Icons.Roofing },
-    { label: 'Roof Ventilation', href: '/ventilation', icon: Icons.Inspection },
-  ];
+  const { services } = completeData.footer;
 
   return (
     <div className="space-y-4">
       <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
         <Icons.Sparkle />
-        Complete Roofing Services
+        {services.title}
       </h4>
       <div className="grid grid-cols-1 gap-2">
-        {mainServices.map((service) => (
-          <motion.a
-            key={service.label}
-            href={service.href}
-            whileHover={{ x: 5 }}
-            className="inline-flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-all duration-300 group py-1"
-          >
-            <span className="text-gray-400 group-hover:text-primary transition-colors">
-              <service.icon />
-            </span>
-            <span>{service.label}</span>
-          </motion.a>
-        ))}
+        {services.main.map((service) => {
+          const ServiceIcon = iconMap[service.icon as keyof typeof iconMap] || Icons.Roofing;
+          return (
+            <motion.a
+              key={service.label}
+              href={service.href}
+              whileHover={{ x: 5 }}
+              className="inline-flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-all duration-300 group py-1"
+            >
+              <span className="text-gray-400 group-hover:text-primary transition-colors">
+                <ServiceIcon />
+              </span>
+              <span>{service.label}</span>
+            </motion.a>
+          );
+        })}
       </div>
     </div>
   );
 };
 
-// ======================
-// ROOFING MATERIALS SECTION
-// ======================
 const MaterialsSection = () => {
-  const materials = [
-    { label: 'Asphalt Shingle Roofing', href: '/asphalt-shingle' },
-    { label: 'Metal Roofing Systems', href: '/metal-roofing' },
-    { label: 'Tile Roofing', href: '/tile-roofing' },
-    { label: 'Flat Roofing Systems', href: '/flat-roofing' },
-  ];
+  const { services } = completeData.footer;
 
   return (
     <div className="space-y-3 mt-4">
       <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
-        Materials We Install
+        {services.materials.title}
       </h5>
       <div className="space-y-2">
-        {materials.map((material) => (
+        {services.materials.items.map((material) => (
           <motion.a
             key={material.label}
             href={material.href}
@@ -347,135 +329,121 @@ const MaterialsSection = () => {
   );
 };
 
-// ======================
-// CONTACT INFO WITH ADDITIONAL DETAILS
-// ======================
 const ContactInfo = () => {
+  const { contact } = completeData.footer;
+
   return (
     <div className="space-y-6">
       <div className="space-y-4">
         <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
           <Icons.Sparkle />
-          Contact Us
+          {contact.title}
         </h4>
         <div className="space-y-4">
-          <a href="mailto:info@fairclaimsroofingcompany.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+          <a href={`mailto:${contact.email}`} className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
             <span className="text-gray-400 group-hover:text-primary">
               <Icons.Mail />
             </span>
-            info@fairclaimsroofingcompany.com
+            {contact.email}
           </a>
-          <a href="tel:+1XXX-XXX-XXXX" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+          <a href={`tel:${contact.phone}`} className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
             <span className="text-gray-400 group-hover:text-primary">
               <Icons.Phone />
             </span>
-            +1 (XXX) XXX-XXXX
+            {contact.phone}
           </a>
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <span className="text-gray-400">
               <Icons.Location />
             </span>
-            <span>Serving residential and commercial properties across Texas</span>
+            <span>{contact.address}</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <span className="text-gray-400">
               <Icons.Infinity />
             </span>
-            <span>24/7 Emergency Service Available</span>
+            <span>{contact.emergency}</span>
           </div>
         </div>
       </div>
 
-      {/* Service Areas */}
       <div className="space-y-3">
         <h5 className="text-[10px] font-mono tracking-[0.2em] uppercase text-primary/60">
           Service Areas
         </h5>
         <p className="text-xs text-gray-500 leading-relaxed">
-          Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano & Surrounding Texas Communities
+          {contact.areas}
         </p>
       </div>
     </div>
   );
 };
 
-// ======================
-// CERTIFICATIONS GRID
-// ======================
 const CertificationsGrid = () => {
-  const certifications = [
-    { cert: 'GAF', number: 'Master Elite', icon: Icons.Warranty },
-    { cert: 'CertainTeed', number: 'SELECT ShingleMaster', icon: Icons.Warranty },
-    { cert: 'OSHA', number: 'Certified', icon: Icons.Warranty },
-    { cert: 'ISO', number: '9001:2024', icon: Icons.Warranty },
-    { cert: 'LEED', number: 'Platinum', icon: Icons.Warranty },
-    { cert: 'BREEAM', number: 'Outstanding', icon: Icons.Warranty },
-  ];
+  const { certifications } = completeData.footer;
 
   return (
     <div className="grid grid-cols-2 gap-3 mt-4">
-      {certifications.map((cert, i) => (
-        <motion.div
-          key={i}
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.05 }}
-          className="relative p-3 bg-gray-50 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-primary/30 transition-all duration-300 group"
-        >
-          <div className="flex items-center gap-2">
-            <span className="text-gray-400 group-hover:text-primary transition-colors">
-              <cert.icon />
-            </span>
-            <div>
-              <span className="text-xs font-mono text-primary/80">{cert.cert}</span>
-              <p className="text-[10px] text-gray-500">{cert.number}</p>
+      {certifications.map((cert, i) => {
+        const CertIcon = iconMap[cert.icon as keyof typeof iconMap] || Icons.Warranty;
+        return (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.05 }}
+            className="relative p-3 bg-gray-50 backdrop-blur-sm rounded-lg border border-gray-200 hover:border-primary/30 transition-all duration-300 group"
+          >
+            <div className="flex items-center gap-2">
+              <span className="text-gray-400 group-hover:text-primary transition-colors">
+                <CertIcon />
+              </span>
+              <div>
+                <span className="text-xs font-mono text-primary/80">{cert.cert}</span>
+                <p className="text-[10px] text-gray-500">{cert.number}</p>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      ))}
+          </motion.div>
+        );
+      })}
     </div>
   );
 };
 
-// ======================
-// SOCIAL LINKS
-// ======================
 const SocialLinks = () => {
-  const socials = [
-    { icon: Icons.Linkedin, href: '#', label: 'LinkedIn' },
-    { icon: Icons.Twitter, href: '#', label: 'Twitter' },
-    { icon: Icons.Instagram, href: '#', label: 'Instagram' },
-  ];
+  const { social } = completeData.footer;
 
   return (
     <div className="flex items-center gap-3">
-      {socials.map((social) => (
-        <motion.a
-          key={social.label}
-          href={social.href}
-          whileHover={{ y: -3, scale: 1.1 }}
-          whileTap={{ scale: 0.95 }}
-          className="relative w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
-          aria-label={social.label}
-        >
-          <social.icon />
-          <motion.div
-            className="absolute inset-0 rounded-full bg-primary/20 blur-lg"
-            initial={{ opacity: 0, scale: 0.8 }}
-            whileHover={{ opacity: 1, scale: 1.2 }}
-            transition={{ duration: 0.3 }}
-          />
-        </motion.a>
-      ))}
+      {social.map((socialItem) => {
+        const SocialIcon = iconMap[socialItem.icon as keyof typeof iconMap] || Icons.Linkedin;
+        return (
+          <motion.a
+            key={socialItem.platform}
+            href={socialItem.href}
+            whileHover={{ y: -3, scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            className="relative w-10 h-10 rounded-full bg-gray-100 border border-gray-200 flex items-center justify-center text-gray-600 hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all duration-300 group"
+            aria-label={socialItem.platform}
+          >
+            <SocialIcon />
+            <motion.div
+              className="absolute inset-0 rounded-full bg-primary/20 blur-lg"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileHover={{ opacity: 1, scale: 1.2 }}
+              transition={{ duration: 0.3 }}
+            />
+          </motion.a>
+        );
+      })}
     </div>
   );
 };
 
-// ======================
-// HORIZONTAL SCROLL MARQUEE - WITH HOVER EFFECT
-// ======================
 const LegacyMarquee = () => {
+  const { marquee } = completeData.footer;
+
   return (
     <div className="relative overflow-hidden py-8 border-t border-gray-200">
       <motion.div
@@ -489,19 +457,19 @@ const LegacyMarquee = () => {
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              STRENGTH • INTEGRITY • PROTECTION
+              {marquee.texts[0]}
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              SINCE 2002
+              {marquee.texts[1]}
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              TRUST • QUALITY • DURABILITY
+              {marquee.texts[2]}
             </span>
           </div>
         ))}
@@ -510,12 +478,11 @@ const LegacyMarquee = () => {
   );
 };
 
-// ======================
-// MAIN FOOTER - COMPREHENSIVE VERSION
-// ======================
 const Footer = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
+
+  const { company, quickLinks, bottom } = completeData.footer;
 
   useEffect(() => {
     setIsClient(true);
@@ -555,11 +522,6 @@ const Footer = () => {
         background: 'radial-gradient(circle at 50% 0%, #f9fafb, #ffffff)'
       }}
     >
-      {/* ====================== */}
-      {/* CINEMATIC BACKGROUND */}
-      {/* ====================== */}
-
-      {/* Subtle Grid */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -573,10 +535,8 @@ const Footer = () => {
         />
       </div>
 
-      {/* Ambient Light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[600px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
 
-      {/* Parallax Layers */}
       <ParallaxLayer speed={0.03} className="z-0">
         <div className="absolute top-40 right-0 w-2/5 h-2/5">
           <img
@@ -597,20 +557,10 @@ const Footer = () => {
         </div>
       </ParallaxLayer>
 
-      {/* Quantum Particles */}
       <QuantumParticles />
 
-      {/* ====================== */}
-      {/* MAIN CONTENT - COMPREHENSIVE */}
-      {/* ====================== */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
-
-        {/* ====================== */}
-        {/* TOP SECTION - THREE COLUMNS */}
-        {/* ====================== */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 pt-24 pb-16 border-b border-gray-200">
-
-          {/* Column 1 - Logo, Social, Newsletter (3 columns) */}
           <div className="lg:col-span-3 space-y-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -623,19 +573,18 @@ const Footer = () => {
                   <span className="text-white font-bold text-sm text-center leading-tight">FC</span>
                 </div>
                 <div>
-                  <span className="text-gray-900 font-light text-lg block">Fair Claims</span>
-                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">STRENGTH • INTEGRITY • PROTECTION</span>
+                  <span className="text-gray-900 font-light text-lg block">{company.name}</span>
+                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">{company.tagline}</span>
                 </div>
               </div>
 
               <p className="text-gray-600 text-xs leading-relaxed">
-                Advanced Roofing Built for Real-World Protection. Your roof is the first line of defense against rain, wind, heat, and structural wear. When hidden damage develops, it can quickly threaten the safety, comfort, and value of your property.
+                {company.description}
               </p>
 
               <SocialLinks />
             </motion.div>
 
-            {/* Newsletter */}
             <div className="space-y-3">
               <h4 className="text-[10px] font-mono tracking-[0.2em] uppercase text-gray-500">
                 Subscribe to insights
@@ -643,31 +592,26 @@ const Footer = () => {
               <NewsletterForm />
             </div>
 
-            {/* Quick Links */}
             <div className="flex flex-wrap gap-3 pt-2">
-              <a href="/warranty" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
-                <Icons.Warranty /> Warranty
-              </a>
-              <a href="/financing" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
-                <Icons.Financing /> Financing
-              </a>
-              <a href="/insurance" className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
-                <Icons.Warranty /> Insurance Support
-              </a>
+              {quickLinks.map((link) => {
+                const LinkIcon = iconMap[link.icon as keyof typeof iconMap] || Icons.Warranty;
+                return (
+                  <a key={link.label} href={link.href} className="text-[10px] text-gray-500 hover:text-primary transition-colors flex items-center gap-1">
+                    <LinkIcon /> {link.label}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Column 2 - Services (5 columns) */}
           <div className="lg:col-span-5">
             <ServiceLinks />
             <MaterialsSection />
           </div>
 
-          {/* Column 3 - Contact & Certifications (4 columns) */}
           <div className="lg:col-span-4">
             <ContactInfo />
 
-            {/* Certifications Grid */}
             <div className="mt-6 pt-4 border-t border-gray-200">
               <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2 mb-3">
                 <Icons.Sparkle />
@@ -678,35 +622,25 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* ====================== */}
-        {/* LEGACY MARQUEE */}
-        {/* ====================== */}
         <LegacyMarquee />
 
-        {/* ====================== */}
-        {/* BOTTOM BAR */}
-        {/* ====================== */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-gray-500">
           <div className="flex items-center gap-4">
-            <span>© 2026 Fair Claims Roofing Company</span>
+            <span>{bottom.copyright}</span>
             <span className="w-1 h-1 rounded-full bg-gray-300" />
-            <span>All rights reserved</span>
+            <span>{bottom.rights}</span>
           </div>
           <div className="flex items-center gap-6">
-            <a href="/privacy" className="hover:text-primary transition-colors">Privacy</a>
-            <a href="/terms" className="hover:text-primary transition-colors">Terms</a>
-            <a href="/licenses" className="hover:text-primary transition-colors">Licenses</a>
-            <a href="/sitemap" className="hover:text-primary transition-colors">Sitemap</a>
+            {bottom.links.map((link) => (
+              <a key={link.label} href={link.href} className="hover:text-primary transition-colors">{link.label}</a>
+            ))}
           </div>
           <div className="text-gray-400">
-            <span className="font-mono">STRENGTH • INTEGRITY • LASTING PROTECTION</span>
+            <span className="font-mono">{bottom.tagline}</span>
           </div>
         </div>
       </div>
 
-      {/* ====================== */}
-      {/* FINAL ENERGY WAVE */}
-      {/* ====================== */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
         <svg
           viewBox="0 0 1440 120"
