@@ -55,7 +55,8 @@ const Hero = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative min-h-screen flex items-end overflow-hidden bg-gradient-to-br from-background via-background/95 to-background isolate"
+      className="relative min-h-screen herooooo flex items-end overflow-hidden bg-gradient-to-br from-background via-background/95 to-background isolate
+             md:items-center md:justify-center"
     >
       <div className="absolute inset-0 -z-10">
         <motion.img
