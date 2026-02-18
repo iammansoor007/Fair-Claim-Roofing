@@ -495,7 +495,7 @@ const LegacyMarquee = () => {
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              SINCE 2007
+              SINCE 2002
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />

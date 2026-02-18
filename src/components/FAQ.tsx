@@ -10,12 +10,10 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// PREMIUM SVG ICONS
-// ======================
 const Icons = {
   Plus: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -95,9 +93,13 @@ const Icons = {
   ),
 };
 
-// ======================
-// SUBTLE BACKGROUND
-// ======================
+const iconMap = {
+  Home: Icons.Home,
+  Tools: Icons.Tools,
+  Shield: Icons.Shield,
+  Storm: Icons.Storm
+};
+
 const SubtleBackground = () => (
   <div className="absolute inset-0 pointer-events-none">
     <div
@@ -123,9 +125,6 @@ const SubtleBackground = () => (
   </div>
 );
 
-// ======================
-// FLOATING PARTICLES - SUBTLE
-// ======================
 const FloatingParticles = () => (
   <div className="absolute inset-0 pointer-events-none overflow-hidden">
     {[...Array(8)].map((_, i) => (
@@ -151,14 +150,10 @@ const FloatingParticles = () => (
   </div>
 );
 
-// ======================
-// PREMIUM ACCORDION ITEM - UPGRADED
-// ======================
 const AccordionItem = ({ item, index, isOpen, onToggle }) => {
   const [isHovered, setIsHovered] = useState(false);
   const buttonRef = useRef(null);
 
-  // Mouse position for subtle liquid effect
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -192,7 +187,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
       }}
       className="relative group"
     >
-      {/* Liquid Background Layer - Subtle */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none">
         <motion.rect
           x="0"
@@ -215,7 +209,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
         </defs>
       </svg>
 
-      {/* Floating Index - Premium */}
       <motion.div
         className="absolute -left-8 top-1/2 -translate-y-1/2 hidden lg:block"
         animate={isHovered ? {
@@ -238,7 +231,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
         </span>
       </motion.div>
 
-      {/* Main Container */}
       <div
         ref={buttonRef}
         onMouseMove={handleMouseMove}
@@ -253,7 +245,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           }
         `}
       >
-        {/* Animated Border - SVG Draw Effect */}
         <svg className="absolute inset-0 w-full h-full pointer-events-none">
           <motion.rect
             x="2"
@@ -282,7 +273,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           </defs>
         </svg>
 
-        {/* Floating Particles on Hover */}
         {isHovered && (
           <>
             {[...Array(4)].map((_, i) => (
@@ -316,14 +306,12 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           </>
         )}
 
-        {/* Question Button */}
         <button
           onClick={() => onToggle(index)}
           className="w-full text-left p-7 md:p-9 focus:outline-none relative z-10"
           aria-expanded={isOpen}
         >
           <div className="flex items-center justify-between gap-6">
-            {/* Question with Gradient Text */}
             <h3 className={`
               text-base md:text-lg lg:text-xl font-light transition-all duration-500
               ${isOpen
@@ -334,7 +322,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
               {item.question}
             </h3>
 
-            {/* Animated Icon */}
             <div className="relative flex-shrink-0">
               <motion.div
                 animate={isOpen ? {
@@ -378,7 +365,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                 </motion.svg>
               </motion.div>
 
-              {/* Pulse Ring for Open State */}
               {isOpen && (
                 <motion.div
                   className="absolute inset-0 rounded-full border-2 border-primary"
@@ -397,7 +383,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           </div>
         </button>
 
-        {/* Answer Panel - Premium */}
         <AnimatePresence initial={false}>
           {isOpen && (
             <motion.div
@@ -411,14 +396,11 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
               className="overflow-hidden"
             >
               <div className="px-7 md:px-9 pb-7 md:pb-9">
-                {/* Decorative Timeline */}
                 <div className="relative pl-6 border-l-2 border-primary/20">
-                  {/* Answer Text */}
                   <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-5">
                     {item.answer}
                   </p>
 
-                  {/* Metadata Grid - Premium */}
                   {item.metadata && (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-5">
                       {item.metadata.map((meta, i) => (
@@ -437,7 +419,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
                     </div>
                   )}
 
-                  {/* Resource Links */}
                   {item.links && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
@@ -474,7 +455,6 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
           )}
         </AnimatePresence>
 
-        {/* Corner Accents - Morphing */}
         <motion.div
           className="absolute top-5 left-5 w-6 h-6 border-t-2 border-l-2"
           animate={isHovered ? {
@@ -506,49 +486,46 @@ const AccordionItem = ({ item, index, isOpen, onToggle }) => {
   );
 };
 
-// ======================
-// CATEGORY FILTER - MINIMAL (KEPT SAME)
-// ======================
 const CategoryFilter = ({ categories, activeCategory, onCategoryChange }) => {
   return (
     <div className="flex flex-wrap items-center gap-2 md:gap-3">
-      {categories.map((category, index) => (
-        <motion.button
-          key={category.id}
-          initial={{ opacity: 0, y: 10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: index * 0.05 }}
-          onClick={() => onCategoryChange(category.id)}
-          className={`
-            relative px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300
-            ${activeCategory === category.id
-              ? 'text-white'
-              : 'text-gray-600 hover:text-gray-900 bg-white/50 hover:bg-primary/5'
-            }
-          `}
-        >
-          {activeCategory === category.id && (
-            <motion.div
-              layoutId="activeCategory"
-              className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full"
-              initial={false}
-              transition={{ type: "spring", stiffness: 400, damping: 35 }}
-            />
-          )}
-          <span className="relative z-10 flex items-center gap-2">
-            {category.icon}
-            {category.label}
-          </span>
-        </motion.button>
-      ))}
+      {categories.map((category, index) => {
+        const CategoryIcon = category.icon ? iconMap[category.icon as keyof typeof iconMap] : null;
+        return (
+          <motion.button
+            key={category.id}
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: index * 0.05 }}
+            onClick={() => onCategoryChange(category.id)}
+            className={`
+              relative px-4 py-2 md:px-5 md:py-2.5 rounded-full text-xs md:text-sm font-medium transition-all duration-300
+              ${activeCategory === category.id
+                ? 'text-white'
+                : 'text-gray-600 hover:text-gray-900 bg-white/50 hover:bg-primary/5'
+              }
+            `}
+          >
+            {activeCategory === category.id && (
+              <motion.div
+                layoutId="activeCategory"
+                className="absolute inset-0 bg-gradient-to-r from-primary to-primary/80 rounded-full"
+                initial={false}
+                transition={{ type: "spring", stiffness: 400, damping: 35 }}
+              />
+            )}
+            <span className="relative z-10 flex items-center gap-2">
+              {CategoryIcon && <CategoryIcon />}
+              {category.label}
+            </span>
+          </motion.button>
+        );
+      })}
     </div>
   );
 };
 
-// ======================
-// SEARCH BAR - PREMIUM (KEPT SAME)
-// ======================
 const SearchBar = ({ onSearch }) => {
   const [isFocused, setIsFocused] = useState(false);
   const inputRef = useRef(null);
@@ -599,11 +576,9 @@ const SearchBar = ({ onSearch }) => {
   );
 };
 
-// ======================
-// KNOWLEDGE CARD - PREMIUM UPGRADED (FROM ADVANCED VERSION)
-// ======================
 const KnowledgeCard = () => {
   const [isHovered, setIsHovered] = useState(false);
+  const { knowledgeCard } = completeData.faq;
 
   return (
     <motion.div
@@ -615,7 +590,6 @@ const KnowledgeCard = () => {
       onMouseLeave={() => setIsHovered(false)}
       className="relative group"
     >
-      {/* 3D Tilt Effect */}
       <motion.div
         animate={isHovered ? {
           rotateX: 2,
@@ -632,12 +606,10 @@ const KnowledgeCard = () => {
         className="relative bg-gradient-to-br from-primary to-primary/80 rounded-3xl p-8 md:p-10 overflow-hidden"
         style={{ transformPerspective: 1000 }}
       >
-        {/* Animated Grid Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff20_1px,transparent_1px),linear-gradient(to_bottom,#ffffff20_1px,transparent_1px)] bg-[size:24px_24px]" />
         </div>
 
-        {/* Floating Particles */}
         {isHovered && (
           <>
             {[...Array(6)].map((_, i) => (
@@ -662,10 +634,8 @@ const KnowledgeCard = () => {
           </>
         )}
 
-        {/* Content */}
         <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-5">
-            {/* Icon Container */}
             <motion.div
               animate={isHovered ? {
                 rotate: 360,
@@ -679,30 +649,27 @@ const KnowledgeCard = () => {
               transition={{ duration: 0.8 }}
               className="w-16 h-16 backdrop-blur-sm rounded-2xl flex items-center justify-center border border-white/20"
             >
-              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.5">
-                <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2v10z" />
-              </svg>
+              <Icons.Chat />
             </motion.div>
 
             <div>
               <h4 className="text-xl md:text-2xl font-semibold text-white mb-2">
-                Still have questions?
+                {knowledgeCard.title}
               </h4>
               <p className="text-white/80 text-base md:text-lg">
-                Our roofing specialists are ready to help with your specific project needs.
+                {knowledgeCard.description}
               </p>
             </div>
           </div>
 
-          {/* Button */}
           <motion.a
-            href="/contact"
+            href={knowledgeCard.buttonLink}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="relative px-7 py-3.5 md:px-8 md:py-4 bg-white text-primary text-xs md:text-sm font-medium rounded-full shadow-2xl overflow-hidden group/btn whitespace-nowrap"
           >
             <span className="relative z-10 flex items-center gap-2">
-              Contact Our Team
+              {knowledgeCard.buttonText}
               <motion.svg
                 width="18"
                 height="18"
@@ -723,7 +690,6 @@ const KnowledgeCard = () => {
           </motion.a>
         </div>
 
-        {/* Corner Accents */}
         <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-white/20" />
         <div className="absolute bottom-6 right-6 w-12 h-12 border-b-2 border-r-2 border-white/20" />
       </motion.div>
@@ -731,9 +697,6 @@ const KnowledgeCard = () => {
   );
 };
 
-// ======================
-// MAIN FAQ SECTION - ROOFING SPECIFIC
-// ======================
 const FAQ = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
@@ -741,149 +704,9 @@ const FAQ = () => {
   const [activeCategory, setActiveCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = [
-    { id: 'all', label: 'All Questions', icon: null },
-    { id: 'general', label: 'General', icon: <Icons.Home /> },
-    { id: 'repair', label: 'Repair', icon: <Icons.Tools /> },
-    { id: 'warranty', label: 'Warranty', icon: <Icons.Shield /> },
-    { id: 'emergency', label: 'Emergency', icon: <Icons.Storm /> },
-  ];
+  const { section, categories, items, knowledgeCard } = completeData.faq;
 
-  const faqItems = [
-    {
-      id: 1,
-      category: 'general',
-      question: "How long does a roof last?",
-      answer: "The lifespan of a roof depends on the material, installation quality, climate conditions, and ongoing maintenance. Most asphalt shingle roofs typically last between 20 to 30 years, while metal roofing systems can last 40 years or more when properly maintained. Regular inspections, timely repairs, and good ventilation can significantly extend the life of any roofing system and help prevent early deterioration.",
-      metadata: [
-        { label: "Asphalt shingle", value: "20-30 years" },
-        { label: "Metal roofing", value: "40+ years" }
-      ],
-      links: [
-        { label: "Learn about roofing materials", url: "/materials" }
-      ]
-    },
-    {
-      id: 2,
-      category: 'repair',
-      question: "What are signs my roof needs repair?",
-      answer: "Common warning signs include water leaks, missing or curling shingles, ceiling stains, mold growth, soft roof areas, or visible sagging. You may also notice higher energy bills caused by poor roof ventilation or insulation damage. Even small symptoms can indicate hidden structural issues, so scheduling a professional roof inspection early can prevent more serious and expensive repairs later.",
-      metadata: [
-        { label: "Warning signs", value: "Leaks, stains, curling" },
-        { label: "Action", value: "Inspect immediately" }
-      ],
-      links: [
-        { label: "Schedule inspection", url: "/inspection" }
-      ]
-    },
-    {
-      id: 3,
-      category: 'general',
-      question: "How much does roof replacement cost?",
-      answer: "Roof replacement costs vary based on several factors such as roof size, material type, structural condition, labor requirements, and project complexity. Because every property is different, the most accurate way to determine cost is through a professional inspection and written estimate. Investing in a high-quality replacement often reduces long-term repair expenses and increases overall property value.",
-      metadata: [
-        { label: "Factors", value: "Size, material, complexity" },
-        { label: "Best approach", value: "Free estimate" }
-      ],
-      links: [
-        { label: "Get a free estimate", url: "/estimate" }
-      ]
-    },
-    {
-      id: 4,
-      category: 'emergency',
-      question: "Do you provide emergency roofing services?",
-      answer: "Yes. Emergency roofing services are available to quickly address storm damage, sudden leaks, fallen debris, or structural failures that threaten your property's safety. Rapid response helps minimize interior damage, prevent mold growth, and stabilize the roofing system until permanent repairs or replacement can be completed. Acting quickly during emergencies can save significant time and repair costs.",
-      metadata: [
-        { label: "Response", value: "24/7 availability" },
-        { label: "Coverage", value: "All areas" }
-      ],
-      links: [
-        { label: "Emergency services", url: "/emergency" }
-      ]
-    },
-    {
-      id: 5,
-      category: 'general',
-      question: "How often should roofs be inspected?",
-      answer: "Roofs should be professionally inspected at least once each year and always after major storms, hail, or high-wind events. Regular inspections help detect hidden damage, aging materials, drainage issues, and ventilation problems before they become serious. Preventive maintenance based on inspection findings can extend roof lifespan, improve performance, and protect your home or business from unexpected repair expenses.",
-      metadata: [
-        { label: "Routine", value: "Annually" },
-        { label: "After storms", value: "Immediately" }
-      ],
-      links: [
-        { label: "Maintenance plans", url: "/maintenance" }
-      ]
-    },
-    {
-      id: 6,
-      category: 'warranty',
-      question: "Will my insurance cover roof damage?",
-      answer: "In many cases, storm-related damage such as hail, wind, or falling debris may be covered by homeowners insurance, depending on your policy terms and the cause of damage. A professional roof inspection with proper documentation and photos can help support your claim and ensure the damage is accurately reported. Working with an experienced roofing contractor during the insurance process can make the approval and repair timeline much smoother.",
-      metadata: [
-        { label: "Coverage", value: "Storm damage" },
-        { label: "Documentation", value: "Inspection report" }
-      ],
-      links: [
-        { label: "Insurance guidance", url: "/insurance" }
-      ]
-    },
-    {
-      id: 7,
-      category: 'general',
-      question: "How long does a roof replacement take?",
-      answer: "Most residential roof replacements are completed within one to three days, depending on the roof size, weather conditions, material type, and structural complexity. Larger or commercial projects may take longer to ensure proper installation and safety. Professional planning, skilled crews, and quality materials help ensure the project is completed efficiently without compromising workmanship or long-term durability.",
-      metadata: [
-        { label: "Residential", value: "1-3 days" },
-        { label: "Commercial", value: "Varies" }
-      ],
-      links: [
-        { label: "Our process", url: "/process" }
-      ]
-    },
-    {
-      id: 8,
-      category: 'repair',
-      question: "Can a small roof leak become a serious problem?",
-      answer: "Yes. Even a minor leak can allow water to reach insulation, drywall, framing, and electrical systems, leading to mold growth, structural weakening, and costly interior repairs. Because leaks often spread beyond the visible area, early detection and prompt repair are essential. Addressing small roofing issues quickly is the most effective way to protect your property and avoid major expenses later.",
-      metadata: [
-        { label: "Risk", value: "Mold, structural damage" },
-        { label: "Action", value: "Repair immediately" }
-      ],
-      links: [
-        { label: "Schedule repair", url: "/repair" }
-      ]
-    },
-    {
-      id: 9,
-      category: 'general',
-      question: "What roofing materials are best for long-term durability?",
-      answer: "Popular long-lasting roofing materials include architectural asphalt shingles, metal roofing, tile, and certain flat-roof membrane systems. The best choice depends on climate, budget, building design, and energy-efficiency goals. A professional roofing evaluation can help determine which material offers the best balance of durability, appearance, and long-term value for your specific property.",
-      metadata: [
-        { label: "Metal", value: "40+ years" },
-        { label: "Architectural shingles", value: "30+ years" },
-        { label: "Tile", value: "50+ years" }
-      ],
-      links: [
-        { label: "Material guide", url: "/materials" }
-      ]
-    },
-    {
-      id: 10,
-      category: 'warranty',
-      question: "Why is professional roof installation important?",
-      answer: "Proper installation is critical because even high-quality materials can fail if installed incorrectly. Professional roofing contractors follow manufacturer guidelines, safety standards, ventilation requirements, and structural best practices to ensure long-term performance. Correct installation not only extends roof lifespan but also protects warranties, improves energy efficiency, and reduces the risk of future repairs.",
-      metadata: [
-        { label: "Warranty protection", value: "Manufacturer requires" },
-        { label: "Performance", value: "Maximized lifespan" }
-      ],
-      links: [
-        { label: "Our credentials", url: "/about" }
-      ]
-    }
-  ];
-
-  const filteredItems = faqItems.filter(item => {
+  const filteredItems = items.filter(item => {
     const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
     const matchesSearch = searchQuery === '' ||
       item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -943,26 +766,19 @@ const FAQ = () => {
       <FloatingParticles />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-
-        {/* ====================== */}
-        {/* SECTION HEADER - ROOFING FOCUSED */}
-        {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 faq-reveal">
           <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3 block">
-            Knowledge Base
+            {section.badge}
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 mb-4">
-            Frequently Asked Questions
+            {section.headline}
           </h2>
           <p className="text-gray-500 text-base md:text-lg">
-            Expert answers to common questions about roofing, repairs, materials, and protection for your property.
+            {section.description}
           </p>
           <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-6 rounded-full" />
         </div>
 
-        {/* ====================== */}
-        {/* FILTER & SEARCH - KEPT SAME */}
-        {/* ====================== */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10 md:mb-12 faq-reveal">
           <CategoryFilter
             categories={categories}
@@ -972,9 +788,6 @@ const FAQ = () => {
           <SearchBar onSearch={setSearchQuery} />
         </div>
 
-        {/* ====================== */}
-        {/* ACCORDION GRID - UPGRADED WITH ROOFING FAQS */}
-        {/* ====================== */}
         <div className="space-y-3 md:space-y-4 mb-12 md:mb-16">
           {filteredItems.length > 0 ? (
             filteredItems.map((item, index) => (
@@ -1011,15 +824,7 @@ const FAQ = () => {
           )}
         </div>
 
-        {/* ====================== */}
-        {/* KNOWLEDGE CARD - ROOFING SPECIFIC */}
-        {/* ====================== */}
         <KnowledgeCard />
-
-        {/* ====================== */}
-        {/* RESOURCE LINKS - ROOFING FOCUSED */}
-        {/* ====================== */}
-
       </div>
     </section>
   );

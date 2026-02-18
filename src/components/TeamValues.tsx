@@ -10,21 +10,15 @@ import {
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ceo from "@/assets/fairowner.webp";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// PREMIUM UNSPLASH IMAGES - CURATED
-// ======================
 const Images = {
-  // Heritage
   Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   Studio: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
 };
 
-// ======================
-// PREMIUM SVG ICONS - FULLY DEFINED
-// ======================
 const Icons = {
   Linkedin: () => (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
@@ -56,16 +50,8 @@ const Icons = {
       <path d="M8 14l-2 6 6-2 6 2-2-6" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
-  ArrowRight: () => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-      <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  ),
 };
 
-// ======================
-// CINEMATIC PARALLAX LAYER
-// ======================
 const ParallaxLayer = ({ children, speed = 0.1, className = "" }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -82,13 +68,12 @@ const ParallaxLayer = ({ children, speed = 0.1, className = "" }) => {
   );
 };
 
-// ======================
-// CEO PORTRAIT - Justin O'Neal
-// ======================
 const CeoPortrait = () => {
   const [isHovered, setIsHovered] = useState(false);
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-50px" });
+  
+  const { ceo: ceoData } = completeData.leadership;
 
   return (
     <motion.div
@@ -101,21 +86,17 @@ const CeoPortrait = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative">
-        {/* Gradient Border */}
         <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 via-primary/20 to-primary/20 rounded-3xl blur-lg group-hover:blur-xl transition-all duration-700" />
 
-        {/* Image Container */}
         <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-gray-300/50">
           <img
             src={ceo}
-            alt="Justin O'Neal - CEO, FCR Services, LLC"
+            alt={ceoData.alt}
             className="w-full h-[500px] md:h-[600px] object-cover"
           />
 
-          {/* Overlay Gradient - lighter for light theme */}
           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/20 to-transparent" />
 
-          {/* Animated Border */}
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
             <motion.rect
               x="2"
@@ -138,7 +119,6 @@ const CeoPortrait = () => {
           </svg>
         </div>
 
-        {/* Floating Badges */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -148,7 +128,7 @@ const CeoPortrait = () => {
           <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
             <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Sparkle />
-              CEO • FCR SERVICES
+              {ceoData.badges.top}
             </span>
           </div>
         </motion.div>
@@ -162,7 +142,7 @@ const CeoPortrait = () => {
           <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
             <span className="flex items-center gap-2 text-xs font-bold text-primary">
               <Icons.Award />
-              HAAG • GAF • TRI
+              {ceoData.badges.bottom}
             </span>
           </div>
         </motion.div>
@@ -171,12 +151,11 @@ const CeoPortrait = () => {
   );
 };
 
-// ======================
-// LEADERSHIP SECTION - SINGLE LEADER
-// ======================
 const Leadership = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
+  
+  const { section, ceo } = completeData.leadership;
 
   useEffect(() => {
     setIsClient(true);
@@ -213,11 +192,6 @@ const Leadership = () => {
       ref={sectionRef}
       className="relative bg-white py-14 md:py-18 lg:py-20 overflow-hidden"
     >
-      {/* ====================== */}
-      {/* PREMIUM BACKGROUND */}
-      {/* ====================== */}
-
-      {/* Subtle Grid */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -231,10 +205,8 @@ const Leadership = () => {
         />
       </div>
 
-      {/* Ambient Light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
 
-      {/* Heritage Pattern */}
       <ParallaxLayer speed={0.05} className="z-0">
         <div className="absolute bottom-0 right-0 w-1/3 h-1/2">
           <img
@@ -255,38 +227,25 @@ const Leadership = () => {
         </div>
       </ParallaxLayer>
 
-      {/* ====================== */}
-      {/* MAIN CONTENT */}
-      {/* ====================== */}
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-30">
-
-        {/* ====================== */}
-        {/* SECTION HEADER */}
-        {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-20 leadership-reveal">
           <div className="flex items-center justify-center gap-3 mb-6">
             <div className="w-8 h-[2px] bg-gradient-to-r from-primary/30 to-primary" />
             <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary">
-              Our Leadership
+              {section.badge}
             </span>
             <div className="w-8 h-[2px] bg-gradient-to-r from-primary to-primary/30" />
           </div>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight">
-            Guiding with<br />
-            <span className="font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-              vision & integrity
-            </span>
-          </h2>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-6 leading-tight"
+              dangerouslySetInnerHTML={{ __html: section.headline }}
+          />
 
           <p className="text-gray-600 text-lg md:text-xl font-light max-w-2xl mx-auto">
-            Experienced leadership committed to excellence in every project, partnership, and promise.
+            {section.description}
           </p>
         </div>
 
-        {/* ====================== */}
-        {/* CEO - JUSTIN O'NEAL */}
-        {/* ====================== */}
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <div className="leadership-reveal">
             <CeoPortrait />
@@ -295,9 +254,9 @@ const Leadership = () => {
           <div className="space-y-8 leadership-reveal">
             <div>
               <h3 className="text-3xl md:text-4xl font-light text-gray-900 mb-3">
-                Justin O'Neal
+                {ceo.name}
                 <span className="block text-sm font-mono text-primary mt-2 tracking-[0.2em] uppercase">
-                  CEO • FCR Services, LLC
+                  {ceo.title}
                 </span>
               </h3>
 
@@ -305,19 +264,22 @@ const Leadership = () => {
                 <div className="absolute -left-4 top-0 text-primary/20">
                   <Icons.Quote />
                 </div>
-                <p className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
-                  Justin started in the roofing business in 2000 as a part time estimator while attending college. He quickly discovered success and a love for the roofing industry. Justin has personally sold over $30 million worth of roofing projects in his career and understands customers' needs. He has a passion for being the best in the industry and differentiating his company from the competition.
-                </p>
+                {ceo.quotes.map((quote, idx) => (
+                  <p key={idx} className="text-gray-600 text-base md:text-lg leading-relaxed pl-6">
+                    {quote}
+                  </p>
+                ))}
               </div>
 
-              <div className="mt-6 space-y-3 text-gray-600 text-sm md:text-base">
-                <p>Justin has HAAG engineering training on roof damage assessment, has served on the Professional Roof Advisory Council for Certainteed, is Pro Field Guide Certified from GAF, is Tile Roof Certified by the Tile Roof Institute, and has completed multiple trainings from the Center for the Advancement of Roofing Excellence.</p>
-                <p>He is a proud husband and father of 3 children ages 13, 14, and 17.</p>
-              </div>
+              {ceo.description.map((desc, idx) => (
+                <p key={idx} className="mt-6 space-y-3 text-gray-600 text-sm md:text-base">
+                  {desc}
+                </p>
+              ))}
 
               <div className="flex items-center gap-4 mt-8">
                 <motion.a
-                  href="https://www.linkedin.com/in/justinwoneal"
+                  href={ceo.social.linkedin}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
@@ -326,7 +288,7 @@ const Leadership = () => {
                   <Icons.Linkedin />
                 </motion.a>
                 <motion.a
-                  href="mailto:justin@fcrservicesllc.com"
+                  href={`mailto:${ceo.social.email}`}
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
                   className="p-3 rounded-full bg-primary/5 text-primary hover:bg-primary/10 transition-colors"
@@ -334,7 +296,7 @@ const Leadership = () => {
                 >
                   <Icons.Mail />
                 </motion.a>
-                <span className="text-sm text-gray-500 ml-2">justin@fcrservicesllc.com</span>
+                <span className="text-sm text-gray-500 ml-2">{ceo.social.email}</span>
               </div>
             </div>
           </div>

@@ -1,0 +1,759 @@
+{
+  "navbar": {
+    "services": [
+      {
+        "title": "ROOF REPAIRS",
+        "description": "Premium roofing solutions for modern homes",
+        "icon": "Home",
+        "items": ["Asphalt Shingles", "Metal Roofing", "Tile Roofing", "Flat Roof Systems", "Roof Replacement"],
+        "features": ["25-Year Warranty", "Energy Efficient", "Storm Resistant"]
+      },
+      {
+        "title": "ROOF REPLACEMENT",
+        "description": "When roofing systems get damaged or too old, they sometimes need to be completely replaced",
+        "icon": "Building2",
+        "items": ["EPDM Roofing", "TPO Systems", "PVC Membranes", "Built-Up Roofing", "Green Roofs"],
+        "features": ["30-Year Warranty", "Energy Star Rated", "Low Maintenance"]
+      },
+      {
+        "title": "ROOF MAINTENANCE",
+        "description": "Biannual and quarterly inspection and maintenance programs for residential and commercial roofing systems.",
+        "icon": "Wrench",
+        "items": ["Roof Inspections", "Emergency Repairs", "Gutter Systems", "Solar Integration", "Waterproofing"],
+        "features": ["24/7 Service", "Same-Day Quotes", "Free Inspections"]
+      }
+    ],
+    "companyLinks": [
+      { "label": "Home", "href": "#", "icon": "Home" },
+      { "label": "Portfolio", "href": "#portfolio", "icon": "Briefcase" },
+      { "label": "About", "href": "#about", "icon": "Users" },
+      { "label": "FAQ", "href": "#faq", "icon": "MessageSquare" },
+      { "label": "Contact", "href": "#contact", "icon": "Phone" }
+    ],
+    "stats": [
+      { "value": "500+", "label": "Projects", "icon": "ClipboardCheck" },
+      { "value": "98%", "label": "Satisfaction", "icon": "Star" },
+      { "value": "24/7", "label": "Service", "icon": "Clock" },
+      { "value": "10-Year", "label": "Warranty", "icon": "Shield" }
+    ],
+    "cta": {
+      "title": "Get Your Free Quote",
+      "description": "Detailed estimate within 24 hours",
+      "buttonText": "Get Quote",
+      "buttonLink": "#quote"
+    }
+  },
+
+  "hero": {
+    "badge": "Architectural Excellence",
+    "headlines": [
+      "Precision Roofing",
+      "Built for Long-Term",
+      "Protection"
+    ],
+    "description": "Your roof protects your home, business, and everything inside from weather, moisture, and structural damage. When problems appear, they can quickly become costly without professional care.",
+    "buttons": [
+      {
+        "text": "Get Free Estimate",
+        "href": "#contact",
+        "primary": true,
+        "icon": "FiArrowRight"
+      },
+      {
+        "text": "View Our Work",
+        "href": "#portfolio",
+        "primary": false,
+        "icon": "FiArrowRight"
+      }
+    ],
+    "stats": [
+      { "value": "1,200+", "label": "Projects", "icon": "RiBuildingLine" },
+      { "value": "24+", "label": "Years", "icon": "FiStar" },
+      { "value": "98%", "label": "Satisfaction", "icon": "FiThumbsUp" },
+      { "value": "24/7", "label": "Support", "icon": "RiShieldCheckLine" }
+    ]
+  },
+
+  "about": {
+    "badge": "Since 2002",
+    "headline": {
+      "prefix": "Fast Roofing",
+      "highlight": "Long-Term",
+      "suffix": "Relationships."
+    },
+    "description": "Engineering <span class=\"font-semibold text-primary\">high-performance roofing systems</span> designed to withstand extreme weather conditions with premium materials and precision installation.",
+    "image": {
+      "src": "RoofingExperince",
+      "alt": "Professional roofing team installing premium materials",
+      "badge": "24+ Years Excellence"
+    },
+    "stats": [
+      { "value": 1200, "suffix": "+", "label": "Projects Completed" },
+      { "value": 100, "suffix": "%", "label": "Client Satisfaction" },
+      { "value": 24, "suffix": "/7", "label": "Emergency Service" }
+    ],
+    "buttons": [
+      {
+        "text": "FREE INSPECTION",
+        "href": "#contact",
+        "primary": true
+      },
+      {
+        "text": "VIEW PORTFOLIO",
+        "href": "#portfolio",
+        "primary": false
+      }
+    ],
+    "trustBadges": {
+      "happyClients": 500,
+      "emergency": "24/7"
+    }
+  },
+
+  "services": {
+    "badge": "Award Winning Support",
+    "headline": {
+      "prefix": "The Woodlands &",
+      "highlight": "Greater Houston's",
+      "suffix": "Top Rated Roofing Company"
+    },
+    "description": [
+      "FairClaims Roofing & Construction leads with core values of honor, integrity, reliability and service. From small repair jobs to large scale installations, our team is ready to take on any project.",
+      "<span class=\"font-semibold text-primary\">License Number: 03-0999</span>"
+    ],
+    "stats": [
+      { "value": 500, "suffix": "+", "label": "Projects" },
+      { "value": 24, "suffix": "+", "label": "Years" },
+      { "value": 4.8, "suffix": "", "label": "Rating" }
+    ],
+    "services": [
+      {
+        "number": "01",
+        "title": "Roof Repair Services",
+        "description": "Professional roof repair services designed to find the true source of the problem, not just visible symptoms.",
+        "icon": "Wrench",
+        "tag": "Repair",
+        "features": ["Emergency Repairs", "Leak Detection", "Storm Damage", "Shingle Replacement"]
+      },
+      {
+        "number": "02",
+        "title": "Roof Installation & Replacement",
+        "description": "Expert installation and complete roof replacement using premium materials for superior craftsmanship.",
+        "icon": "Home",
+        "tag": "Installation",
+        "features": ["New Construction", "Complete Replacement", "Material Upgrades", "Code Compliance"]
+      },
+      {
+        "number": "03",
+        "title": "Commercial Roofing",
+        "description": "Expert commercial roofing services including installation, replacement, and repair for businesses.",
+        "icon": "Building2",
+        "tag": "Commercial",
+        "features": ["Flat Roof Systems", "TPO/EPDM", "Metal Roofing", "Maintenance Programs"]
+      },
+      {
+        "number": "04",
+        "title": "GAF Solar Panel Roofing System",
+        "description": "Integrate solar technology with your roofing system through GAF's innovative solar solutions.",
+        "icon": "Sun",
+        "tag": "Solar",
+        "features": ["Energy Savings", "Tax Incentives", "Seamless Integration", "Warranty Protection"]
+      },
+      {
+        "number": "05",
+        "title": "Roof Storm / Hail Damage Assessment",
+        "description": "Professional assessment and documentation of storm and hail damage for insurance claims.",
+        "icon": "CloudRain",
+        "tag": "Insurance",
+        "features": ["Damage Documentation", "Insurance Claims", "Emergency Tarping", "Restoration"]
+      },
+      {
+        "number": "06",
+        "title": "Roof Maintenance",
+        "description": "Biannual and quarterly inspection programs to extend roof life and prevent costly repairs.",
+        "icon": "Shield",
+        "tag": "Preventative",
+        "features": ["Regular Inspections", "Gutter Cleaning", "Minor Repairs", "Leak Prevention"]
+      },
+      {
+        "number": "07",
+        "title": "Patio Addition and Improvement",
+        "description": "Custom patio additions and improvements to enhance your outdoor living space.",
+        "icon": "TreePine",
+        "tag": "Outdoor",
+        "features": ["Custom Design", "Covered Patios", "Outdoor Kitchens", "Pergolas"]
+      },
+      {
+        "number": "08",
+        "title": "Roof Gutter Installation",
+        "description": "Professional gutter installation and replacement to protect your home from water damage.",
+        "icon": "Droplets",
+        "tag": "Drainage",
+        "features": ["Seamless Gutters", "Leaf Guards", "Downspouts", "Water Diversion"]
+      },
+      {
+        "number": "09",
+        "title": "Metal Roofing",
+        "description": "Durable, energy-efficient metal roofing systems offering superior protection and longevity.",
+        "icon": "Hammer",
+        "tag": "Metal",
+        "features": ["Standing Seam", "Metal Shingles", "Energy Efficient", "50+ Year Lifespan"]
+      },
+      {
+        "number": "10",
+        "title": "Tile Roofing",
+        "description": "Beautiful and durable tile roofing options including clay and concrete tiles.",
+        "icon": "Square",
+        "tag": "Tile",
+        "features": ["Clay Tile", "Concrete Tile", "Synthetic Tile", "Classic Aesthetics"]
+      }
+    ],
+    "cta": {
+      "title": "Ready for an Inspection?",
+      "description": "FairClaims Roofing provides custom consultations and specializes in insurance claim assistance. Contact us to schedule your one on one custom roofing consultation.",
+      "buttonText": "Request Estimate",
+      "buttonLink": "#contact"
+    }
+  },
+
+  "leadership": {
+    "section": {
+      "badge": "Our Leadership",
+      "headline": "Guiding with <span class=\"font-semibold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80\">vision & integrity</span>",
+      "description": "Experienced leadership committed to excellence in every project, partnership, and promise."
+    },
+    "ceo": {
+      "name": "Justin O'Neal",
+      "title": "CEO • FCR Services, LLC",
+      "image": "ceo",
+      "alt": "Justin O'Neal - CEO, FCR Services, LLC",
+      "badges": {
+        "top": "CEO • FCR SERVICES",
+        "bottom": "HAAG • GAF • TRI"
+      },
+      "quotes": [
+        "Justin started in the roofing business in 2000 as a part time estimator while attending college. He quickly discovered success and a love for the roofing industry. Justin has personally sold over $30 million worth of roofing projects in his career and understands customers' needs. He has a passion for being the best in the industry and differentiating his company from the competition."
+      ],
+      "description": [
+        "Justin has HAAG engineering training on roof damage assessment, has served on the Professional Roof Advisory Council for Certainteed, is Pro Field Guide Certified from GAF, is Tile Roof Certified by the Tile Roof Institute, and has completed multiple trainings from the Center for the Advancement of Roofing Excellence.",
+        "He is a proud husband and father of 3 children ages 13, 14, and 17."
+      ],
+      "social": {
+        "linkedin": "https://www.linkedin.com/in/justinwoneal",
+        "email": "justin@fcrservicesllc.com"
+      }
+    }
+  },
+
+  "portfolio": {
+    "section": {
+      "badge": "Our Work",
+      "headline": "Featured <span class=\"text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/70\">Projects</span>"
+    },
+    "projects": [
+      {
+        "number": "01",
+        "title": "Mercer Estate",
+        "category": "Residential",
+        "image": "portfolio1",
+        "location": "Greenwich, CT",
+        "year": "2024",
+        "accent": "from-primary to-primary/80",
+        "architect": "Foster + Partners",
+        "scope": "Full Restoration",
+        "desc": "A complete restoration of this historic Greenwich estate, preserving its architectural heritage while modernizing its structural systems."
+      },
+      {
+        "number": "02",
+        "title": "Summit Tech Campus",
+        "category": "Commercial",
+        "image": "portfolio2",
+        "location": "Austin, TX",
+        "year": "2023",
+        "accent": "from-primary to-primary/70",
+        "architect": "Gensler",
+        "scope": "New Construction",
+        "desc": "A cutting-edge tech campus featuring sustainable materials and innovative roofing systems designed for the Texas climate."
+      },
+      {
+        "number": "03",
+        "title": "Heritage Museum",
+        "category": "Storm Damage Repair",
+        "image": "portfolio3",
+        "location": "Boston, MA",
+        "year": "2024",
+        "accent": "from-primary/90 to-primary/60",
+        "architect": "Renzo Piano",
+        "scope": "Preservation",
+        "desc": "Emergency restoration after severe storm damage, preserving priceless artifacts and structural integrity."
+      },
+      {
+        "number": "04",
+        "title": "Eastgate Distribution",
+        "category": "Industrial",
+        "image": "portfolio4",
+        "location": "Chicago, IL",
+        "year": "2023",
+        "accent": "from-primary to-primary/80",
+        "architect": "SOM",
+        "scope": "Structural Upgrade",
+        "desc": "Large-scale industrial facility upgrade with enhanced load-bearing capacity and weather resistance."
+      },
+      {
+        "number": "05",
+        "title": "Whitfield Manor",
+        "category": "Luxury Estate",
+        "image": "portfolio5",
+        "location": "Los Angeles, CA",
+        "year": "2024",
+        "accent": "from-primary/80 to-primary/60",
+        "architect": "Olson Kundig",
+        "scope": "Storm Damage Repair",
+        "desc": "Comprehensive restoration of this luxury hillside estate after wildfire damage."
+      }
+    ],
+    "button": {
+      "text": "View All Projects",
+      "link": "#portfolio"
+    }
+  },
+
+  "testimonials": {
+    "section": {
+      "badge": "Client Testimonials",
+      "headline": "Real Stories from Real Clients",
+      "description": "Hear what our clients have to say about their experience with FairClaims Roofing",
+      "featured": "Featured on Designing Spaces & GAF"
+    },
+    "testimonials": [
+      {
+        "id": 1,
+        "name": "Preston Chandler",
+        "position": "Client",
+        "company": "Residential",
+        "avatar": "PC",
+        "videoId": "2VxJ9rYbsfw",
+        "duration": "1:14",
+        "views": 33000,
+        "text": "Working with FairClaims Roofing was an absolute pleasure. Their attention to detail and commitment to quality is unmatched. They made the entire process seamless from start to finish."
+      },
+      {
+        "id": 2,
+        "name": "Mussleman",
+        "position": "Client",
+        "company": "Residential",
+        "avatar": "M",
+        "videoId": "FyRfxErvrHE",
+        "duration": "1:13",
+        "views": 27000,
+        "text": "I couldn't be happier with the work FairClaims did on my roof. The team was professional, punctual, and the quality of work exceeded my expectations. Highly recommended!"
+      },
+      {
+        "id": 3,
+        "name": "Mitzi Fox",
+        "position": "Agency Owner",
+        "company": "Avalon Insurance",
+        "avatar": "MF",
+        "videoId": "ZuwM3QMSNAI",
+        "duration": "1:03",
+        "views": 136,
+        "text": "As an insurance agency owner, I've worked with many roofing companies. FairClaims stands out for their integrity, quality work, and how they handle claims. They're my go-to recommendation."
+      },
+      {
+        "id": 4,
+        "name": "GAF Solar",
+        "position": "First Houston Install",
+        "company": "Timberline Solar",
+        "avatar": "GS",
+        "videoId": "3EHyxTl4dxU",
+        "duration": "3:01",
+        "views": 25000,
+        "text": "We were proud to install the first GAF Timberline Solar Shingles in Houston. Innovation meets craftsmanship - bringing the future of roofing to Texas homes."
+      },
+      {
+        "id": 5,
+        "name": "Justin O'Neal",
+        "position": "Owner",
+        "company": "FairClaims Roofing",
+        "avatar": "JO",
+        "videoId": "7J_4pNlRbV0",
+        "duration": "7:46",
+        "views": 477,
+        "text": "Our commitment to excellence has been recognized nationally on Designing Spaces. We don't just install roofs - we provide peace of mind and protection for families and businesses."
+      }
+    ],
+    "videos": [
+      {
+        "id": 1,
+        "name": "GAF Solar Install",
+        "title": "First Houston GAF Timberline Solar Shingles",
+        "videoId": "3EHyxTl4dxU",
+        "duration": "3:01",
+        "views": 25000
+      },
+      {
+        "id": 2,
+        "name": "Justin O'Neal",
+        "title": "Designing Spaces Interview",
+        "videoId": "7J_4pNlRbV0",
+        "duration": "7:46",
+        "views": 477
+      },
+      {
+        "id": 3,
+        "name": "Preston Chandler",
+        "title": "Client Testimonial",
+        "videoId": "2VxJ9rYbsfw",
+        "duration": "1:14",
+        "views": 33000
+      },
+      {
+        "id": 4,
+        "name": "Mussleman",
+        "title": "Customer Testimonial",
+        "videoId": "FyRfxErvrHE",
+        "duration": "1:13",
+        "views": 27000
+      },
+      {
+        "id": 5,
+        "name": "Mitzi Fox",
+        "title": "Avalon Insurance Testimonial",
+        "videoId": "ZuwM3QMSNAI",
+        "duration": "1:03",
+        "views": 136
+      }
+    ],
+    "stats": {
+      "subscribers": 257,
+      "views": "86K+",
+      "totalVideos": "403+"
+    }
+  },
+
+  "whyChooseUs": {
+    "section": {
+      "badge": "WHY CHOOSE US",
+      "headline": "The Trusted Choice for <span class=\"text-primary\">Strength & Integrity</span>",
+      "description": "Since 2002, Fair Claims Roofing Company has delivered precision-crafted roofing systems to discerning homeowners and commercial property owners across Texas."
+    },
+    "features": [
+      {
+        "icon": "Experience",
+        "title": "25+ Years of Roofing Excellence",
+        "description": "Since 2002, our master craftsmen bring decades of hands-on experience, having completed over 1,000 successful residential and commercial roofing projects."
+      },
+      {
+        "icon": "Honest",
+        "title": "Transparent, Honest Recommendations",
+        "description": "We never recommend unnecessary services. Our comprehensive inspections identify exactly what your roof needs to ensure long-term protection."
+      },
+      {
+        "icon": "Materials",
+        "title": "Premium Architectural Materials",
+        "description": "We exclusively install top-tier roofing systems from GAF, CertainTeed, Owens Corning, and other trusted manufacturers."
+      },
+      {
+        "icon": "Communication",
+        "title": "Clear Communication From Start to Finish",
+        "description": "From consultation to completion, you'll have direct access to your project manager and daily progress updates."
+      },
+      {
+        "icon": "Shield",
+        "title": "Unwavering Customer Commitment",
+        "description": "Your safety, comfort, and complete satisfaction are our highest priorities on every project we undertake."
+      },
+      {
+        "icon": "Certified",
+        "title": "Licensed, Insured & Certified Professionals",
+        "description": "Every installer is fully licensed, insured, and certified to deliver exceptional workmanship that stands the test of time."
+      }
+    ],
+    "stats": [
+      { "value": "1000", "suffix": "+", "label": "Projects" },
+      { "value": "24", "suffix": "+", "label": "Years" },
+      { "value": "98", "suffix": "%", "label": "Satisfaction" },
+      { "value": "50", "suffix": "", "label": "Year Warranty" }
+    ],
+    "cta": {
+      "badge": "LIMITED TIME",
+      "title": "Ready to Transform <span class=\"text-primary block mt-2\">Your Roofing Project?</span>",
+      "description": "Contact our team today for a free consultation and detailed estimate. No obligation, just expert advice.",
+      "trustBadges": ["Licensed", "Insured", "BBB A+"],
+      "buttons": [
+        {
+          "text": "Get Free Quote",
+          "href": "#contact",
+          "primary": true
+        },
+        {
+          "text": "View Portfolio",
+          "href": "#portfolio",
+          "primary": false
+        }
+      ]
+    }
+  },
+
+  "faq": {
+    "section": {
+      "badge": "Knowledge Base",
+      "headline": "Frequently Asked Questions",
+      "description": "Expert answers to common questions about roofing, repairs, materials, and protection for your property."
+    },
+    "categories": [
+      { "id": "all", "label": "All Questions", "icon": null },
+      { "id": "general", "label": "General", "icon": "Home" },
+      { "id": "repair", "label": "Repair", "icon": "Tools" },
+      { "id": "warranty", "label": "Warranty", "icon": "Shield" },
+      { "id": "emergency", "label": "Emergency", "icon": "Storm" }
+    ],
+    "items": [
+      {
+        "id": 1,
+        "category": "general",
+        "question": "How long does a roof last?",
+        "answer": "The lifespan of a roof depends on the material, installation quality, climate conditions, and ongoing maintenance. Most asphalt shingle roofs typically last between 20 to 30 years, while metal roofing systems can last 40 years or more when properly maintained. Regular inspections, timely repairs, and good ventilation can significantly extend the life of any roofing system and help prevent early deterioration.",
+        "metadata": [
+          { "label": "Asphalt shingle", "value": "20-30 years" },
+          { "label": "Metal roofing", "value": "40+ years" }
+        ],
+        "links": [
+          { "label": "Learn about roofing materials", "url": "/materials" }
+        ]
+      },
+      {
+        "id": 2,
+        "category": "repair",
+        "question": "What are signs my roof needs repair?",
+        "answer": "Common warning signs include water leaks, missing or curling shingles, ceiling stains, mold growth, soft roof areas, or visible sagging. You may also notice higher energy bills caused by poor roof ventilation or insulation damage. Even small symptoms can indicate hidden structural issues, so scheduling a professional roof inspection early can prevent more serious and expensive repairs later.",
+        "metadata": [
+          { "label": "Warning signs", "value": "Leaks, stains, curling" },
+          { "label": "Action", "value": "Inspect immediately" }
+        ],
+        "links": [
+          { "label": "Schedule inspection", "url": "/inspection" }
+        ]
+      },
+      {
+        "id": 3,
+        "category": "general",
+        "question": "How much does roof replacement cost?",
+        "answer": "Roof replacement costs vary based on several factors such as roof size, material type, structural condition, labor requirements, and project complexity. Because every property is different, the most accurate way to determine cost is through a professional inspection and written estimate. Investing in a high-quality replacement often reduces long-term repair expenses and increases overall property value.",
+        "metadata": [
+          { "label": "Factors", "value": "Size, material, complexity" },
+          { "label": "Best approach", "value": "Free estimate" }
+        ],
+        "links": [
+          { "label": "Get a free estimate", "url": "/estimate" }
+        ]
+      },
+      {
+        "id": 4,
+        "category": "emergency",
+        "question": "Do you provide emergency roofing services?",
+        "answer": "Yes. Emergency roofing services are available to quickly address storm damage, sudden leaks, fallen debris, or structural failures that threaten your property's safety. Rapid response helps minimize interior damage, prevent mold growth, and stabilize the roofing system until permanent repairs or replacement can be completed. Acting quickly during emergencies can save significant time and repair costs.",
+        "metadata": [
+          { "label": "Response", "value": "24/7 availability" },
+          { "label": "Coverage", "value": "All areas" }
+        ],
+        "links": [
+          { "label": "Emergency services", "url": "/emergency" }
+        ]
+      },
+      {
+        "id": 5,
+        "category": "general",
+        "question": "How often should roofs be inspected?",
+        "answer": "Roofs should be professionally inspected at least once each year and always after major storms, hail, or high-wind events. Regular inspections help detect hidden damage, aging materials, drainage issues, and ventilation problems before they become serious. Preventive maintenance based on inspection findings can extend roof lifespan, improve performance, and protect your home or business from unexpected repair expenses.",
+        "metadata": [
+          { "label": "Routine", "value": "Annually" },
+          { "label": "After storms", "value": "Immediately" }
+        ],
+        "links": [
+          { "label": "Maintenance plans", "url": "/maintenance" }
+        ]
+      },
+      {
+        "id": 6,
+        "category": "warranty",
+        "question": "Will my insurance cover roof damage?",
+        "answer": "In many cases, storm-related damage such as hail, wind, or falling debris may be covered by homeowners insurance, depending on your policy terms and the cause of damage. A professional roof inspection with proper documentation and photos can help support your claim and ensure the damage is accurately reported. Working with an experienced roofing contractor during the insurance process can make the approval and repair timeline much smoother.",
+        "metadata": [
+          { "label": "Coverage", "value": "Storm damage" },
+          { "label": "Documentation", "value": "Inspection report" }
+        ],
+        "links": [
+          { "label": "Insurance guidance", "url": "/insurance" }
+        ]
+      },
+      {
+        "id": 7,
+        "category": "general",
+        "question": "How long does a roof replacement take?",
+        "answer": "Most residential roof replacements are completed within one to three days, depending on the roof size, weather conditions, material type, and structural complexity. Larger or commercial projects may take longer to ensure proper installation and safety. Professional planning, skilled crews, and quality materials help ensure the project is completed efficiently without compromising workmanship or long-term durability.",
+        "metadata": [
+          { "label": "Residential", "value": "1-3 days" },
+          { "label": "Commercial", "value": "Varies" }
+        ],
+        "links": [
+          { "label": "Our process", "url": "/process" }
+        ]
+      },
+      {
+        "id": 8,
+        "category": "repair",
+        "question": "Can a small roof leak become a serious problem?",
+        "answer": "Yes. Even a minor leak can allow water to reach insulation, drywall, framing, and electrical systems, leading to mold growth, structural weakening, and costly interior repairs. Because leaks often spread beyond the visible area, early detection and prompt repair are essential. Addressing small roofing issues quickly is the most effective way to protect your property and avoid major expenses later.",
+        "metadata": [
+          { "label": "Risk", "value": "Mold, structural damage" },
+          { "label": "Action", "value": "Repair immediately" }
+        ],
+        "links": [
+          { "label": "Schedule repair", "url": "/repair" }
+        ]
+      },
+      {
+        "id": 9,
+        "category": "general",
+        "question": "What roofing materials are best for long-term durability?",
+        "answer": "Popular long-lasting roofing materials include architectural asphalt shingles, metal roofing, tile, and certain flat-roof membrane systems. The best choice depends on climate, budget, building design, and energy-efficiency goals. A professional roofing evaluation can help determine which material offers the best balance of durability, appearance, and long-term value for your specific property.",
+        "metadata": [
+          { "label": "Metal", "value": "40+ years" },
+          { "label": "Architectural shingles", "value": "30+ years" },
+          { "label": "Tile", "value": "50+ years" }
+        ],
+        "links": [
+          { "label": "Material guide", "url": "/materials" }
+        ]
+      },
+      {
+        "id": 10,
+        "category": "warranty",
+        "question": "Why is professional roof installation important?",
+        "answer": "Proper installation is critical because even high-quality materials can fail if installed incorrectly. Professional roofing contractors follow manufacturer guidelines, safety standards, ventilation requirements, and structural best practices to ensure long-term performance. Correct installation not only extends roof lifespan but also protects warranties, improves energy efficiency, and reduces the risk of future repairs.",
+        "metadata": [
+          { "label": "Warranty protection", "value": "Manufacturer requires" },
+          { "label": "Performance", "value": "Maximized lifespan" }
+        ],
+        "links": [
+          { "label": "Our credentials", "url": "/about" }
+        ]
+      }
+    ],
+    "knowledgeCard": {
+      "title": "Still have questions?",
+      "description": "Our roofing specialists are ready to help with your specific project needs.",
+      "buttonText": "Contact Our Team",
+      "buttonLink": "/contact"
+    }
+  },
+
+  "quote": {
+    "section": {
+      "badge": "INITIATE PROTOCOL",
+      "headline": "Request Your <span class=\"font-black italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80\">Precision Quote</span>",
+      "description": "Every legacy begins with a conversation. Share your vision — our engineering collective will respond within hours."
+    },
+    "services": [
+      { "id": 1, "title": "Residential Masterpiece", "desc": "Custom-engineered estate systems", "icon": "⌗" },
+      { "id": 2, "title": "Commercial Campus", "desc": "Large-scale enterprise solutions", "icon": "⎔" },
+      { "id": 3, "title": "Heritage Preservation", "desc": "Historic restoration & documentation", "icon": "⌖" },
+      { "id": 4, "title": "Architectural Metal", "desc": "Bespoke copper & standing seam", "icon": "⌘" },
+      { "id": 5, "title": "Emergency Response", "desc": "24/7 structural stabilization", "icon": "⚡" },
+      { "id": 6, "title": "Legacy Maintenance", "desc": "Predictive AI-driven care", "icon": "◈" }
+    ],
+    "projectTypes": [
+      { "value": "residential", "label": "Residential Estate" },
+      { "value": "commercial", "label": "Commercial Campus" },
+      { "value": "industrial", "label": "Industrial Facility" },
+      { "value": "heritage", "label": "Heritage / Historic" },
+      { "value": "infrastructure", "label": "Infrastructure" }
+    ],
+    "timelines": [
+      { "value": "urgent", "label": "Urgent (within 2 weeks)" },
+      { "value": "standard", "label": "Standard (1-3 months)" },
+      { "value": "planned", "label": "Planned (3-6 months)" },
+      { "value": "future", "label": "Future (6+ months)" }
+    ],
+    "email": "ammansoor007@gmail.com",
+    "success": {
+      "title": "Request Received",
+      "message": "Your project inquiry has been transmitted to our engineering team.",
+      "response": "We'll respond within 4-8 hours.",
+      "buttonText": "Close"
+    }
+  },
+
+  "footer": {
+    "company": {
+      "name": "Fair Claims",
+      "tagline": "STRENGTH • INTEGRITY • PROTECTION",
+      "description": "Advanced Roofing Built for Real-World Protection. Your roof is the first line of defense against rain, wind, heat, and structural wear. When hidden damage develops, it can quickly threaten the safety, comfort, and value of your property."
+    },
+    "services": {
+      "title": "Complete Roofing Services",
+      "main": [
+        { "label": "Roof Repair Solutions", "href": "/roof-repair", "icon": "Repair" },
+        { "label": "Full Roof Replacement", "href": "/roof-replacement", "icon": "Replacement" },
+        { "label": "Roof Inspections & Preventive Care", "href": "/roof-inspection", "icon": "Inspection" },
+        { "label": "Preventive Maintenance", "href": "/maintenance", "icon": "Maintenance" },
+        { "label": "Residential Roofing", "href": "/residential", "icon": "Residential" },
+        { "label": "Commercial Roofing Systems", "href": "/commercial", "icon": "Commercial" },
+        { "label": "Emergency Services", "href": "/emergency", "icon": "Emergency" },
+        { "label": "Storm Damage Restoration", "href": "/storm-damage", "icon": "Repair" },
+        { "label": "New Roof Installation", "href": "/new-roof", "icon": "Roofing" },
+        { "label": "Roof Ventilation", "href": "/ventilation", "icon": "Inspection" }
+      ],
+      "materials": {
+        "title": "Materials We Install",
+        "items": [
+          { "label": "Asphalt Shingle Roofing", "href": "/asphalt-shingle" },
+          { "label": "Metal Roofing Systems", "href": "/metal-roofing" },
+          { "label": "Tile Roofing", "href": "/tile-roofing" },
+          { "label": "Flat Roofing Systems", "href": "/flat-roofing" }
+        ]
+      }
+    },
+    "contact": {
+      "title": "Contact Us",
+      "email": "info@fairclaimsroofingcompany.com",
+      "phone": "+1 (XXX) XXX-XXXX",
+      "address": "Serving residential and commercial properties across Texas",
+      "emergency": "24/7 Emergency Service Available",
+      "areas": "Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano & Surrounding Texas Communities"
+    },
+    "certifications": [
+      { "cert": "GAF", "number": "Master Elite", "icon": "Warranty" },
+      { "cert": "CertainTeed", "number": "SELECT ShingleMaster", "icon": "Warranty" },
+      { "cert": "OSHA", "number": "Certified", "icon": "Warranty" },
+      { "cert": "ISO", "number": "9001:2024", "icon": "Warranty" },
+      { "cert": "LEED", "number": "Platinum", "icon": "Warranty" },
+      { "cert": "BREEAM", "number": "Outstanding", "icon": "Warranty" }
+    ],
+    "quickLinks": [
+      { "label": "Warranty", "href": "/warranty", "icon": "Warranty" },
+      { "label": "Financing", "href": "/financing", "icon": "Financing" },
+      { "label": "Insurance Support", "href": "/insurance", "icon": "Warranty" }
+    ],
+    "social": [
+      { "platform": "LinkedIn", "icon": "Linkedin", "href": "#" },
+      { "platform": "Twitter", "icon": "Twitter", "href": "#" },
+      { "platform": "Instagram", "icon": "Instagram", "href": "#" }
+    ],
+    "bottom": {
+      "copyright": "© 2026 Fair Claims Roofing Company",
+      "rights": "All rights reserved",
+      "links": [
+        { "label": "Privacy", "href": "/privacy" },
+        { "label": "Terms", "href": "/terms" },
+        { "label": "Licenses", "href": "/licenses" },
+        { "label": "Sitemap", "href": "/sitemap" }
+      ],
+      "tagline": "STRENGTH • INTEGRITY • LASTING PROTECTION"
+    },
+    "marquee": {
+      "texts": ["STRENGTH • INTEGRITY • PROTECTION", "SINCE 2007", "TRUST • QUALITY • DURABILITY"]
+    }
+  }
+}

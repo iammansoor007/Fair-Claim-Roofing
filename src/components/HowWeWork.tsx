@@ -8,12 +8,10 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// PREMIUM SVG ICONS - RED ONLY
-// ======================
 const Icons = {
     WhyChoose: {
         Experience: () => (
@@ -62,13 +60,18 @@ const Icons = {
     }
 };
 
-// ======================
-// CINEMATIC BACKGROUND
-// ======================
+const iconMap = {
+    Experience: Icons.WhyChoose.Experience,
+    Honest: Icons.WhyChoose.Honest,
+    Materials: Icons.WhyChoose.Materials,
+    Communication: Icons.WhyChoose.Communication,
+    Shield: Icons.WhyChoose.Shield,
+    Certified: Icons.WhyChoose.Certified
+};
+
 const CinematicBackground = () => {
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
-            {/* Animated red orbs */}
             <motion.div
                 className="absolute top-20 left-20 w-[800px] h-[800px] rounded-full bg-[#C30505]/5 blur-[120px]"
                 animate={{
@@ -97,7 +100,6 @@ const CinematicBackground = () => {
                 }}
             />
 
-            {/* Ultra-subtle grid */}
             <div
                 className="absolute inset-0 opacity-[0.02]"
                 style={{
@@ -109,10 +111,8 @@ const CinematicBackground = () => {
                 }}
             />
 
-            {/* Vignette effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-white via-transparent to-white opacity-30" />
 
-            {/* Floating particles */}
             {[...Array(20)].map((_, i) => (
                 <motion.div
                     key={i}
@@ -138,16 +138,14 @@ const CinematicBackground = () => {
     );
 };
 
-// ======================
-// AWARD-WINNING FEATURE CARD
-// ======================
 const FeatureCard = ({ feature, index }) => {
     const [isHovered, setIsHovered] = useState(false);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const cardRef = useRef(null);
     const inView = useInView(cardRef, { once: true, margin: "-100px" });
 
-    // 3D tilt effect
+    const FeatureIcon = iconMap[feature.icon as keyof typeof iconMap] || Icons.WhyChoose.Experience;
+
     const x = useMotionValue(0);
     const y = useMotionValue(0);
     const springX = useSpring(x, { stiffness: 150, damping: 15 });
@@ -193,10 +191,7 @@ const FeatureCard = ({ feature, index }) => {
             }}
             className="relative group h-full cursor-pointer"
         >
-            {/* Main card - architectural masterpiece */}
             <div className="relative h-full bg-white overflow-hidden">
-
-                {/* Animated gradient overlay on hover */}
                 <motion.div
                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
                     style={{
@@ -204,7 +199,6 @@ const FeatureCard = ({ feature, index }) => {
                     }}
                 />
 
-                {/* Top red light streak */}
                 <motion.div
                     className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C30505] to-transparent"
                     initial={{ x: '-100%', opacity: 0 }}
@@ -215,7 +209,6 @@ const FeatureCard = ({ feature, index }) => {
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                 />
 
-                {/* Bottom red light streak */}
                 <motion.div
                     className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C30505] to-transparent"
                     initial={{ x: '100%', opacity: 0 }}
@@ -226,7 +219,6 @@ const FeatureCard = ({ feature, index }) => {
                     transition={{ duration: 0.8, ease: "easeInOut", delay: 0.1 }}
                 />
 
-                {/* Left vertical accent - animated */}
                 <motion.div
                     className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#C30505]"
                     initial={{ height: 0, top: '50%' }}
@@ -237,7 +229,6 @@ const FeatureCard = ({ feature, index }) => {
                     transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                 />
 
-                {/* Right vertical accent - animated */}
                 <motion.div
                     className="absolute right-0 top-0 bottom-0 w-[1px] bg-[#C30505]/30"
                     initial={{ height: 0, top: '50%' }}
@@ -248,7 +239,6 @@ const FeatureCard = ({ feature, index }) => {
                     transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
                 />
 
-                {/* Corner accents - top right */}
                 <motion.div
                     className="absolute top-0 right-0 w-16 h-16"
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -258,7 +248,6 @@ const FeatureCard = ({ feature, index }) => {
                     <div className="absolute top-0 right-0 w-10 h-10 border-t-2 border-r-2 border-[#C30505]" />
                 </motion.div>
 
-                {/* Corner accents - bottom left */}
                 <motion.div
                     className="absolute bottom-0 left-0 w-16 h-16"
                     initial={{ opacity: 0, scale: 0.5 }}
@@ -268,7 +257,6 @@ const FeatureCard = ({ feature, index }) => {
                     <div className="absolute bottom-0 left-0 w-10 h-10 border-b-2 border-l-2 border-[#C30505]" />
                 </motion.div>
 
-                {/* Floating particles on hover */}
                 {isHovered && (
                     <>
                         {[...Array(3)].map((_, i) => (
@@ -297,13 +285,9 @@ const FeatureCard = ({ feature, index }) => {
                     </>
                 )}
 
-                {/* Content container */}
                 <div className="relative h-full p-8 flex flex-col z-10">
-
-                    {/* Icon section with architectural frame */}
                     <div className="relative mb-6">
                         <div className="relative w-20 h-20">
-                            {/* Outer frame */}
                             <motion.div
                                 className="absolute inset-0 border border-[#C30505]/20"
                                 animate={{
@@ -313,14 +297,12 @@ const FeatureCard = ({ feature, index }) => {
                                 transition={{ duration: 0.3 }}
                             />
 
-                            {/* Inner rotating frame */}
                             <motion.div
                                 className="absolute inset-2 border border-[#C30505]/10"
                                 animate={{ rotate: isHovered ? 45 : 0 }}
                                 transition={{ duration: 0.5 }}
                             />
 
-                            {/* Icon */}
                             <div className="absolute inset-0 flex items-center justify-center">
                                 <motion.div
                                     animate={{
@@ -330,12 +312,11 @@ const FeatureCard = ({ feature, index }) => {
                                     transition={{ duration: 0.3 }}
                                     className="text-[#C30505]"
                                 >
-                                    {feature.icon}
+                                    <FeatureIcon />
                                 </motion.div>
                             </div>
                         </div>
 
-                        {/* Sparkle indicators */}
                         <motion.div
                             className="absolute -top-2 -right-2 text-[#C30505]"
                             animate={{
@@ -349,7 +330,6 @@ const FeatureCard = ({ feature, index }) => {
                         </motion.div>
                     </div>
 
-                    {/* Title with animated underline */}
                     <div className="mb-4">
                         <h3 className={`
                             text-xl md:text-2xl font-bold mb-3 transition-colors duration-300
@@ -358,7 +338,6 @@ const FeatureCard = ({ feature, index }) => {
                             {feature.title}
                         </h3>
 
-                        {/* Animated underline with gradient */}
                         <motion.div
                             className="h-[2px] bg-gradient-to-r from-[#C30505] to-[#C30505]/30 rounded-full"
                             initial={{ width: 0 }}
@@ -367,7 +346,6 @@ const FeatureCard = ({ feature, index }) => {
                         />
                     </div>
 
-                    {/* Description with animated gradient text */}
                     <motion.p
                         className="text-sm md:text-base text-gray-600 leading-relaxed flex-1"
                         animate={{
@@ -377,7 +355,6 @@ const FeatureCard = ({ feature, index }) => {
                         {feature.description}
                     </motion.p>
 
-                    {/* Number indicator - subtle */}
                     <motion.div
                         className="absolute bottom-4 right-4 text-7xl font-black text-gray-100 select-none"
                         animate={{
@@ -388,7 +365,6 @@ const FeatureCard = ({ feature, index }) => {
                         {(index + 1).toString().padStart(2, '0')}
                     </motion.div>
 
-                    {/* Interactive CTA */}
                     <motion.div
                         className="mt-6 flex items-center gap-3"
                         animate={{ x: isHovered ? 5 : 0 }}
@@ -413,7 +389,6 @@ const FeatureCard = ({ feature, index }) => {
                     </motion.div>
                 </div>
 
-                {/* Shadow effect */}
                 <motion.div
                     className="absolute inset-0 -z-10"
                     animate={{
@@ -428,9 +403,6 @@ const FeatureCard = ({ feature, index }) => {
     );
 };
 
-// ======================
-// STATS COUNTER - AWARD WINNING
-// ======================
 const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
     const ref = useRef(null);
     const [displayValue, setDisplayValue] = useState(0);
@@ -479,7 +451,6 @@ const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
                     <span>{displayValue}</span>{suffix}
                 </motion.div>
 
-                {/* Animated background glow */}
                 <motion.div
                     className="absolute inset-0 bg-[#C30505]/10 blur-xl"
                     animate={{
@@ -489,7 +460,6 @@ const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
                     transition={{ duration: 0.3 }}
                 />
 
-                {/* Red dot */}
                 <motion.div
                     className="absolute -top-2 -right-2 w-1.5 h-1.5 bg-[#C30505] rounded-full"
                     animate={{ scale: [1, 1.5, 1] }}
@@ -503,11 +473,9 @@ const StatCounter = ({ value, label, suffix = "", delay = 0 }) => {
     );
 };
 
-// ======================
-// AWARD-WINNING CTA BANNER
-// ======================
 const AwardCTABanner = () => {
     const [isHovered, setIsHovered] = useState(false);
+    const { cta } = completeData.whyChooseUs;
 
     return (
         <motion.div
@@ -517,10 +485,7 @@ const AwardCTABanner = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative mt-20 overflow-hidden"
         >
-            {/* Main container with architectural border */}
             <div className="relative bg-white border border-gray-200">
-
-                {/* Animated red diagonal stripes */}
                 <div className="absolute inset-0 overflow-hidden">
                     <motion.div
                         className="absolute -top-40 -right-40 w-80 h-80 bg-[#C30505]/5 rotate-12"
@@ -534,7 +499,6 @@ const AwardCTABanner = () => {
                     />
                 </div>
 
-                {/* Animated border lines */}
                 <motion.div
                     className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#C30505] to-transparent"
                     animate={{ x: ['-100%', '100%'] }}
@@ -546,16 +510,12 @@ const AwardCTABanner = () => {
                     transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                 />
 
-                {/* Corner accents */}
                 <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#C30505]/30" />
                 <div className="absolute top-0 right-0 w-16 h-16 border-t-2 border-r-2 border-[#C30505]/30" />
                 <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#C30505]/30" />
                 <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#C30505]/30" />
 
-                {/* Content */}
                 <div className="relative px-8 py-16 md:px-20 md:py-20 flex flex-col lg:flex-row items-center justify-between gap-10 z-30">
-
-                    {/* Left content */}
                     <div className="max-w-2xl">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
@@ -565,23 +525,20 @@ const AwardCTABanner = () => {
                         >
                             <span className="w-8 h-[2px] bg-[#C30505]" />
                             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C30505]">
-                                LIMITED TIME
+                                {cta.badge}
                             </span>
                         </motion.div>
 
-                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                            Ready to Transform
-                            <span className="text-[#C30505] block mt-2">Your Roofing Project?</span>
-                        </h3>
+                        <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight"
+                            dangerouslySetInnerHTML={{ __html: cta.title }}
+                        />
 
                         <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-lg">
-                            Contact our team today for a free consultation and detailed estimate.
-                            No obligation, just expert advice.
+                            {cta.description}
                         </p>
 
-                        {/* Trust badges */}
                         <div className="flex items-center gap-6 mt-6">
-                            {['Licensed', 'Insured', 'BBB A+'].map((badge, i) => (
+                            {cta.trustBadges.map((badge, i) => (
                                 <div key={i} className="flex items-center gap-2">
                                     <div className="w-1.5 h-1.5 bg-[#C30505] rounded-full" />
                                     <span className="text-xs text-gray-500">{badge}</span>
@@ -590,47 +547,52 @@ const AwardCTABanner = () => {
                         </div>
                     </div>
 
-                    {/* Right content - CTA buttons */}
                     <div className="flex flex-col sm:flex-row gap-4">
-                        <motion.a
-                            href="#contact"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            onMouseEnter={() => setIsHovered(true)}
-                            onMouseLeave={() => setIsHovered(false)}
-                            className="group relative px-10 py-5 bg-[#C30505] text-white text-sm font-bold tracking-[0.2em] uppercase overflow-hidden"
-                        >
-                            <span className="relative z-10 flex items-center gap-3">
-                                Get Free Quote
-                                <motion.div
-                                    animate={{ x: isHovered ? 5 : 0 }}
+                        {cta.buttons.map((button, idx) => (
+                            button.primary ? (
+                                <motion.a
+                                    key={idx}
+                                    href={button.href}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    onMouseEnter={() => setIsHovered(true)}
+                                    onMouseLeave={() => setIsHovered(false)}
+                                    className="group relative px-10 py-5 bg-[#C30505] text-white text-sm font-bold tracking-[0.2em] uppercase overflow-hidden"
                                 >
-                                    <Icons.WhyChoose.ArrowRight />
-                                </motion.div>
-                            </span>
-                            <motion.div
-                                className="absolute inset-0 bg-black"
-                                initial={{ x: '-100%' }}
-                                whileHover={{ x: 0 }}
-                                transition={{ duration: 0.5 }}
-                            />
-                        </motion.a>
-
-                        <motion.a
-                            href="#portfolio"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.98 }}
-                            className="group relative px-10 py-5 bg-transparent text-gray-700 text-sm font-bold tracking-[0.2em] uppercase overflow-hidden border border-gray-300 hover:border-[#C30505] transition-colors duration-500"
-                        >
-                            <span className="relative z-10 flex items-center gap-3">
-                                View Portfolio
-                                <motion.div
-                                    animate={{ x: isHovered ? 5 : 0 }}
+                                    <span className="relative z-10 flex items-center gap-3">
+                                        {button.text}
+                                        <motion.div
+                                            animate={{ x: isHovered ? 5 : 0 }}
+                                        >
+                                            <Icons.WhyChoose.ArrowRight />
+                                        </motion.div>
+                                    </span>
+                                    <motion.div
+                                        className="absolute inset-0 bg-black"
+                                        initial={{ x: '-100%' }}
+                                        whileHover={{ x: 0 }}
+                                        transition={{ duration: 0.5 }}
+                                    />
+                                </motion.a>
+                            ) : (
+                                <motion.a
+                                    key={idx}
+                                    href={button.href}
+                                    whileHover={{ scale: 1.05 }}
+                                    whileTap={{ scale: 0.98 }}
+                                    className="group relative px-10 py-5 bg-transparent text-gray-700 text-sm font-bold tracking-[0.2em] uppercase overflow-hidden border border-gray-300 hover:border-[#C30505] transition-colors duration-500"
                                 >
-                                    <Icons.WhyChoose.ArrowRight className="text-[#C30505]" />
-                                </motion.div>
-                            </span>
-                        </motion.a>
+                                    <span className="relative z-10 flex items-center gap-3">
+                                        {button.text}
+                                        <motion.div
+                                            animate={{ x: isHovered ? 5 : 0 }}
+                                        >
+                                            <Icons.WhyChoose.ArrowRight className="text-[#C30505]" />
+                                        </motion.div>
+                                    </span>
+                                </motion.a>
+                            )
+                        ))}
                     </div>
                 </div>
             </div>
@@ -638,52 +600,11 @@ const AwardCTABanner = () => {
     );
 };
 
-// ======================
-// MAIN WHY CHOOSE US SECTION - AWARD WINNING
-// ======================
 const WhyChooseUs = () => {
     const sectionRef = useRef(null);
     const [isClient, setIsClient] = useState(false);
 
-    const features = [
-        {
-            icon: <Icons.WhyChoose.Experience />,
-            title: "25+ Years of Roofing Excellence",
-            description: "Since 2002, our master craftsmen bring decades of hands-on experience, having completed over 1,000 successful residential and commercial roofing projects."
-        },
-        {
-            icon: <Icons.WhyChoose.Honest />,
-            title: "Transparent, Honest Recommendations",
-            description: "We never recommend unnecessary services. Our comprehensive inspections identify exactly what your roof needs to ensure long-term protection."
-        },
-        {
-            icon: <Icons.WhyChoose.Materials />,
-            title: "Premium Architectural Materials",
-            description: "We exclusively install top-tier roofing systems from GAF, CertainTeed, Owens Corning, and other trusted manufacturers."
-        },
-        {
-            icon: <Icons.WhyChoose.Communication />,
-            title: "Clear Communication From Start to Finish",
-            description: "From consultation to completion, you'll have direct access to your project manager and daily progress updates."
-        },
-        {
-            icon: <Icons.WhyChoose.Shield />,
-            title: "Unwavering Customer Commitment",
-            description: "Your safety, comfort, and complete satisfaction are our highest priorities on every project we undertake."
-        },
-        {
-            icon: <Icons.WhyChoose.Certified />,
-            title: "Licensed, Insured & Certified Professionals",
-            description: "Every installer is fully licensed, insured, and certified to deliver exceptional workmanship that stands the test of time."
-        }
-    ];
-
-    const stats = [
-        { value: "1000", label: "Projects", suffix: "+" },
-        { value: "24", label: "Years", suffix: "+" },
-        { value: "98", label: "Satisfaction", suffix: "%" },
-        { value: "50", label: "Year Warranty", suffix: "" }
-    ];
+    const { section, features, stats, cta } = completeData.whyChooseUs;
 
     useEffect(() => {
         setIsClient(true);
@@ -724,8 +645,6 @@ const WhyChooseUs = () => {
             <CinematicBackground />
 
             <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-20">
-
-                {/* SECTION HEADER - AWARD WINNING */}
                 <header className="text-center max-w-4xl mx-auto mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -736,32 +655,21 @@ const WhyChooseUs = () => {
                         <div className="flex items-center justify-center gap-3 mb-6">
                             <div className="w-16 h-[2px] bg-[#C30505]" />
                             <span className="text-xs font-bold tracking-[0.3em] uppercase text-[#C30505]">
-                                WHY CHOOSE US
+                                {section.badge}
                             </span>
                             <div className="w-16 h-[2px] bg-[#C30505]" />
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-                            The Trusted Choice for<br />
-                            <span className="text-[#C30505] relative inline-block">
-                                Strength & Integrity
-                                <motion.div
-                                    className="absolute -bottom-2 left-0 right-0 h-[2px] bg-[#C30505]/30"
-                                    initial={{ scaleX: 0 }}
-                                    whileInView={{ scaleX: 1 }}
-                                    transition={{ delay: 0.5, duration: 0.8 }}
-                                />
-                            </span>
-                        </h1>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight"
+                            dangerouslySetInnerHTML={{ __html: section.headline }}
+                        />
 
                         <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
-                            Since 2002, Fair Claims Roofing Company has delivered precision-crafted roofing systems to discerning
-                            homeowners and commercial property owners across Texas.
+                            {section.description}
                         </p>
                     </motion.div>
                 </header>
 
-                {/* FEATURES GRID - AWARD WINNING CARDS */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
                     {features.map((feature, index) => (
                         <FeatureCard
@@ -772,7 +680,6 @@ const WhyChooseUs = () => {
                     ))}
                 </div>
 
-                {/* STATS GRID */}
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-24">
                     {stats.map((stat, index) => (
                         <StatCounter
@@ -785,7 +692,6 @@ const WhyChooseUs = () => {
                     ))}
                 </div>
 
-                {/* AWARD WINNING CTA BANNER */}
                 <AwardCTABanner />
             </div>
         </section>

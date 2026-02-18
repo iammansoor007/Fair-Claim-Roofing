@@ -10,12 +10,10 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// FIXED SVG ICONS - Now showing properly
-// ======================
 const Icons = {
   Quote: () => (
     <svg width="36" height="36" viewBox="0 0 24 24" fill="none" className="text-primary">
@@ -58,9 +56,6 @@ const Icons = {
   ),
 };
 
-// ======================
-// VIDEO MODAL - FIXED
-// ======================
 const VideoModal = ({ isOpen, onClose, videoId, title }) => {
   useEffect(() => {
     if (isOpen) {
@@ -124,9 +119,6 @@ const VideoModal = ({ isOpen, onClose, videoId, title }) => {
   );
 };
 
-// ======================
-// VIDEO THUMBNAIL CARD - FIXED & RESPONSIVE
-// ======================
 const VideoThumbnailCard = ({ video, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
@@ -189,14 +181,10 @@ const VideoThumbnailCard = ({ video, onClick }) => {
   );
 };
 
-// ======================
-// MAIN TESTIMONIAL CARD - FIXED HEIGHT, NO FLICKER
-// ======================
 const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
-  // Subtle 3D effect - only on desktop
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const springX = useSpring(x, { stiffness: 100, damping: 20 });
@@ -245,19 +233,16 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
           : 'border-primary/10 shadow-lg shadow-primary/5'
         }
       `}>
-        {/* Quote Icon */}
         <div className="mb-4 md:mb-6 text-primary/40 flex-shrink-0">
           <Icons.Quote />
         </div>
 
-        {/* Testimonial Text - Fixed height with scroll for overflow */}
         <div className="flex-1 overflow-y-auto mb-4 md:mb-6 pr-2 custom-scrollbar">
           <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
             "{testimonial.text}"
           </p>
         </div>
 
-        {/* Author Section - Always at bottom */}
         <div className="flex items-center justify-between gap-4 flex-shrink-0 mt-auto">
           <div className="flex items-center gap-3 md:gap-4 min-w-0">
             <div className="relative flex-shrink-0">
@@ -297,7 +282,6 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
           )}
         </div>
 
-        {/* Corner accents */}
         <div className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 border-t border-r border-primary/20" />
         <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-6 h-6 md:w-8 md:h-8 border-b border-l border-primary/20" />
       </div>
@@ -305,9 +289,6 @@ const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
   );
 };
 
-// ======================
-// CUSTOM SCROLLBAR STYLES
-// ======================
 const scrollbarStyles = `
   .custom-scrollbar::-webkit-scrollbar {
     width: 4px;
@@ -325,9 +306,6 @@ const scrollbarStyles = `
   }
 `;
 
-// ======================
-// MAIN TESTIMONIALS SECTION - FULLY FIXED
-// ======================
 const Testimonials = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
@@ -336,116 +314,14 @@ const Testimonials = () => {
   const [selectedVideoTitle, setSelectedVideoTitle] = useState(null);
   const [showVideoModal, setShowVideoModal] = useState(false);
 
-  // Add scrollbar styles
+  const { section, testimonials, videos, stats } = completeData.testimonials;
+
   useEffect(() => {
     const style = document.createElement('style');
     style.textContent = scrollbarStyles;
     document.head.appendChild(style);
     return () => style.remove();
   }, []);
-
-  // REAL testimonials from your YouTube channel - WORKING VIDEOS
-  const testimonials = [
-    {
-      id: 1,
-      name: "Preston Chandler",
-      position: "Client",
-      company: "Residential",
-      avatar: "PC",
-      videoId: "2VxJ9rYbsfw",
-      duration: "1:14",
-      views: 33000,
-      text: "Working with FairClaims Roofing was an absolute pleasure. Their attention to detail and commitment to quality is unmatched. They made the entire process seamless from start to finish.",
-    },
-    {
-      id: 2,
-      name: "Mussleman",
-      position: "Client",
-      company: "Residential",
-      avatar: "M",
-      videoId: "FyRfxErvrHE",
-      duration: "1:13",
-      views: 27000,
-      text: "I couldn't be happier with the work FairClaims did on my roof. The team was professional, punctual, and the quality of work exceeded my expectations. Highly recommended!",
-    },
-    {
-      id: 3,
-      name: "Mitzi Fox",
-      position: "Agency Owner",
-      company: "Avalon Insurance",
-      avatar: "MF",
-      videoId: "ZuwM3QMSNAI",
-      duration: "1:03",
-      views: 136,
-      text: "As an insurance agency owner, I've worked with many roofing companies. FairClaims stands out for their integrity, quality work, and how they handle claims. They're my go-to recommendation.",
-    },
-    {
-      id: 4,
-      name: "GAF Solar",
-      position: "First Houston Install",
-      company: "Timberline Solar",
-      avatar: "GS",
-      videoId: "3EHyxTl4dxU",
-      duration: "3:01",
-      views: 25000,
-      text: "We were proud to install the first GAF Timberline Solar Shingles in Houston. Innovation meets craftsmanship - bringing the future of roofing to Texas homes.",
-    },
-    {
-      id: 5,
-      name: "Justin O'Neal",
-      position: "Owner",
-      company: "FairClaims Roofing",
-      avatar: "JO",
-      videoId: "7J_4pNlRbV0",
-      duration: "7:46",
-      views: 477,
-      text: "Our commitment to excellence has been recognized nationally on Designing Spaces. We don't just install roofs - we provide peace of mind and protection for families and businesses.",
-    }
-  ];
-
-  // REAL videos from your channel - ALL WORKING
-  const videoGrid = [
-    {
-      id: 1,
-      name: "GAF Solar Install",
-      title: "First Houston GAF Timberline Solar Shingles",
-      videoId: "3EHyxTl4dxU",
-      duration: "3:01",
-      views: 25000,
-    },
-    {
-      id: 2,
-      name: "Justin O'Neal",
-      title: "Designing Spaces Interview",
-      videoId: "7J_4pNlRbV0",
-      duration: "7:46",
-      views: 477,
-    },
-    {
-      id: 3,
-      name: "Preston Chandler",
-      title: "Client Testimonial",
-      videoId: "2VxJ9rYbsfw",
-      duration: "1:14",
-      views: 33000,
-    },
-    {
-      id: 4,
-      name: "Mussleman",
-      title: "Customer Testimonial",
-      videoId: "FyRfxErvrHE",
-      duration: "1:13",
-      views: 27000,
-    },
-    {
-      id: 5,
-      name: "Mitzi Fox",
-      title: "Avalon Insurance Testimonial",
-      videoId: "ZuwM3QMSNAI",
-      duration: "1:03",
-      views: 136,
-    }
-  ];
 
   const handlePlayVideo = (videoId, title) => {
     setSelectedVideo(videoId);
@@ -489,7 +365,6 @@ const Testimonials = () => {
         ref={sectionRef}
         className="relative bg-white py-12 md:py-16 lg:py-20 overflow-hidden"
       >
-        {/* Subtle background */}
         <div className="absolute inset-0 pointer-events-none">
           <div
             className="absolute inset-0 opacity-[0.02]"
@@ -504,30 +379,27 @@ const Testimonials = () => {
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
-          {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
             <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2 md:mb-3 block">
-              Client Testimonials
+              {section.badge}
             </span>
 
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 md:mb-4">
-              Real Stories from Real Clients
+              {section.headline}
             </h2>
 
             <p className="text-sm md:text-base lg:text-lg text-gray-500 px-4">
-              Hear what our clients have to say about their experience with FairClaims Roofing
+              {section.description}
             </p>
 
             <div className="flex items-center justify-center gap-2 mt-3 md:mt-4">
               <Icons.Youtube />
-              <span className="text-xs md:text-sm text-gray-400">Featured on Designing Spaces & GAF</span>
+              <span className="text-xs md:text-sm text-gray-400">{section.featured}</span>
             </div>
 
             <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-4 md:mt-6 rounded-full" />
           </div>
 
-          {/* Featured Testimonial Carousel */}
           <div className="max-w-4xl mx-auto mb-12 md:mb-16 lg:mb-20">
             <AnimatePresence mode="wait">
               <motion.div
@@ -545,7 +417,6 @@ const Testimonials = () => {
               </motion.div>
             </AnimatePresence>
 
-            {/* Navigation */}
             <div className="flex items-center justify-between mt-4 md:mt-6">
               <div className="flex items-center gap-2">
                 <span className="text-xs md:text-sm font-mono font-medium text-primary">
@@ -579,18 +450,17 @@ const Testimonials = () => {
             </div>
           </div>
 
-          {/* Video Gallery */}
           <div className="mb-12 md:mb-16 lg:mb-20 reveal-element">
             <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
               <div className="w-4 md:w-6 h-px bg-gradient-to-r from-primary to-primary/60" />
               <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-gray-400">
                 Featured Videos
               </span>
-              <span className="text-[10px] md:text-xs text-primary ml-auto md:ml-2">403+ videos on YouTube</span>
+              <span className="text-[10px] md:text-xs text-primary ml-auto md:ml-2">{stats.totalVideos} videos on YouTube</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
-              {videoGrid.map((video) => (
+              {videos.map((video) => (
                 <VideoThumbnailCard
                   key={video.id}
                   video={video}
@@ -607,12 +477,11 @@ const Testimonials = () => {
                 className="inline-flex items-center gap-2 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
               >
                 <Icons.Youtube />
-                Watch all 403+ videos on our YouTube channel
+                Watch all {stats.totalVideos} videos on our YouTube channel
               </a>
             </div>
           </div>
 
-          {/* Stats */}
           <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4 pt-4 md:pt-6 mt-4 md:mt-6 border-t border-primary/10 reveal-element">
             <div className="flex items-center gap-2 md:gap-3">
               <div className="flex -space-x-2">
@@ -626,13 +495,13 @@ const Testimonials = () => {
                 ))}
               </div>
               <div className="text-xs md:text-sm text-gray-600">
-                <span className="font-semibold text-gray-900">257</span> YouTube subscribers
+                <span className="font-semibold text-gray-900">{stats.subscribers}</span> YouTube subscribers
               </div>
             </div>
 
             <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm">
               <span className="text-gray-400">
-                <span className="text-primary font-semibold">86K+</span> views
+                <span className="text-primary font-semibold">{stats.views}</span> views
               </span>
               <span className="w-px h-3 md:h-4 bg-primary/20" />
               <span className="text-gray-400">
@@ -643,7 +512,6 @@ const Testimonials = () => {
         </div>
       </section>
 
-      {/* Video Modal */}
       <VideoModal
         isOpen={showVideoModal}
         onClose={() => setShowVideoModal(false)}

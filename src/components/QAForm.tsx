@@ -9,21 +9,16 @@ import {
 } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import completeData from "../src/data/completeData.json";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// ======================
-// PREMIUM UNSplash IMAGES
-// ======================
 const Images = {
   Form: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80",
   Pattern: "https://images.unsplash.com/photo-1502691876148-a84978e59af8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
   Abstract: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80",
 };
 
-// ======================
-// PREMIUM SVG ICONS - REDESIGNED
-// ======================
 const Icons = {
   User: () => (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -93,9 +88,6 @@ const Icons = {
   ),
 };
 
-// ======================
-// LIQUID PARALLAX LAYER
-// ======================
 const LiquidParallax = ({ children, speed = 0.1, className = "" }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -117,9 +109,6 @@ const LiquidParallax = ({ children, speed = 0.1, className = "" }) => {
   );
 };
 
-// ======================
-// HOLOGRAPHIC INPUT FIELD - REDESIGNED
-// ======================
 const HolographicInput = ({ icon: Icon, label, type = "text", options = [], ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
@@ -207,9 +196,6 @@ const HolographicInput = ({ icon: Icon, label, type = "text", options = [], ...p
   );
 };
 
-// ======================
-// QUANTUM TEXTAREA - REDESIGNED
-// ======================
 const QuantumTextarea = ({ icon: Icon, label, ...props }) => {
   const [isFocused, setIsFocused] = useState(false);
   const [hasValue, setHasValue] = useState(false);
@@ -266,9 +252,6 @@ const QuantumTextarea = ({ icon: Icon, label, ...props }) => {
   );
 };
 
-// ======================
-// CRYSTAL SERVICE CARD - REDESIGNED
-// ======================
 const CrystalServiceCard = ({ title, desc, icon, isSelected, onClick }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -351,9 +334,6 @@ const CrystalServiceCard = ({ title, desc, icon, isSelected, onClick }) => {
   );
 };
 
-// ======================
-// STAGE INDICATOR - FULLY RESPONSIVE & PREMIUM
-// ======================
 const StageIndicator = ({ currentStep }) => {
   const stages = [
     { number: 1, name: "Identity", icon: Icons.Identity, desc: "Your details" },
@@ -363,10 +343,8 @@ const StageIndicator = ({ currentStep }) => {
 
   return (
     <div className="relative mb-12 sm:mb-16">
-      {/* Background line - hidden on smallest screens */}
       <div className="absolute top-4 sm:top-6 left-0 right-0 h-[2px] bg-gray-200 hidden sm:block" />
 
-      {/* Animated progress line */}
       <motion.div
         className="absolute top-4 sm:top-6 left-0 h-[2px] bg-gradient-to-r from-primary to-primary hidden sm:block"
         initial={{ width: "0%" }}
@@ -374,11 +352,9 @@ const StageIndicator = ({ currentStep }) => {
         transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       />
 
-      {/* Stage indicators */}
       <div className="relative flex items-start justify-between">
         {stages.map((stage) => (
           <div key={stage.number} className="flex flex-col items-center flex-1">
-            {/* Icon container */}
             <motion.div
               animate={currentStep >= stage.number ? {
                 scale: 1.1,
@@ -411,7 +387,6 @@ const StageIndicator = ({ currentStep }) => {
               )}
             </motion.div>
 
-            {/* Stage name - responsive */}
             <span className={`
               text-[10px] sm:text-xs font-semibold tracking-wider text-center
               ${currentStep >= stage.number ? 'text-primary' : 'text-gray-400'}
@@ -420,7 +395,6 @@ const StageIndicator = ({ currentStep }) => {
               <span className="xs:hidden">{stage.number}</span>
             </span>
 
-            {/* Stage description - hidden on mobile */}
             <span className="text-[8px] sm:text-[10px] text-gray-400 mt-0.5 sm:mt-1 hidden sm:block">
               {stage.desc}
             </span>
@@ -431,10 +405,9 @@ const StageIndicator = ({ currentStep }) => {
   );
 };
 
-// ======================
-// SUCCESS MODAL - PREMIUM
-// ======================
 const SuccessModal = ({ isOpen, onClose }) => {
+  const { success } = completeData.quote;
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -503,7 +476,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
                 transition={{ delay: 0.5 }}
                 className="text-xl sm:text-2xl font-light text-gray-900 mb-2 sm:mb-3"
               >
-                Request Received
+                {success.title}
               </motion.h3>
 
               <motion.p
@@ -512,10 +485,10 @@ const SuccessModal = ({ isOpen, onClose }) => {
                 transition={{ delay: 0.6 }}
                 className="text-gray-500 text-xs sm:text-sm leading-relaxed"
               >
-                Your project inquiry has been transmitted to our engineering team.
+                {success.message}
                 <br />
                 <span className="font-medium text-primary mt-2 block">
-                  We'll respond within 4-8 hours.
+                  {success.response}
                 </span>
               </motion.p>
 
@@ -528,7 +501,7 @@ const SuccessModal = ({ isOpen, onClose }) => {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Close
+                {success.buttonText}
               </motion.button>
             </div>
 
@@ -541,9 +514,6 @@ const SuccessModal = ({ isOpen, onClose }) => {
   );
 };
 
-// ======================
-// MAIN GET QUOTE SECTION - AWARD WINNING
-// ======================
 const GetQuote = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
@@ -561,29 +531,7 @@ const GetQuote = () => {
     message: ''
   });
 
-  const services = [
-    { id: 1, title: "Residential Masterpiece", desc: "Custom-engineered estate systems", icon: "⌗" },
-    { id: 2, title: "Commercial Campus", desc: "Large-scale enterprise solutions", icon: "⎔" },
-    { id: 3, title: "Heritage Preservation", desc: "Historic restoration & documentation", icon: "⌖" },
-    { id: 4, title: "Architectural Metal", desc: "Bespoke copper & standing seam", icon: "⌘" },
-    { id: 5, title: "Emergency Response", desc: "24/7 structural stabilization", icon: "⚡" },
-    { id: 6, title: "Legacy Maintenance", desc: "Predictive AI-driven care", icon: "◈" },
-  ];
-
-  const projectTypes = [
-    { value: "residential", label: "Residential Estate" },
-    { value: "commercial", label: "Commercial Campus" },
-    { value: "industrial", label: "Industrial Facility" },
-    { value: "heritage", label: "Heritage / Historic" },
-    { value: "infrastructure", label: "Infrastructure" },
-  ];
-
-  const timelines = [
-    { value: "urgent", label: "Urgent (within 2 weeks)" },
-    { value: "standard", label: "Standard (1-3 months)" },
-    { value: "planned", label: "Planned (3-6 months)" },
-    { value: "future", label: "Future (6+ months)" },
-  ];
+  const { section, services, projectTypes, timelines, email, success } = completeData.quote;
 
   const toggleService = (serviceId) => {
     setSelectedServices(prev =>
@@ -620,7 +568,7 @@ const GetQuote = () => {
     `;
 
     try {
-      const mailtoLink = `mailto:ammansoor007@gmail.com?subject=🔴 Fair Claims Roofing Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+      const mailtoLink = `mailto:${email}?subject=🔴 Fair Claims Roofing Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
 
       try {
         const response = await fetch('https://formsubmit.co/ajax/ammansoor007@gmail.com', {
@@ -680,7 +628,7 @@ const GetQuote = () => {
 
     } catch (error) {
       console.error('Submission error:', error);
-      alert('Please email us directly at ammansoor007@gmail.com with your project details.');
+      alert(`Please email us directly at ${email} with your project details.`);
     } finally {
       setIsSubmitting(false);
     }
@@ -722,11 +670,6 @@ const GetQuote = () => {
       ref={sectionRef}
       className="relative bg-white py-12 sm:py-14 md:py-16 lg:py-16 overflow-hidden"
     >
-      {/* ====================== */}
-      {/* PREMIUM BACKGROUND */}
-      {/* ====================== */}
-
-      {/* Subtle grid */}
       <div className="absolute inset-0 pointer-events-none">
         <div
           className="absolute inset-0 opacity-[0.02]"
@@ -740,10 +683,8 @@ const GetQuote = () => {
         />
       </div>
 
-      {/* Ambient light */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] sm:w-[1000px] h-[400px] sm:h-[500px] bg-gradient-to-b from-primary/5 to-transparent opacity-60 blur-3xl" />
 
-      {/* Parallax layers */}
       <LiquidParallax speed={0.05} className="z-0">
         <div className="absolute top-20 right-0 w-2/5 h-3/5">
           <img
@@ -764,7 +705,6 @@ const GetQuote = () => {
         </div>
       </LiquidParallax>
 
-      {/* Particles */}
       <div className="absolute inset-0 pointer-events-none">
         {[...Array(20)].map((_, i) => (
           <motion.div
@@ -788,38 +728,25 @@ const GetQuote = () => {
         ))}
       </div>
 
-      {/* ====================== */}
-      {/* MAIN CONTENT */}
-      {/* ====================== */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-30">
-
-        {/* ====================== */}
-        {/* SECTION HEADER - RESPONSIVE */}
-        {/* ====================== */}
         <div className="max-w-3xl mx-auto text-center mb-12 sm:mb-16 md:mb-20 quote-cinematic">
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-4 sm:mb-6">
             <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent" />
             <span className="text-[10px] sm:text-xs font-mono tracking-[0.2em] sm:tracking-[0.3em] uppercase text-primary/80">
-              INITIATE PROTOCOL
+              {section.badge}
             </span>
             <div className="w-8 sm:w-12 h-[2px] bg-gradient-to-r from-primary via-primary to-transparent" />
           </div>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 leading-tight">
-            Request Your<br />
-            <span className="font-black italic text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-primary/80">
-              Precision Quote
-            </span>
-          </h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gray-900 mb-4 sm:mb-6 leading-tight"
+            dangerouslySetInnerHTML={{ __html: section.headline }}
+          />
 
           <p className="text-sm sm:text-base md:text-lg text-gray-500 font-light max-w-2xl mx-auto px-4">
-            Every legacy begins with a conversation. Share your vision — our engineering collective will respond within hours.
+            {section.description}
           </p>
         </div>
 
-        {/* ====================== */}
-        {/* MAIN FORM CARD */}
-        {/* ====================== */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -828,8 +755,6 @@ const GetQuote = () => {
           className="relative max-w-5xl mx-auto"
         >
           <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl border border-primary/10 shadow-2xl overflow-hidden">
-
-            {/* Animated border */}
             <svg className="absolute inset-0 w-full h-full pointer-events-none">
               <motion.rect
                 x="2"
@@ -854,12 +779,9 @@ const GetQuote = () => {
             </svg>
 
             <div className="relative p-5 sm:p-8 md:p-10 lg:p-12">
-
-              {/* ✅ RESPONSIVE STAGE INDICATOR */}
               <StageIndicator currentStep={formStep} />
 
               <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8">
-                {/* Step 1: Identity */}
                 <AnimatePresence mode="wait">
                   {formStep === 1 && (
                     <motion.div
@@ -910,7 +832,6 @@ const GetQuote = () => {
                     </motion.div>
                   )}
 
-                  {/* Step 2: Specification */}
                   {formStep === 2 && (
                     <motion.div
                       key="step2"
@@ -928,7 +849,9 @@ const GetQuote = () => {
                           {services.map((service) => (
                             <CrystalServiceCard
                               key={service.id}
-                              {...service}
+                              title={service.title}
+                              desc={service.desc}
+                              icon={service.icon}
                               isSelected={selectedServices.includes(service.id)}
                               onClick={() => toggleService(service.id)}
                             />
@@ -959,7 +882,6 @@ const GetQuote = () => {
                     </motion.div>
                   )}
 
-                  {/* Step 3: Transmission */}
                   {formStep === 3 && (
                     <motion.div
                       key="step3"
@@ -1019,7 +941,6 @@ const GetQuote = () => {
                   )}
                 </AnimatePresence>
 
-                {/* Navigation Controls - Responsive */}
                 <div className="flex items-center justify-between pt-4 sm:pt-6 border-t border-primary/10">
                   <motion.button
                     type="button"
@@ -1096,7 +1017,6 @@ const GetQuote = () => {
                 </div>
               </form>
 
-              {/* Trust Seal - Responsive */}
               <div className="flex flex-col xs:flex-row items-center justify-center gap-3 sm:gap-6 mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-primary/10">
                 <div className="flex items-center gap-2 sm:gap-3">
                   <div className="flex -space-x-2">
@@ -1120,14 +1040,11 @@ const GetQuote = () => {
                   <span>Secure transmission</span>
                 </div>
               </div>
-
             </div>
           </div>
         </motion.div>
-
       </div>
 
-      {/* Bottom wave */}
       <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none">
         <svg
           viewBox="0 0 1440 100"
@@ -1148,7 +1065,6 @@ const GetQuote = () => {
         </svg>
       </div>
 
-      {/* Success Modal */}
       <SuccessModal isOpen={showSuccess} onClose={() => setShowSuccess(false)} />
     </section>
   );
