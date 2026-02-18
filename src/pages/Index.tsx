@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import LoadingScreen from "@/components/LoadingScreen";
 import AggressiveRoofingSection from "@/components/RoofingExperts";
 import HowWeWork from "@/components/HowWeWork";
+import QuickQuote from "@/components/QuickQuote"; // ✅ Import the QuickQuote widget
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
@@ -86,6 +87,9 @@ const Index = () => {
               <FAQ />
             </section>
             <Footer />
+            
+            {/* ✅ Quick Quote Widget - Only appears on Index page */}
+            <QuickQuote />
           </div>
         </>
       )}
