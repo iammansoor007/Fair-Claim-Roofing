@@ -82,6 +82,28 @@ const Icons = {
                     </linearGradient>
                 </defs>
             </svg>
+        ),
+        Shield: () => (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-label="protection icon">
+                <path d="M12 2L3 7v7c0 5.5 9 8 9 8s9-2.5 9-8V7l-9-5z" stroke="url(#shieldGradient)" strokeWidth="1.5" />
+                <defs>
+                    <linearGradient id="shieldGradient" x1="3" y1="2" x2="21" y2="22">
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
+                    </linearGradient>
+                </defs>
+            </svg>
+        ),
+        Check: () => (
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" aria-label="checkmark icon">
+                <path d="M20 6L9 17L4 12" stroke="url(#checkGradient)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                <defs>
+                    <linearGradient id="checkGradient" x1="4" y1="6" x2="20" y2="17">
+                        <stop stopColor="#C30505" />
+                        <stop offset="1" stopColor="#8B0000" />
+                    </linearGradient>
+                </defs>
+            </svg>
         )
     }
 };
@@ -189,7 +211,7 @@ const FeatureCard = ({ feature, index }) => {
                 </p>
 
                 {/* SEO metadata */}
-                <meta itemProp="provider" content="A5 Roofing" />
+                <meta itemProp="provider" content="Fair Claims Roofing Company" />
                 <meta itemProp="serviceType" content="Roofing Services" />
             </div>
         </motion.article>
@@ -355,38 +377,38 @@ const WhyChooseUs = () => {
         {
             icon: <Icons.WhyChoose.Experience />,
             title: "25+ Years of Roofing Excellence",
-            description: "Our master craftsmen bring decades of hands-on experience, having completed over 1,200 successful residential and commercial roofing projects."
+            description: "Since 2002, our master craftsmen bring decades of hands-on experience, having completed over 1,000 successful residential and commercial roofing projects."
         },
         {
             icon: <Icons.WhyChoose.Honest />,
             title: "Transparent, Honest Recommendations",
-            description: "We never recommend unnecessary services. Our comprehensive inspections identify exactly what your roof needs."
+            description: "We never recommend unnecessary services. Our comprehensive inspections identify exactly what your roof needs to ensure long-term protection."
         },
         {
             icon: <Icons.WhyChoose.Materials />,
             title: "Premium Architectural Materials",
-            description: "We exclusively install top-tier roofing systems from GAF, CertainTeed, and Owens Corning."
+            description: "We exclusively install top-tier roofing systems from GAF, CertainTeed, Owens Corning, and other trusted manufacturers."
         },
         {
             icon: <Icons.WhyChoose.Communication />,
-            title: "White-Glove Communication",
+            title: "Clear Communication From Start to Finish",
             description: "From consultation to completion, you'll have direct access to your project manager and daily progress updates."
         },
         {
-            icon: <Icons.WhyChoose.CustomerFirst />,
+            icon: <Icons.WhyChoose.Shield />,
             title: "Unwavering Customer Commitment",
-            description: "Your safety, comfort, and complete satisfaction are our highest priorities."
+            description: "Your safety, comfort, and complete satisfaction are our highest priorities on every project we undertake."
         },
         {
             icon: <Icons.WhyChoose.Certified />,
-            title: "Certified & Insured Professionals",
-            description: "Every installer is GAF Master Elite® certified, fully licensed, and insured."
+            title: "Licensed, Insured & Certified Professionals",
+            description: "Every installer is fully licensed, insured, and certified to deliver exceptional workmanship that stands the test of time."
         }
     ];
 
     const stats = [
-        { value: "1200", label: "Projects", suffix: "+" },
-        { value: "17", label: "Years", suffix: "+" },
+        { value: "1000", label: "Projects", suffix: "+" },
+        { value: "23", label: "Years", suffix: "" },
         { value: "98", label: "Satisfaction", suffix: "%" },
         { value: "50", label: "Year Warranty", suffix: "" }
     ];
@@ -425,7 +447,7 @@ const WhyChooseUs = () => {
         <section
             ref={sectionRef}
             className="relative bg-white py-12 md:py-16 overflow-hidden"
-            aria-label="Why Choose A5 Roofing"
+            aria-label="Why Choose Fair Claims Roofing Company"
             itemScope
             itemType="https://schema.org/Service"
         >
@@ -448,13 +470,13 @@ const WhyChooseUs = () => {
                     <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                         The Trusted Choice for<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80">
-                            Premium Roofing
+                            Strength & Integrity
                         </span>
                     </h1>
 
                     <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto">
-                        Since 2007, A5 Roofing has delivered precision-crafted roofing systems to discerning
-                        homeowners and commercial property owners.
+                        Since 2002, Fair Claims Roofing Company has delivered precision-crafted roofing systems to discerning
+                        homeowners and commercial property owners across Texas.
                     </p>
                 </header>
 
@@ -472,6 +494,21 @@ const WhyChooseUs = () => {
                 </div>
 
                 {/* ====================== */}
+                {/* STATS GRID */}
+                {/* ====================== */}
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16 reveal">
+                    {stats.map((stat, index) => (
+                        <StatCounter
+                            key={stat.label}
+                            value={stat.value}
+                            label={stat.label}
+                            suffix={stat.suffix}
+                            delay={0.1 + (index * 0.1)}
+                        />
+                    ))}
+                </div>
+
+                {/* ====================== */}
                 {/* SINGLE CTA BANNER - NO DUPLICATE */}
                 {/* ====================== */}
                 <CrystalCTABanner />
@@ -483,10 +520,11 @@ const WhyChooseUs = () => {
                     __html: JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "RoofingContractor",
-                        "name": "A5 Roofing",
-                        "description": "Premium residential and commercial roofing services with 25+ years experience.",
-                        "url": "https://a5roofing.com",
+                        "name": "Fair Claims Roofing Company",
+                        "description": "Premium residential and commercial roofing services with 25+ years experience since 2002.",
+                        "url": "https://fairclaimsroofingcompany.com",
                         "priceRange": "$$$",
+                        "foundingDate": "2002",
                         "aggregateRating": {
                             "@type": "AggregateRating",
                             "ratingValue": "4.9",

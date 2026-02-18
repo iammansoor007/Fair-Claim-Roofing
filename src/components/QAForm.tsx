@@ -620,7 +620,7 @@ const GetQuote = () => {
     `;
 
     try {
-      const mailtoLink = `mailto:ammansoor007@gmail.com?subject=🔴 A5 Roofing Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
+      const mailtoLink = `mailto:ammansoor007@gmail.com?subject=🔴 Fair Claims Roofing Quote Request - ${formData.name}&body=${encodeURIComponent(emailContent)}`;
 
       try {
         const response = await fetch('https://formsubmit.co/ajax/ammansoor007@gmail.com', {

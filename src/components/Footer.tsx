@@ -277,12 +277,12 @@ const NewsletterForm = () => {
 // ======================
 const ServiceLinks = () => {
   const mainServices = [
-    { label: 'Roof Repair Services', href: '/roof-repair', icon: Icons.Repair },
-    { label: 'Roof Replacement', href: '/roof-replacement', icon: Icons.Replacement },
-    { label: 'Roof Inspections', href: '/roof-inspection', icon: Icons.Inspection },
+    { label: 'Roof Repair Solutions', href: '/roof-repair', icon: Icons.Repair },
+    { label: 'Full Roof Replacement', href: '/roof-replacement', icon: Icons.Replacement },
+    { label: 'Roof Inspections & Preventive Care', href: '/roof-inspection', icon: Icons.Inspection },
     { label: 'Preventive Maintenance', href: '/maintenance', icon: Icons.Maintenance },
     { label: 'Residential Roofing', href: '/residential', icon: Icons.Residential },
-    { label: 'Commercial Roofing', href: '/commercial', icon: Icons.Commercial },
+    { label: 'Commercial Roofing Systems', href: '/commercial', icon: Icons.Commercial },
     { label: 'Emergency Services', href: '/emergency', icon: Icons.Emergency },
     { label: 'Storm Damage Restoration', href: '/storm-damage', icon: Icons.Repair },
     { label: 'New Roof Installation', href: '/new-roof', icon: Icons.Roofing },
@@ -293,7 +293,7 @@ const ServiceLinks = () => {
     <div className="space-y-4">
       <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2">
         <Icons.Sparkle />
-        Our Services
+        Complete Roofing Services
       </h4>
       <div className="grid grid-cols-1 gap-2">
         {mainServices.map((service) => (
@@ -359,29 +359,29 @@ const ContactInfo = () => {
           Contact Us
         </h4>
         <div className="space-y-4">
-          <a href="mailto:studio@a5roofing.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+          <a href="mailto:info@fairclaimsroofingcompany.com" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
             <span className="text-gray-400 group-hover:text-primary">
               <Icons.Mail />
             </span>
-            studio@a5roofing.com
+            info@fairclaimsroofingcompany.com
           </a>
-          <a href="tel:+12125550170" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
+          <a href="tel:+1XXX-XXX-XXXX" className="flex items-center gap-3 text-sm text-gray-600 hover:text-primary transition-colors group">
             <span className="text-gray-400 group-hover:text-primary">
               <Icons.Phone />
             </span>
-            +1 (212) 555-0170
+            +1 (XXX) XXX-XXXX
           </a>
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <span className="text-gray-400">
               <Icons.Location />
             </span>
-            <span>Houston, Dallas, Austin, San Antonio & Across Texas</span>
+            <span>Serving residential and commercial properties across Texas</span>
           </div>
           <div className="flex items-center gap-3 text-sm text-gray-600">
             <span className="text-gray-400">
               <Icons.Infinity />
             </span>
-            <span>24/7 Emergency: (212) 555-0199</span>
+            <span>24/7 Emergency Service Available</span>
           </div>
         </div>
       </div>
@@ -392,7 +392,7 @@ const ContactInfo = () => {
           Service Areas
         </h5>
         <p className="text-xs text-gray-500 leading-relaxed">
-          Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano • El Paso • Corpus Christi • Lubbock & Surrounding Texas Communities
+          Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano & Surrounding Texas Communities
         </p>
       </div>
     </div>
@@ -404,12 +404,12 @@ const ContactInfo = () => {
 // ======================
 const CertificationsGrid = () => {
   const certifications = [
-    { cert: 'ISO', number: '9001:2024', icon: Icons.Warranty },
-    { cert: 'LEED', number: 'Platinum', icon: Icons.Warranty },
-    { cert: 'BREEAM', number: 'Outstanding', icon: Icons.Warranty },
     { cert: 'GAF', number: 'Master Elite', icon: Icons.Warranty },
     { cert: 'CertainTeed', number: 'SELECT ShingleMaster', icon: Icons.Warranty },
     { cert: 'OSHA', number: 'Certified', icon: Icons.Warranty },
+    { cert: 'ISO', number: '9001:2024', icon: Icons.Warranty },
+    { cert: 'LEED', number: 'Platinum', icon: Icons.Warranty },
+    { cert: 'BREEAM', number: 'Outstanding', icon: Icons.Warranty },
   ];
 
   return (
@@ -489,7 +489,7 @@ const LegacyMarquee = () => {
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              PRECISION ROOFING
+              STRENGTH • INTEGRITY • PROTECTION
             </span>
             <span className="text-xs font-mono text-primary/40 group-hover:text-primary transition-colors duration-300">
               <Icons.Sparkle />
@@ -501,7 +501,7 @@ const LegacyMarquee = () => {
               <Icons.Sparkle />
             </span>
             <span className="text-sm uppercase tracking-[0.3em] text-gray-300 group-hover:text-gray-600 transition-colors duration-300">
-              TRUST • QUALITY • PROTECTION
+              TRUST • QUALITY • DURABILITY
             </span>
           </div>
         ))}
@@ -620,16 +620,16 @@ const Footer = () => {
             >
               <div className="flex items-center gap-3">
                 <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center shadow-2xl shadow-primary/30">
-                  <span className="text-white font-bold text-xl">A5</span>
+                  <span className="text-white font-bold text-sm text-center leading-tight">FC</span>
                 </div>
                 <div>
-                  <span className="text-gray-900 font-light text-lg block">A5 Roofing</span>
-                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">PRECISION • PROTECTION • TRUST</span>
+                  <span className="text-gray-900 font-light text-lg block">Fair Claims</span>
+                  <span className="text-[10px] text-primary/60 font-mono tracking-wider">STRENGTH • INTEGRITY • PROTECTION</span>
                 </div>
               </div>
 
               <p className="text-gray-600 text-xs leading-relaxed">
-                Precision roofing built for long-term protection. Dependable inspections, repairs, replacements, and maintenance focused on durability, safety, and honest communication.
+                Advanced Roofing Built for Real-World Protection. Your roof is the first line of defense against rain, wind, heat, and structural wear. When hidden damage develops, it can quickly threaten the safety, comfort, and value of your property.
               </p>
 
               <SocialLinks />
@@ -667,7 +667,7 @@ const Footer = () => {
           <div className="lg:col-span-4">
             <ContactInfo />
 
-            {/* Certifications Grid - Added Back */}
+            {/* Certifications Grid */}
             <div className="mt-6 pt-4 border-t border-gray-200">
               <h4 className="text-xs font-mono tracking-[0.2em] uppercase text-gray-500 flex items-center gap-2 mb-3">
                 <Icons.Sparkle />
@@ -688,7 +688,7 @@ const Footer = () => {
         {/* ====================== */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 py-6 text-[10px] text-gray-500">
           <div className="flex items-center gap-4">
-            <span>© 2026 A5 Roofing</span>
+            <span>© 2026 Fair Claims Roofing Company</span>
             <span className="w-1 h-1 rounded-full bg-gray-300" />
             <span>All rights reserved</span>
           </div>
@@ -699,7 +699,7 @@ const Footer = () => {
             <a href="/sitemap" className="hover:text-primary transition-colors">Sitemap</a>
           </div>
           <div className="text-gray-400">
-            <span className="font-mono">A5 PRECISION. A5 RESULTS.</span>
+            <span className="font-mono">STRENGTH • INTEGRITY • LASTING PROTECTION</span>
           </div>
         </div>
       </div>

@@ -297,7 +297,7 @@ const CTASection = () => {
                 <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full border border-blue-200/50">
                   <Icons.Sparkle />
                   <span className="text-xs font-medium tracking-wider text-blue-700">
-                    A5 Roofing • 2026
+                    Fair Claims Roofing • 2002
                   </span>
                 </div>
 
