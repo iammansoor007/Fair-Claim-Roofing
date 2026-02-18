@@ -5,36 +5,102 @@
         "title": "ROOF REPAIRS",
         "description": "Premium roofing solutions for modern homes",
         "icon": "Home",
-        "items": ["Asphalt Shingles", "Metal Roofing", "Tile Roofing", "Flat Roof Systems", "Roof Replacement"],
-        "features": ["25-Year Warranty", "Energy Efficient", "Storm Resistant"]
+        "items": [
+          "Asphalt Shingles",
+          "Metal Roofing",
+          "Tile Roofing",
+          "Flat Roof Systems",
+          "Roof Replacement"
+        ],
+        "features": [
+          "25-Year Warranty",
+          "Energy Efficient",
+          "Storm Resistant"
+        ]
       },
       {
         "title": "ROOF REPLACEMENT",
         "description": "When roofing systems get damaged or too old, they sometimes need to be completely replaced",
         "icon": "Building2",
-        "items": ["EPDM Roofing", "TPO Systems", "PVC Membranes", "Built-Up Roofing", "Green Roofs"],
-        "features": ["30-Year Warranty", "Energy Star Rated", "Low Maintenance"]
+        "items": [
+          "EPDM Roofing",
+          "TPO Systems",
+          "PVC Membranes",
+          "Built-Up Roofing",
+          "Green Roofs"
+        ],
+        "features": [
+          "30-Year Warranty",
+          "Energy Star Rated",
+          "Low Maintenance"
+        ]
       },
       {
         "title": "ROOF MAINTENANCE",
         "description": "Biannual and quarterly inspection and maintenance programs for residential and commercial roofing systems.",
         "icon": "Wrench",
-        "items": ["Roof Inspections", "Emergency Repairs", "Gutter Systems", "Solar Integration", "Waterproofing"],
-        "features": ["24/7 Service", "Same-Day Quotes", "Free Inspections"]
+        "items": [
+          "Roof Inspections",
+          "Emergency Repairs",
+          "Gutter Systems",
+          "Solar Integration",
+          "Waterproofing"
+        ],
+        "features": [
+          "24/7 Service",
+          "Same-Day Quotes",
+          "Free Inspections"
+        ]
       }
     ],
     "companyLinks": [
-      { "label": "Home", "href": "#", "icon": "Home" },
-      { "label": "Portfolio", "href": "#portfolio", "icon": "Briefcase" },
-      { "label": "About", "href": "#about", "icon": "Users" },
-      { "label": "FAQ", "href": "#faq", "icon": "MessageSquare" },
-      { "label": "Contact", "href": "#contact", "icon": "Phone" }
+      {
+        "label": "Home",
+        "href": "#",
+        "icon": "Home"
+      },
+      {
+        "label": "Portfolio",
+        "href": "#portfolio",
+        "icon": "Briefcase"
+      },
+      {
+        "label": "About",
+        "href": "#about",
+        "icon": "Users"
+      },
+      {
+        "label": "FAQ",
+        "href": "#faq",
+        "icon": "MessageSquare"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact",
+        "icon": "Phone"
+      }
     ],
     "stats": [
-      { "value": "500+", "label": "Projects", "icon": "ClipboardCheck" },
-      { "value": "98%", "label": "Satisfaction", "icon": "Star" },
-      { "value": "24/7", "label": "Service", "icon": "Clock" },
-      { "value": "10-Year", "label": "Warranty", "icon": "Shield" }
+      {
+        "value": "500+",
+        "label": "Projects",
+        "icon": "ClipboardCheck"
+      },
+      {
+        "value": "98%",
+        "label": "Satisfaction",
+        "icon": "Star"
+      },
+      {
+        "value": "24/7",
+        "label": "Service",
+        "icon": "Clock"
+      },
+      {
+        "value": "10-Year",
+        "label": "Warranty",
+        "icon": "Shield"
+      }
     ],
     "cta": {
       "title": "Get Your Free Quote",
@@ -43,7 +109,6 @@
       "buttonLink": "#quote"
     }
   },
-
   "hero": {
     "badge": "Architectural Excellence",
     "headlines": [
@@ -67,13 +132,28 @@
       }
     ],
     "stats": [
-      { "value": "1,200+", "label": "Projects", "icon": "RiBuildingLine" },
-      { "value": "24+", "label": "Years", "icon": "FiStar" },
-      { "value": "98%", "label": "Satisfaction", "icon": "FiThumbsUp" },
-      { "value": "24/7", "label": "Support", "icon": "RiShieldCheckLine" }
+      {
+        "value": "1,200+",
+        "label": "Projects",
+        "icon": "RiBuildingLine"
+      },
+      {
+        "value": "24+",
+        "label": "Years",
+        "icon": "FiStar"
+      },
+      {
+        "value": "98%",
+        "label": "Satisfaction",
+        "icon": "FiThumbsUp"
+      },
+      {
+        "value": "24/7",
+        "label": "Support",
+        "icon": "RiShieldCheckLine"
+      }
     ]
   },
-
   "about": {
     "badge": "Since 2002",
     "headline": {
@@ -88,9 +168,21 @@
       "badge": "24+ Years Excellence"
     },
     "stats": [
-      { "value": 1200, "suffix": "+", "label": "Projects Completed" },
-      { "value": 100, "suffix": "%", "label": "Client Satisfaction" },
-      { "value": 24, "suffix": "/7", "label": "Emergency Service" }
+      {
+        "value": 1200,
+        "suffix": "+",
+        "label": "Projects Completed"
+      },
+      {
+        "value": 100,
+        "suffix": "%",
+        "label": "Client Satisfaction"
+      },
+      {
+        "value": 24,
+        "suffix": "/7",
+        "label": "Emergency Service"
+      }
     ],
     "buttons": [
       {
@@ -109,7 +201,6 @@
       "emergency": "24/7"
     }
   },
-
   "services": {
     "badge": "Award Winning Support",
     "headline": {
@@ -122,9 +213,21 @@
       "<span class=\"font-semibold text-primary\">License Number: 03-0999</span>"
     ],
     "stats": [
-      { "value": 500, "suffix": "+", "label": "Projects" },
-      { "value": 24, "suffix": "+", "label": "Years" },
-      { "value": 4.8, "suffix": "", "label": "Rating" }
+      {
+        "value": 500,
+        "suffix": "+",
+        "label": "Projects"
+      },
+      {
+        "value": 24,
+        "suffix": "+",
+        "label": "Years"
+      },
+      {
+        "value": 4.8,
+        "suffix": "",
+        "label": "Rating"
+      }
     ],
     "services": [
       {
@@ -133,7 +236,12 @@
         "description": "Professional roof repair services designed to find the true source of the problem, not just visible symptoms.",
         "icon": "Wrench",
         "tag": "Repair",
-        "features": ["Emergency Repairs", "Leak Detection", "Storm Damage", "Shingle Replacement"]
+        "features": [
+          "Emergency Repairs",
+          "Leak Detection",
+          "Storm Damage",
+          "Shingle Replacement"
+        ]
       },
       {
         "number": "02",
@@ -141,7 +249,12 @@
         "description": "Expert installation and complete roof replacement using premium materials for superior craftsmanship.",
         "icon": "Home",
         "tag": "Installation",
-        "features": ["New Construction", "Complete Replacement", "Material Upgrades", "Code Compliance"]
+        "features": [
+          "New Construction",
+          "Complete Replacement",
+          "Material Upgrades",
+          "Code Compliance"
+        ]
       },
       {
         "number": "03",
@@ -149,7 +262,12 @@
         "description": "Expert commercial roofing services including installation, replacement, and repair for businesses.",
         "icon": "Building2",
         "tag": "Commercial",
-        "features": ["Flat Roof Systems", "TPO/EPDM", "Metal Roofing", "Maintenance Programs"]
+        "features": [
+          "Flat Roof Systems",
+          "TPO/EPDM",
+          "Metal Roofing",
+          "Maintenance Programs"
+        ]
       },
       {
         "number": "04",
@@ -157,7 +275,12 @@
         "description": "Integrate solar technology with your roofing system through GAF's innovative solar solutions.",
         "icon": "Sun",
         "tag": "Solar",
-        "features": ["Energy Savings", "Tax Incentives", "Seamless Integration", "Warranty Protection"]
+        "features": [
+          "Energy Savings",
+          "Tax Incentives",
+          "Seamless Integration",
+          "Warranty Protection"
+        ]
       },
       {
         "number": "05",
@@ -165,7 +288,12 @@
         "description": "Professional assessment and documentation of storm and hail damage for insurance claims.",
         "icon": "CloudRain",
         "tag": "Insurance",
-        "features": ["Damage Documentation", "Insurance Claims", "Emergency Tarping", "Restoration"]
+        "features": [
+          "Damage Documentation",
+          "Insurance Claims",
+          "Emergency Tarping",
+          "Restoration"
+        ]
       },
       {
         "number": "06",
@@ -173,7 +301,12 @@
         "description": "Biannual and quarterly inspection programs to extend roof life and prevent costly repairs.",
         "icon": "Shield",
         "tag": "Preventative",
-        "features": ["Regular Inspections", "Gutter Cleaning", "Minor Repairs", "Leak Prevention"]
+        "features": [
+          "Regular Inspections",
+          "Gutter Cleaning",
+          "Minor Repairs",
+          "Leak Prevention"
+        ]
       },
       {
         "number": "07",
@@ -181,7 +314,12 @@
         "description": "Custom patio additions and improvements to enhance your outdoor living space.",
         "icon": "TreePine",
         "tag": "Outdoor",
-        "features": ["Custom Design", "Covered Patios", "Outdoor Kitchens", "Pergolas"]
+        "features": [
+          "Custom Design",
+          "Covered Patios",
+          "Outdoor Kitchens",
+          "Pergolas"
+        ]
       },
       {
         "number": "08",
@@ -189,7 +327,12 @@
         "description": "Professional gutter installation and replacement to protect your home from water damage.",
         "icon": "Droplets",
         "tag": "Drainage",
-        "features": ["Seamless Gutters", "Leaf Guards", "Downspouts", "Water Diversion"]
+        "features": [
+          "Seamless Gutters",
+          "Leaf Guards",
+          "Downspouts",
+          "Water Diversion"
+        ]
       },
       {
         "number": "09",
@@ -197,7 +340,12 @@
         "description": "Durable, energy-efficient metal roofing systems offering superior protection and longevity.",
         "icon": "Hammer",
         "tag": "Metal",
-        "features": ["Standing Seam", "Metal Shingles", "Energy Efficient", "50+ Year Lifespan"]
+        "features": [
+          "Standing Seam",
+          "Metal Shingles",
+          "Energy Efficient",
+          "50+ Year Lifespan"
+        ]
       },
       {
         "number": "10",
@@ -205,7 +353,12 @@
         "description": "Beautiful and durable tile roofing options including clay and concrete tiles.",
         "icon": "Square",
         "tag": "Tile",
-        "features": ["Clay Tile", "Concrete Tile", "Synthetic Tile", "Classic Aesthetics"]
+        "features": [
+          "Clay Tile",
+          "Concrete Tile",
+          "Synthetic Tile",
+          "Classic Aesthetics"
+        ]
       }
     ],
     "cta": {
@@ -215,7 +368,6 @@
       "buttonLink": "#contact"
     }
   },
-
   "leadership": {
     "section": {
       "badge": "Our Leadership",
@@ -244,7 +396,6 @@
       }
     }
   },
-
   "portfolio": {
     "section": {
       "badge": "Our Work",
@@ -317,7 +468,6 @@
       "link": "#portfolio"
     }
   },
-
   "testimonials": {
     "section": {
       "badge": "Client Testimonials",
@@ -430,7 +580,6 @@
       "totalVideos": "403+"
     }
   },
-
   "whyChooseUs": {
     "section": {
       "badge": "WHY CHOOSE US",
@@ -470,16 +619,36 @@
       }
     ],
     "stats": [
-      { "value": "1000", "suffix": "+", "label": "Projects" },
-      { "value": "24", "suffix": "+", "label": "Years" },
-      { "value": "98", "suffix": "%", "label": "Satisfaction" },
-      { "value": "50", "suffix": "", "label": "Year Warranty" }
+      {
+        "value": "1000",
+        "suffix": "+",
+        "label": "Projects"
+      },
+      {
+        "value": "24",
+        "suffix": "+",
+        "label": "Years"
+      },
+      {
+        "value": "98",
+        "suffix": "%",
+        "label": "Satisfaction"
+      },
+      {
+        "value": "50",
+        "suffix": "",
+        "label": "Year Warranty"
+      }
     ],
     "cta": {
       "badge": "LIMITED TIME",
       "title": "Ready to Transform <span class=\"text-primary block mt-2\">Your Roofing Project?</span>",
       "description": "Contact our team today for a free consultation and detailed estimate. No obligation, just expert advice.",
-      "trustBadges": ["Licensed", "Insured", "BBB A+"],
+      "trustBadges": [
+        "Licensed",
+        "Insured",
+        "BBB A+"
+      ],
       "buttons": [
         {
           "text": "Get Free Quote",
@@ -494,7 +663,6 @@
       ]
     }
   },
-
   "faq": {
     "section": {
       "badge": "Knowledge Base",
@@ -502,11 +670,31 @@
       "description": "Expert answers to common questions about roofing, repairs, materials, and protection for your property."
     },
     "categories": [
-      { "id": "all", "label": "All Questions", "icon": null },
-      { "id": "general", "label": "General", "icon": "Home" },
-      { "id": "repair", "label": "Repair", "icon": "Tools" },
-      { "id": "warranty", "label": "Warranty", "icon": "Shield" },
-      { "id": "emergency", "label": "Emergency", "icon": "Storm" }
+      {
+        "id": "all",
+        "label": "All Questions",
+        "icon": null
+      },
+      {
+        "id": "general",
+        "label": "General",
+        "icon": "Home"
+      },
+      {
+        "id": "repair",
+        "label": "Repair",
+        "icon": "Tools"
+      },
+      {
+        "id": "warranty",
+        "label": "Warranty",
+        "icon": "Shield"
+      },
+      {
+        "id": "emergency",
+        "label": "Emergency",
+        "icon": "Storm"
+      }
     ],
     "items": [
       {
@@ -515,11 +703,20 @@
         "question": "How long does a roof last?",
         "answer": "The lifespan of a roof depends on the material, installation quality, climate conditions, and ongoing maintenance. Most asphalt shingle roofs typically last between 20 to 30 years, while metal roofing systems can last 40 years or more when properly maintained. Regular inspections, timely repairs, and good ventilation can significantly extend the life of any roofing system and help prevent early deterioration.",
         "metadata": [
-          { "label": "Asphalt shingle", "value": "20-30 years" },
-          { "label": "Metal roofing", "value": "40+ years" }
+          {
+            "label": "Asphalt shingle",
+            "value": "20-30 years"
+          },
+          {
+            "label": "Metal roofing",
+            "value": "40+ years"
+          }
         ],
         "links": [
-          { "label": "Learn about roofing materials", "url": "/materials" }
+          {
+            "label": "Learn about roofing materials",
+            "url": "/materials"
+          }
         ]
       },
       {
@@ -528,11 +725,20 @@
         "question": "What are signs my roof needs repair?",
         "answer": "Common warning signs include water leaks, missing or curling shingles, ceiling stains, mold growth, soft roof areas, or visible sagging. You may also notice higher energy bills caused by poor roof ventilation or insulation damage. Even small symptoms can indicate hidden structural issues, so scheduling a professional roof inspection early can prevent more serious and expensive repairs later.",
         "metadata": [
-          { "label": "Warning signs", "value": "Leaks, stains, curling" },
-          { "label": "Action", "value": "Inspect immediately" }
+          {
+            "label": "Warning signs",
+            "value": "Leaks, stains, curling"
+          },
+          {
+            "label": "Action",
+            "value": "Inspect immediately"
+          }
         ],
         "links": [
-          { "label": "Schedule inspection", "url": "/inspection" }
+          {
+            "label": "Schedule inspection",
+            "url": "/inspection"
+          }
         ]
       },
       {
@@ -541,11 +747,20 @@
         "question": "How much does roof replacement cost?",
         "answer": "Roof replacement costs vary based on several factors such as roof size, material type, structural condition, labor requirements, and project complexity. Because every property is different, the most accurate way to determine cost is through a professional inspection and written estimate. Investing in a high-quality replacement often reduces long-term repair expenses and increases overall property value.",
         "metadata": [
-          { "label": "Factors", "value": "Size, material, complexity" },
-          { "label": "Best approach", "value": "Free estimate" }
+          {
+            "label": "Factors",
+            "value": "Size, material, complexity"
+          },
+          {
+            "label": "Best approach",
+            "value": "Free estimate"
+          }
         ],
         "links": [
-          { "label": "Get a free estimate", "url": "/estimate" }
+          {
+            "label": "Get a free estimate",
+            "url": "/estimate"
+          }
         ]
       },
       {
@@ -554,11 +769,20 @@
         "question": "Do you provide emergency roofing services?",
         "answer": "Yes. Emergency roofing services are available to quickly address storm damage, sudden leaks, fallen debris, or structural failures that threaten your property's safety. Rapid response helps minimize interior damage, prevent mold growth, and stabilize the roofing system until permanent repairs or replacement can be completed. Acting quickly during emergencies can save significant time and repair costs.",
         "metadata": [
-          { "label": "Response", "value": "24/7 availability" },
-          { "label": "Coverage", "value": "All areas" }
+          {
+            "label": "Response",
+            "value": "24/7 availability"
+          },
+          {
+            "label": "Coverage",
+            "value": "All areas"
+          }
         ],
         "links": [
-          { "label": "Emergency services", "url": "/emergency" }
+          {
+            "label": "Emergency services",
+            "url": "/emergency"
+          }
         ]
       },
       {
@@ -567,11 +791,20 @@
         "question": "How often should roofs be inspected?",
         "answer": "Roofs should be professionally inspected at least once each year and always after major storms, hail, or high-wind events. Regular inspections help detect hidden damage, aging materials, drainage issues, and ventilation problems before they become serious. Preventive maintenance based on inspection findings can extend roof lifespan, improve performance, and protect your home or business from unexpected repair expenses.",
         "metadata": [
-          { "label": "Routine", "value": "Annually" },
-          { "label": "After storms", "value": "Immediately" }
+          {
+            "label": "Routine",
+            "value": "Annually"
+          },
+          {
+            "label": "After storms",
+            "value": "Immediately"
+          }
         ],
         "links": [
-          { "label": "Maintenance plans", "url": "/maintenance" }
+          {
+            "label": "Maintenance plans",
+            "url": "/maintenance"
+          }
         ]
       },
       {
@@ -580,11 +813,20 @@
         "question": "Will my insurance cover roof damage?",
         "answer": "In many cases, storm-related damage such as hail, wind, or falling debris may be covered by homeowners insurance, depending on your policy terms and the cause of damage. A professional roof inspection with proper documentation and photos can help support your claim and ensure the damage is accurately reported. Working with an experienced roofing contractor during the insurance process can make the approval and repair timeline much smoother.",
         "metadata": [
-          { "label": "Coverage", "value": "Storm damage" },
-          { "label": "Documentation", "value": "Inspection report" }
+          {
+            "label": "Coverage",
+            "value": "Storm damage"
+          },
+          {
+            "label": "Documentation",
+            "value": "Inspection report"
+          }
         ],
         "links": [
-          { "label": "Insurance guidance", "url": "/insurance" }
+          {
+            "label": "Insurance guidance",
+            "url": "/insurance"
+          }
         ]
       },
       {
@@ -593,11 +835,20 @@
         "question": "How long does a roof replacement take?",
         "answer": "Most residential roof replacements are completed within one to three days, depending on the roof size, weather conditions, material type, and structural complexity. Larger or commercial projects may take longer to ensure proper installation and safety. Professional planning, skilled crews, and quality materials help ensure the project is completed efficiently without compromising workmanship or long-term durability.",
         "metadata": [
-          { "label": "Residential", "value": "1-3 days" },
-          { "label": "Commercial", "value": "Varies" }
+          {
+            "label": "Residential",
+            "value": "1-3 days"
+          },
+          {
+            "label": "Commercial",
+            "value": "Varies"
+          }
         ],
         "links": [
-          { "label": "Our process", "url": "/process" }
+          {
+            "label": "Our process",
+            "url": "/process"
+          }
         ]
       },
       {
@@ -606,11 +857,20 @@
         "question": "Can a small roof leak become a serious problem?",
         "answer": "Yes. Even a minor leak can allow water to reach insulation, drywall, framing, and electrical systems, leading to mold growth, structural weakening, and costly interior repairs. Because leaks often spread beyond the visible area, early detection and prompt repair are essential. Addressing small roofing issues quickly is the most effective way to protect your property and avoid major expenses later.",
         "metadata": [
-          { "label": "Risk", "value": "Mold, structural damage" },
-          { "label": "Action", "value": "Repair immediately" }
+          {
+            "label": "Risk",
+            "value": "Mold, structural damage"
+          },
+          {
+            "label": "Action",
+            "value": "Repair immediately"
+          }
         ],
         "links": [
-          { "label": "Schedule repair", "url": "/repair" }
+          {
+            "label": "Schedule repair",
+            "url": "/repair"
+          }
         ]
       },
       {
@@ -619,12 +879,24 @@
         "question": "What roofing materials are best for long-term durability?",
         "answer": "Popular long-lasting roofing materials include architectural asphalt shingles, metal roofing, tile, and certain flat-roof membrane systems. The best choice depends on climate, budget, building design, and energy-efficiency goals. A professional roofing evaluation can help determine which material offers the best balance of durability, appearance, and long-term value for your specific property.",
         "metadata": [
-          { "label": "Metal", "value": "40+ years" },
-          { "label": "Architectural shingles", "value": "30+ years" },
-          { "label": "Tile", "value": "50+ years" }
+          {
+            "label": "Metal",
+            "value": "40+ years"
+          },
+          {
+            "label": "Architectural shingles",
+            "value": "30+ years"
+          },
+          {
+            "label": "Tile",
+            "value": "50+ years"
+          }
         ],
         "links": [
-          { "label": "Material guide", "url": "/materials" }
+          {
+            "label": "Material guide",
+            "url": "/materials"
+          }
         ]
       },
       {
@@ -633,11 +905,20 @@
         "question": "Why is professional roof installation important?",
         "answer": "Proper installation is critical because even high-quality materials can fail if installed incorrectly. Professional roofing contractors follow manufacturer guidelines, safety standards, ventilation requirements, and structural best practices to ensure long-term performance. Correct installation not only extends roof lifespan but also protects warranties, improves energy efficiency, and reduces the risk of future repairs.",
         "metadata": [
-          { "label": "Warranty protection", "value": "Manufacturer requires" },
-          { "label": "Performance", "value": "Maximized lifespan" }
+          {
+            "label": "Warranty protection",
+            "value": "Manufacturer requires"
+          },
+          {
+            "label": "Performance",
+            "value": "Maximized lifespan"
+          }
         ],
         "links": [
-          { "label": "Our credentials", "url": "/about" }
+          {
+            "label": "Our credentials",
+            "url": "/about"
+          }
         ]
       }
     ],
@@ -648,7 +929,6 @@
       "buttonLink": "/contact"
     }
   },
-
   "quote": {
     "section": {
       "badge": "INITIATE PROTOCOL",
@@ -656,25 +936,82 @@
       "description": "Every legacy begins with a conversation. Share your vision — our engineering collective will respond within hours."
     },
     "services": [
-      { "id": 1, "title": "Residential Masterpiece", "desc": "Custom-engineered estate systems", "icon": "⌗" },
-      { "id": 2, "title": "Commercial Campus", "desc": "Large-scale enterprise solutions", "icon": "⎔" },
-      { "id": 3, "title": "Heritage Preservation", "desc": "Historic restoration & documentation", "icon": "⌖" },
-      { "id": 4, "title": "Architectural Metal", "desc": "Bespoke copper & standing seam", "icon": "⌘" },
-      { "id": 5, "title": "Emergency Response", "desc": "24/7 structural stabilization", "icon": "⚡" },
-      { "id": 6, "title": "Legacy Maintenance", "desc": "Predictive AI-driven care", "icon": "◈" }
+      {
+        "id": 1,
+        "title": "Residential Masterpiece",
+        "desc": "Custom-engineered estate systems",
+        "icon": "⌗"
+      },
+      {
+        "id": 2,
+        "title": "Commercial Campus",
+        "desc": "Large-scale enterprise solutions",
+        "icon": "⎔"
+      },
+      {
+        "id": 3,
+        "title": "Heritage Preservation",
+        "desc": "Historic restoration & documentation",
+        "icon": "⌖"
+      },
+      {
+        "id": 4,
+        "title": "Architectural Metal",
+        "desc": "Bespoke copper & standing seam",
+        "icon": "⌘"
+      },
+      {
+        "id": 5,
+        "title": "Emergency Response",
+        "desc": "24/7 structural stabilization",
+        "icon": "⚡"
+      },
+      {
+        "id": 6,
+        "title": "Legacy Maintenance",
+        "desc": "Predictive AI-driven care",
+        "icon": "◈"
+      }
     ],
     "projectTypes": [
-      { "value": "residential", "label": "Residential Estate" },
-      { "value": "commercial", "label": "Commercial Campus" },
-      { "value": "industrial", "label": "Industrial Facility" },
-      { "value": "heritage", "label": "Heritage / Historic" },
-      { "value": "infrastructure", "label": "Infrastructure" }
+      {
+        "value": "residential",
+        "label": "Residential Estate"
+      },
+      {
+        "value": "commercial",
+        "label": "Commercial Campus"
+      },
+      {
+        "value": "industrial",
+        "label": "Industrial Facility"
+      },
+      {
+        "value": "heritage",
+        "label": "Heritage / Historic"
+      },
+      {
+        "value": "infrastructure",
+        "label": "Infrastructure"
+      }
     ],
     "timelines": [
-      { "value": "urgent", "label": "Urgent (within 2 weeks)" },
-      { "value": "standard", "label": "Standard (1-3 months)" },
-      { "value": "planned", "label": "Planned (3-6 months)" },
-      { "value": "future", "label": "Future (6+ months)" }
+      {
+        "value": "urgent",
+        "label": "Urgent (within 2 weeks)"
+      },
+      {
+        "value": "standard",
+        "label": "Standard (1-3 months)"
+      },
+      {
+        "value": "planned",
+        "label": "Planned (3-6 months)"
+      },
+      {
+        "value": "future",
+        "label": "Future (6+ months)"
+      }
     ],
     "email": "ammansoor007@gmail.com",
     "success": {
@@ -684,7 +1021,6 @@
       "buttonText": "Close"
     }
   },
-
   "footer": {
     "company": {
       "name": "Fair Claims",
@@ -694,24 +1030,76 @@
     "services": {
       "title": "Complete Roofing Services",
       "main": [
-        { "label": "Roof Repair Solutions", "href": "/roof-repair", "icon": "Repair" },
-        { "label": "Full Roof Replacement", "href": "/roof-replacement", "icon": "Replacement" },
-        { "label": "Roof Inspections & Preventive Care", "href": "/roof-inspection", "icon": "Inspection" },
-        { "label": "Preventive Maintenance", "href": "/maintenance", "icon": "Maintenance" },
-        { "label": "Residential Roofing", "href": "/residential", "icon": "Residential" },
-        { "label": "Commercial Roofing Systems", "href": "/commercial", "icon": "Commercial" },
-        { "label": "Emergency Services", "href": "/emergency", "icon": "Emergency" },
-        { "label": "Storm Damage Restoration", "href": "/storm-damage", "icon": "Repair" },
-        { "label": "New Roof Installation", "href": "/new-roof", "icon": "Roofing" },
-        { "label": "Roof Ventilation", "href": "/ventilation", "icon": "Inspection" }
+        {
+          "label": "Roof Repair Solutions",
+          "href": "/roof-repair",
+          "icon": "Repair"
+        },
+        {
+          "label": "Full Roof Replacement",
+          "href": "/roof-replacement",
+          "icon": "Replacement"
+        },
+        {
+          "label": "Roof Inspections & Preventive Care",
+          "href": "/roof-inspection",
+          "icon": "Inspection"
+        },
+        {
+          "label": "Preventive Maintenance",
+          "href": "/maintenance",
+          "icon": "Maintenance"
+        },
+        {
+          "label": "Residential Roofing",
+          "href": "/residential",
+          "icon": "Residential"
+        },
+        {
+          "label": "Commercial Roofing Systems",
+          "href": "/commercial",
+          "icon": "Commercial"
+        },
+        {
+          "label": "Emergency Services",
+          "href": "/emergency",
+          "icon": "Emergency"
+        },
+        {
+          "label": "Storm Damage Restoration",
+          "href": "/storm-damage",
+          "icon": "Repair"
+        },
+        {
+          "label": "New Roof Installation",
+          "href": "/new-roof",
+          "icon": "Roofing"
+        },
+        {
+          "label": "Roof Ventilation",
+          "href": "/ventilation",
+          "icon": "Inspection"
+        }
       ],
       "materials": {
         "title": "Materials We Install",
         "items": [
-          { "label": "Asphalt Shingle Roofing", "href": "/asphalt-shingle" },
-          { "label": "Metal Roofing Systems", "href": "/metal-roofing" },
-          { "label": "Tile Roofing", "href": "/tile-roofing" },
-          { "label": "Flat Roofing Systems", "href": "/flat-roofing" }
+          {
+            "label": "Asphalt Shingle Roofing",
+            "href": "/asphalt-shingle"
+          },
+          {
+            "label": "Metal Roofing Systems",
+            "href": "/metal-roofing"
+          },
+          {
+            "label": "Tile Roofing",
+            "href": "/tile-roofing"
+          },
+          {
+            "label": "Flat Roofing Systems",
+            "href": "/flat-roofing"
+          }
         ]
       }
     },
@@ -724,36 +1112,100 @@
       "areas": "Houston • Dallas • Austin • San Antonio • Fort Worth • Arlington • Plano & Surrounding Texas Communities"
     },
     "certifications": [
-      { "cert": "GAF", "number": "Master Elite", "icon": "Warranty" },
-      { "cert": "CertainTeed", "number": "SELECT ShingleMaster", "icon": "Warranty" },
-      { "cert": "OSHA", "number": "Certified", "icon": "Warranty" },
-      { "cert": "ISO", "number": "9001:2024", "icon": "Warranty" },
-      { "cert": "LEED", "number": "Platinum", "icon": "Warranty" },
-      { "cert": "BREEAM", "number": "Outstanding", "icon": "Warranty" }
+      {
+        "cert": "GAF",
+        "number": "Master Elite",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "CertainTeed",
+        "number": "SELECT ShingleMaster",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "OSHA",
+        "number": "Certified",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "ISO",
+        "number": "9001:2024",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "LEED",
+        "number": "Platinum",
+        "icon": "Warranty"
+      },
+      {
+        "cert": "BREEAM",
+        "number": "Outstanding",
+        "icon": "Warranty"
+      }
     ],
     "quickLinks": [
-      { "label": "Warranty", "href": "/warranty", "icon": "Warranty" },
-      { "label": "Financing", "href": "/financing", "icon": "Financing" },
-      { "label": "Insurance Support", "href": "/insurance", "icon": "Warranty" }
+      {
+        "label": "Warranty",
+        "href": "/warranty",
+        "icon": "Warranty"
+      },
+      {
+        "label": "Financing",
+        "href": "/financing",
+        "icon": "Financing"
+      },
+      {
+        "label": "Insurance Support",
+        "href": "/insurance",
+        "icon": "Warranty"
+      }
     ],
     "social": [
-      { "platform": "LinkedIn", "icon": "Linkedin", "href": "#" },
-      { "platform": "Twitter", "icon": "Twitter", "href": "#" },
-      { "platform": "Instagram", "icon": "Instagram", "href": "#" }
+      {
+        "platform": "LinkedIn",
+        "icon": "Linkedin",
+        "href": "#"
+      },
+      {
+        "platform": "Twitter",
+        "icon": "Twitter",
+        "href": "#"
+      },
+      {
+        "platform": "Instagram",
+        "icon": "Instagram",
+        "href": "#"
+      }
     ],
     "bottom": {
       "copyright": "© 2026 Fair Claims Roofing Company",
       "rights": "All rights reserved",
       "links": [
-        { "label": "Privacy", "href": "/privacy" },
-        { "label": "Terms", "href": "/terms" },
-        { "label": "Licenses", "href": "/licenses" },
-        { "label": "Sitemap", "href": "/sitemap" }
+        {
+          "label": "Privacy",
+          "href": "/privacy"
+        },
+        {
+          "label": "Terms",
+          "href": "/terms"
+        },
+        {
+          "label": "Licenses",
+          "href": "/licenses"
+        },
+        {
+          "label": "Sitemap",
+          "href": "/sitemap"
+        }
       ],
       "tagline": "STRENGTH • INTEGRITY • LASTING PROTECTION"
     },
     "marquee": {
-      "texts": ["STRENGTH • INTEGRITY • PROTECTION", "SINCE 2002", "TRUST • QUALITY • DURABILITY"]
+      "texts": [
+        "STRENGTH • INTEGRITY • PROTECTION",
+        "SINCE 2002",
+        "TRUST • QUALITY • DURABILITY"
+      ]
     }
   }
 }

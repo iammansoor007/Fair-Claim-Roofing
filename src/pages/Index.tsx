@@ -87,7 +87,7 @@ const Index = () => {
               <FAQ />
             </section>
             <Footer />
-            
+
             {/* ✅ Quick Quote Widget - Only appears on Index page */}
             <QuickQuote />
           </div>
