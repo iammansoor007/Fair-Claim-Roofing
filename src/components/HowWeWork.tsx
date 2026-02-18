@@ -408,7 +408,7 @@ const WhyChooseUs = () => {
 
     const stats = [
         { value: "1000", label: "Projects", suffix: "+" },
-        { value: "23", label: "Years", suffix: "" },
+        { value: "24", label: "Years", suffix: "+" },
         { value: "98", label: "Satisfaction", suffix: "%" },
         { value: "50", label: "Year Warranty", suffix: "" }
     ];

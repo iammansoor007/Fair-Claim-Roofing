@@ -433,7 +433,7 @@ const Portfolio = () => {
         </motion.div>
 
         {/* Infinite Marquees */}
-        <div className="space-y-2 sm:space-y-3 md:space-y-4">
+        <div className="space-y-1 sm:space-y-2 md:space-y-0">
           <InfiniteMarquee projects={row1} direction="left" speed={45} />
           <InfiniteMarquee projects={row2} direction="right" speed={40} />
         </div>

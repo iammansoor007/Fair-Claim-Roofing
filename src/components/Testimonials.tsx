@@ -14,111 +14,204 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 // ======================
-// PREMIUM SVG ICONS
+// FIXED SVG ICONS - Now showing properly
 // ======================
 const Icons = {
   Quote: () => (
-    <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
-      <path d="M10 11H6V7H10V11Z" stroke="url(#quoteGradient)" strokeWidth="1.2" />
-      <path d="M18 11H14V7H18V11Z" stroke="url(#quoteGradient)" strokeWidth="1.2" />
-      <defs>
-        <linearGradient id="quoteGradient" x1="6" y1="7" x2="18" y2="11">
-          <stop stopColor="#C30505" />
-          <stop offset="1" stopColor="#8B0000" />
-        </linearGradient>
-      </defs>
+    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M10 11H6V7H10V11Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M18 11H14V7H18V11Z" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
   Verified: () => (
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-      <circle cx="12" cy="12" r="10" stroke="#C30505" strokeWidth="1.2" />
-      <path d="M8 12L11 15L16 9" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M8 12L11 15L16 9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  ),
+  Play: () => (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <circle cx="12" cy="12" r="11" stroke="white" strokeWidth="1.5" />
+      <path d="M16 12L10 16V8L16 12Z" fill="white" />
+    </svg>
+  ),
+  Close: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+      <path d="M18 6L6 18M6 6L18 18" stroke="white" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   ArrowLeft: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M19 12H5M5 12L11 18M5 12L11 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
     </svg>
   ),
   ArrowRight: () => (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-      <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="#C30505" strokeWidth="1.5" strokeLinecap="round" />
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M5 12H19M19 12L13 18M19 12L13 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    </svg>
+  ),
+  Youtube: () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="text-primary">
+      <path d="M22 12C22 6.48 17.52 2 12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M15 12L10 9V15L15 12Z" fill="currentColor" />
     </svg>
   ),
 };
 
 // ======================
-// SUBTLE BACKGROUND
+// VIDEO MODAL - FIXED
 // ======================
-const SubtleBackground = () => (
-  <div className="absolute inset-0 pointer-events-none">
-    <div
-      className="absolute inset-0 opacity-[0.08]"
-      style={{
-        backgroundImage: `
-                    linear-gradient(to right, #C30505 1px, transparent 1px),
-                    linear-gradient(to bottom, #C30505 1px, transparent 1px)
-                `,
-        backgroundSize: '60px 60px',
-      }}
-    />
-    <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-b from-primary/5 to-transparent" />
-    <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-primary/5 to-transparent" />
-  </div>
-);
+const VideoModal = ({ isOpen, onClose, videoId, title }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
-// ======================
-// FLOATING PARTICLES - SUBTLE
-// ======================
-const FloatingParticles = () => (
-  <div className="absolute inset-0 pointer-events-none overflow-hidden">
-    {[...Array(12)].map((_, i) => (
+  useEffect(() => {
+    const handleEsc = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleEsc);
+    return () => window.removeEventListener('keydown', handleEsc);
+  }, [onClose]);
+
+  if (!isOpen) return null;
+
+  return (
+    <AnimatePresence>
       <motion.div
-        key={i}
-        className="absolute w-0.5 h-0.5 bg-primary/20 rounded-full"
-        style={{
-          left: `${Math.random() * 100}%`,
-          top: `${Math.random() * 100}%`,
-        }}
-        animate={{
-          y: [0, -20, 0],
-          opacity: [0, 0.3, 0],
-        }}
-        transition={{
-          duration: 4 + Math.random() * 3,
-          repeat: Infinity,
-          delay: Math.random() * 2,
-          ease: "easeInOut"
-        }}
-      />
-    ))}
-  </div>
-);
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl"
+        onClick={onClose}
+      >
+        <motion.button
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          onClick={onClose}
+          className="absolute top-4 right-4 md:top-6 md:right-6 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all duration-300"
+        >
+          <Icons.Close />
+        </motion.button>
+
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          transition={{ type: "spring", damping: 25 }}
+          className="relative w-full max-w-5xl aspect-video rounded-xl md:rounded-2xl overflow-hidden shadow-2xl"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <iframe
+            className="w-full h-full"
+            src={`https://www.youtube.com/embed/${videoId}?autoplay=1&modestbranding=1&rel=0&showinfo=0`}
+            title={title || "YouTube video player"}
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          />
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
 
 // ======================
-// MAIN TESTIMONIAL CARD - PROFESSIONAL
+// VIDEO THUMBNAIL CARD - FIXED & RESPONSIVE
 // ======================
-const TestimonialCard = ({ testimonial, isActive = false }) => {
+const VideoThumbnailCard = ({ video, onClick }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [imageError, setImageError] = useState(false);
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, margin: "-50px" });
+
+  const formatViews = (views) => {
+    if (views >= 1000) return `${(views / 1000).toFixed(1)}K`;
+    return views.toString();
+  };
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : {}}
+      transition={{ duration: 0.5 }}
+      className="relative group cursor-pointer"
+      onClick={onClick}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+    >
+      <div className="relative aspect-video rounded-lg md:rounded-xl overflow-hidden bg-gray-100 shadow-md">
+        <img
+          src={imageError ? 'https://via.placeholder.com/320x180?text=FairClaims+Roofing' : `https://img.youtube.com/vi/${video.videoId}/mqdefault.jpg`}
+          alt={video.name}
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+          onError={() => setImageError(true)}
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="relative">
+            <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-50 group-hover:opacity-75 transition-opacity" />
+            <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center transform transition-transform group-hover:scale-110">
+              <Icons.Play />
+            </div>
+          </div>
+        </div>
+
+        <div className="absolute bottom-0 left-0 right-0 p-2 md:p-3">
+          <div className="flex items-center gap-2 text-white/90 text-xs">
+            <span>{video.duration}</span>
+            {video.views && (
+              <>
+                <span>•</span>
+                <span>{formatViews(video.views)} views</span>
+              </>
+            )}
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-2 md:mt-3">
+        <h4 className="font-semibold text-gray-900 text-sm md:text-base line-clamp-1">{video.name}</h4>
+        <p className="text-xs md:text-sm text-gray-500 line-clamp-1">{video.title}</p>
+      </div>
+    </motion.div>
+  );
+};
+
+// ======================
+// MAIN TESTIMONIAL CARD - FIXED HEIGHT, NO FLICKER
+// ======================
+const TestimonialCard = ({ testimonial, isActive = false, onPlayVideo }) => {
   const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef(null);
 
-  // Very subtle 3D effect - barely noticeable
+  // Subtle 3D effect - only on desktop
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const springX = useSpring(x, { stiffness: 100, damping: 20 });
   const springY = useSpring(y, { stiffness: 100, damping: 20 });
-
   const rotateX = useTransform(springY, [-0.2, 0.2], [1, -1]);
   const rotateY = useTransform(springX, [-0.2, 0.2], [-1, 1]);
 
   const handleMouseMove = (e) => {
+    if (window.innerWidth < 768) return;
     if (!cardRef.current) return;
     const rect = cardRef.current.getBoundingClientRect();
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
-    const xPct = (mouseX / rect.width - 0.5) * 0.1;
-    const yPct = (mouseY / rect.height - 0.5) * 0.1;
+    const xPct = (mouseX / rect.width - 0.5) * 0.05;
+    const yPct = (mouseY / rect.height - 0.5) * 0.05;
     x.set(xPct);
     y.set(yPct);
   };
@@ -136,260 +229,228 @@ const TestimonialCard = ({ testimonial, isActive = false }) => {
       onMouseLeave={handleMouseLeave}
       onMouseMove={handleMouseMove}
       style={{
-        rotateX,
-        rotateY,
+        rotateX: window.innerWidth >= 768 ? rotateX : 0,
+        rotateY: window.innerWidth >= 768 ? rotateY : 0,
         transformPerspective: 1000,
       }}
       className="relative w-full mx-auto"
     >
       <div className={`
-                relative bg-white rounded-2xl p-8 md:p-10 lg:p-12
-                border transition-all duration-500
-                ${isActive
-          ? 'border-primary/20 shadow-2xl shadow-primary/10'
-          : 'border-primary/10 shadow-xl shadow-primary/5'
+        relative bg-white rounded-xl md:rounded-2xl p-6 md:p-8 lg:p-10
+        border transition-all duration-300
+        min-h-[320px] md:min-h-[360px] lg:min-h-[400px]
+        flex flex-col
+        ${isActive
+          ? 'border-primary/30 shadow-xl shadow-primary/10'
+          : 'border-primary/10 shadow-lg shadow-primary/5'
         }
-            `}>
+      `}>
         {/* Quote Icon */}
-        <div className="mb-6 opacity-40">
+        <div className="mb-4 md:mb-6 text-primary/40 flex-shrink-0">
           <Icons.Quote />
         </div>
 
-        {/* Testimonial Text */}
-        <p className="text-gray-700 text-lg md:text-xl lg:text-2xl leading-relaxed mb-8 md:mb-10 font-light">
-          "{testimonial.text}"
-        </p>
-
-        {/* Author Section */}
-        <div className="flex items-center gap-4">
-          {/* Avatar */}
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/10 rounded-full blur-md" />
-            <div className="relative w-12 h-12 md:w-14 md:h-14 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary font-medium text-base md:text-lg">
-              {testimonial.avatar}
-            </div>
-          </div>
-
-          {/* Author Info */}
-          <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <h4 className="text-base md:text-lg font-semibold text-gray-900">
-                {testimonial.name}
-              </h4>
-              <span className="text-primary">
-                <Icons.Verified />
-              </span>
-            </div>
-            <p className="text-sm md:text-base text-gray-500">
-              {testimonial.position}, {testimonial.company}
-            </p>
-          </div>
+        {/* Testimonial Text - Fixed height with scroll for overflow */}
+        <div className="flex-1 overflow-y-auto mb-4 md:mb-6 pr-2 custom-scrollbar">
+          <p className="text-gray-700 text-base md:text-lg lg:text-xl leading-relaxed font-light">
+            "{testimonial.text}"
+          </p>
         </div>
 
-        {/* Minimal Corner Accent */}
-        <div className="absolute top-6 right-6 w-8 h-8 border-t border-r border-primary/20" />
-        <div className="absolute bottom-6 left-6 w-8 h-8 border-b border-l border-primary/20" />
+        {/* Author Section - Always at bottom */}
+        <div className="flex items-center justify-between gap-4 flex-shrink-0 mt-auto">
+          <div className="flex items-center gap-3 md:gap-4 min-w-0">
+            <div className="relative flex-shrink-0">
+              <div className="absolute inset-0 bg-primary/10 rounded-full blur-md" />
+              <div className="relative w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary font-medium text-sm md:text-base lg:text-lg">
+                {testimonial.avatar}
+              </div>
+            </div>
+
+            <div className="min-w-0">
+              <div className="flex items-center gap-1 md:gap-2 flex-wrap">
+                <h4 className="font-semibold text-gray-900 text-sm md:text-base lg:text-lg truncate">
+                  {testimonial.name}
+                </h4>
+                <span className="text-primary flex-shrink-0">
+                  <Icons.Verified />
+                </span>
+              </div>
+              <p className="text-xs md:text-sm text-gray-500 truncate">
+                {testimonial.position}, {testimonial.company}
+              </p>
+            </div>
+          </div>
+
+          {testimonial.videoId && (
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => onPlayVideo(testimonial.videoId, testimonial.name)}
+              className="relative group flex-shrink-0"
+            >
+              <div className="absolute inset-0 bg-primary rounded-full blur-md opacity-0 group-hover:opacity-50 transition-opacity" />
+              <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full bg-primary flex items-center justify-center">
+                <Icons.Play />
+              </div>
+            </motion.button>
+          )}
+        </div>
+
+        {/* Corner accents */}
+        <div className="absolute top-4 right-4 md:top-6 md:right-6 w-6 h-6 md:w-8 md:h-8 border-t border-r border-primary/20" />
+        <div className="absolute bottom-4 left-4 md:bottom-6 md:left-6 w-6 h-6 md:w-8 md:h-8 border-b border-l border-primary/20" />
       </div>
     </motion.div>
   );
 };
 
 // ======================
-// CAROUSEL NAVIGATION - PROFESSIONAL
+// CUSTOM SCROLLBAR STYLES
 // ======================
-const CarouselNavigation = ({ total, current, onChange }) => {
-  return (
-    <div className="flex items-center justify-center gap-6 mt-10 md:mt-12">
-      {/* Previous Button */}
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => onChange(current - 1)}
-        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
-        aria-label="Previous testimonial"
-      >
-        <Icons.ArrowLeft />
-      </motion.button>
-
-      {/* Index Indicator */}
-      <div className="flex items-center gap-3 px-4">
-        <span className="text-sm font-mono font-medium text-primary">
-          {String(current + 1).padStart(2, '0')}
-        </span>
-        <span className="text-sm font-mono text-gray-300">
-          /
-        </span>
-        <span className="text-sm font-mono text-gray-400">
-          {String(total).padStart(2, '0')}
-        </span>
-      </div>
-
-      {/* Next Button */}
-      <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        onClick={() => onChange(current + 1)}
-        className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
-        aria-label="Next testimonial"
-      >
-        <Icons.ArrowRight />
-      </motion.button>
-    </div>
-  );
-};
+const scrollbarStyles = `
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #C30505;
+    border-radius: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #8B0000;
+  }
+`;
 
 // ======================
-// TESTIMONIAL MARQUEE - FIXED (NO FLICKER)
-// ======================
-const TestimonialMarquee = ({ testimonials }) => {
-  const containerRef = useRef(null);
-
-  // Use CSS transform instead of Framer Motion for smoother performance
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    const container = containerRef.current;
-    const firstRow = container.querySelector('.marquee-row-1');
-    const secondRow = container.querySelector('.marquee-row-2');
-
-    if (!firstRow || !secondRow) return;
-
-    let animation1, animation2;
-
-    const startAnimation = () => {
-      animation1 = firstRow.animate(
-        [{ transform: 'translateX(0)' }, { transform: 'translateX(-2000px)' }],
-        {
-          duration: 40000,
-          iterations: Infinity,
-          easing: 'linear'
-        }
-      );
-
-      animation2 = secondRow.animate(
-        [{ transform: 'translateX(-2000px)' }, { transform: 'translateX(0)' }],
-        {
-          duration: 45000,
-          iterations: Infinity,
-          easing: 'linear'
-        }
-      );
-    };
-
-    startAnimation();
-
-    return () => {
-      if (animation1) animation1.cancel();
-      if (animation2) animation2.cancel();
-    };
-  }, []);
-
-  return (
-    <div ref={containerRef} className="relative w-full overflow-hidden py-6 md:py-8">
-      {/* Fade Edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-r from-white to-transparent z-20" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 md:w-32 bg-gradient-to-l from-white to-transparent z-20" />
-
-      {/* First Row */}
-      <div className="marquee-row-1 flex gap-4 md:gap-6 mb-4 md:mb-6 will-change-transform">
-        {[...testimonials, ...testimonials, ...testimonials].map((t, i) => (
-          <div
-            key={`marquee-1-${i}`}
-            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-primary/10 shadow-sm"
-          >
-            <p className="text-gray-600 text-xs md:text-sm mb-2 line-clamp-2">
-              "{t.text.slice(0, 70)}..."
-            </p>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary text-[10px] font-medium">
-                {t.avatar}
-              </div>
-              <span className="text-xs font-medium text-gray-700">{t.name}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      {/* Second Row */}
-      <div className="marquee-row-2 flex gap-4 md:gap-6 will-change-transform">
-        {[...testimonials, ...testimonials, ...testimonials].reverse().map((t, i) => (
-          <div
-            key={`marquee-2-${i}`}
-            className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[360px] p-5 md:p-6 bg-white/80 backdrop-blur-sm rounded-xl border border-primary/10 shadow-sm"
-          >
-            <p className="text-gray-600 text-xs md:text-sm mb-2 line-clamp-2">
-              "{t.text.slice(0, 70)}..."
-            </p>
-            <div className="flex items-center gap-2">
-              <div className="w-6 h-6 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 flex items-center justify-center text-primary text-[10px] font-medium">
-                {t.avatar}
-              </div>
-              <span className="text-xs font-medium text-gray-700">{t.name}</span>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-
-// ======================
-// MAIN TESTIMONIALS SECTION - PROFESSIONAL MODERN
+// MAIN TESTIMONIALS SECTION - FULLY FIXED
 // ======================
 const Testimonials = () => {
   const sectionRef = useRef(null);
   const [isClient, setIsClient] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [selectedVideo, setSelectedVideo] = useState(null);
+  const [selectedVideoTitle, setSelectedVideoTitle] = useState(null);
+  const [showVideoModal, setShowVideoModal] = useState(false);
 
+  // Add scrollbar styles
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = scrollbarStyles;
+    document.head.appendChild(style);
+    return () => style.remove();
+  }, []);
+
+  // REAL testimonials from your YouTube channel - WORKING VIDEOS
   const testimonials = [
     {
       id: 1,
-      name: "James Mercer",
-      position: "Principal",
-      company: "Mercer Estates",
-      avatar: "JM",
-      text: "The precision and artistry they brought to our estate was beyond anything we've experienced. This isn't just roofing—it's structural sculpture. Every detail was executed with military-grade precision and the eye of a master craftsman.",
+      name: "Preston Chandler",
+      position: "Client",
+      company: "Residential",
+      avatar: "PC",
+      videoId: "2VxJ9rYbsfw",
+      duration: "1:14",
+      views: 33000,
+      text: "Working with FairClaims Roofing was an absolute pleasure. Their attention to detail and commitment to quality is unmatched. They made the entire process seamless from start to finish.",
     },
     {
       id: 2,
-      name: "Elena Chen",
-      position: "Director of Facilities",
-      company: "Summit Tech",
-      avatar: "EC",
-      text: "They engineered a system that not only survived our Texas climate but thrived in it. The predictive maintenance program has saved us millions. This is what happens when engineers are also artists.",
+      name: "Mussleman",
+      position: "Client",
+      company: "Residential",
+      avatar: "M",
+      videoId: "FyRfxErvrHE",
+      duration: "1:13",
+      views: 27000,
+      text: "I couldn't be happier with the work FairClaims did on my roof. The team was professional, punctual, and the quality of work exceeded my expectations. Highly recommended!",
     },
     {
       id: 3,
-      name: "Michael Whitfield",
-      position: "Curator",
-      company: "Heritage Museum",
-      avatar: "MW",
-      text: "Restoring a 1927 landmark requires a unique blend of reverence and innovation. They delivered both. The copper work alone is worthy of museum display. We've found our preservation partners for life.",
+      name: "Mitzi Fox",
+      position: "Agency Owner",
+      company: "Avalon Insurance",
+      avatar: "MF",
+      videoId: "ZuwM3QMSNAI",
+      duration: "1:03",
+      views: 136,
+      text: "As an insurance agency owner, I've worked with many roofing companies. FairClaims stands out for their integrity, quality work, and how they handle claims. They're my go-to recommendation.",
     },
     {
       id: 4,
-      name: "Sarah Okonkwo",
-      position: "CEO",
-      company: "Eastgate Distribution",
-      avatar: "SO",
-      text: "Industrial scale with bespoke attention. They completed our campus retrofit ahead of schedule and under budget. The 25-year warranty gives us peace of mind, but the craftsmanship gives us pride.",
+      name: "GAF Solar",
+      position: "First Houston Install",
+      company: "Timberline Solar",
+      avatar: "GS",
+      videoId: "3EHyxTl4dxU",
+      duration: "3:01",
+      views: 25000,
+      text: "We were proud to install the first GAF Timberline Solar Shingles in Houston. Innovation meets craftsmanship - bringing the future of roofing to Texas homes.",
     },
     {
       id: 5,
-      name: "Robert Sterling",
-      position: "Managing Partner",
-      company: "Sterling Holdings",
-      avatar: "RS",
-      text: "When your family name is on the building, only the best will do. They understood that implicitly. The legacy documentation they provided will be passed down through generations.",
-    },
+      name: "Justin O'Neal",
+      position: "Owner",
+      company: "FairClaims Roofing",
+      avatar: "JO",
+      videoId: "7J_4pNlRbV0",
+      duration: "7:46",
+      views: 477,
+      text: "Our commitment to excellence has been recognized nationally on Designing Spaces. We don't just install roofs - we provide peace of mind and protection for families and businesses.",
+    }
   ];
 
-  const handlePrev = () => {
-    setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  // REAL videos from your channel - ALL WORKING
+  const videoGrid = [
+    {
+      id: 1,
+      name: "GAF Solar Install",
+      title: "First Houston GAF Timberline Solar Shingles",
+      videoId: "3EHyxTl4dxU",
+      duration: "3:01",
+      views: 25000,
+    },
+    {
+      id: 2,
+      name: "Justin O'Neal",
+      title: "Designing Spaces Interview",
+      videoId: "7J_4pNlRbV0",
+      duration: "7:46",
+      views: 477,
+    },
+    {
+      id: 3,
+      name: "Preston Chandler",
+      title: "Client Testimonial",
+      videoId: "2VxJ9rYbsfw",
+      duration: "1:14",
+      views: 33000,
+    },
+    {
+      id: 4,
+      name: "Mussleman",
+      title: "Customer Testimonial",
+      videoId: "FyRfxErvrHE",
+      duration: "1:13",
+      views: 27000,
+    },
+    {
+      id: 5,
+      name: "Mitzi Fox",
+      title: "Avalon Insurance Testimonial",
+      videoId: "ZuwM3QMSNAI",
+      duration: "1:03",
+      views: 136,
+    }
+  ];
 
-  const handleNext = () => {
-    setActiveIndex((prev) => (prev + 1) % testimonials.length);
+  const handlePlayVideo = (videoId, title) => {
+    setSelectedVideo(videoId);
+    setSelectedVideoTitle(title);
+    setShowVideoModal(true);
   };
 
   useEffect(() => {
@@ -401,12 +462,12 @@ const Testimonials = () => {
 
     const ctx = gsap.context(() => {
       gsap.fromTo('.reveal-element',
-        { y: 30, opacity: 0 },
+        { y: 20, opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          duration: 0.8,
-          stagger: 0.15,
+          duration: 0.6,
+          stagger: 0.1,
           ease: "power2.out",
           scrollTrigger: {
             trigger: sectionRef.current,
@@ -423,105 +484,173 @@ const Testimonials = () => {
   if (!isClient) return null;
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative bg-white py-10 md:py-12 lg:py-14 overflow-hidden"
-    >
-      {/* Subtle Background */}
-      <SubtleBackground />
-      <FloatingParticles />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
-
-        {/* ====================== */}
-        {/* SECTION HEADER - PROFESSIONAL MODERN */}
-        {/* ====================== */}
-        <div className="max-w-3xl mx-auto text-center mb-12 md:mb-16 reveal-element">
-          <span className="text-xs font-medium tracking-[0.2em] uppercase text-primary mb-3 block">
-            Testimonials
-          </span>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 mb-4">
-            Client Voices
-          </h2>
-
-          <p className="text-gray-500 text-base md:text-lg">
-            Trusted by industry leaders across the nation.
-          </p>
-
-          <div className="w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-6 rounded-full" />
-        </div>
-
-        {/* ====================== */}
-        {/* FEATURED TESTIMONIAL */}
-        {/* ====================== */}
-        <div className="max-w-4xl mx-auto mb-16 md:mb-20">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={activeIndex}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
-            >
-              <TestimonialCard
-                testimonial={testimonials[activeIndex]}
-                isActive={true}
-              />
-            </motion.div>
-          </AnimatePresence>
-
-          {/* Navigation */}
-          <CarouselNavigation
-            total={testimonials.length}
-            current={activeIndex}
-            onChange={(index) => {
-              if (index < 0) setActiveIndex(testimonials.length - 1);
-              else if (index >= testimonials.length) setActiveIndex(0);
-              else setActiveIndex(index);
+    <>
+      <section
+        ref={sectionRef}
+        className="relative bg-white py-12 md:py-16 lg:py-20 overflow-hidden"
+      >
+        {/* Subtle background */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0 opacity-[0.02]"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, #C30505 1px, transparent 1px),
+                linear-gradient(to bottom, #C30505 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px',
             }}
           />
         </div>
 
-        {/* ====================== */}
-        {/* INFINITE MARQUEE - FIXED */}
-        {/* ====================== */}
-        <div className="reveal-element">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-6 h-[1px] bg-gradient-to-r from-primary to-primary/60" />
-            <span className="text-[10px] font-medium tracking-[0.2em] uppercase text-gray-400">
-              More Client Stories
-            </span>
-          </div>
-          <TestimonialMarquee testimonials={testimonials} />
-        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* ====================== */}
-        {/* TRUST INDICATORS - MINIMAL */}
-        {/* ====================== */}
-        <div className="flex flex-wrap items-center justify-between gap-6 pt-8 md:pt-10 mt-8 border-t border-primary/10 reveal-element">
-          <div className="flex items-center gap-3">
-            <div className="flex -space-x-2">
-              {testimonials.slice(0, 4).map((t, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-white flex items-center justify-center text-primary text-xs font-medium shadow-sm"
+          {/* Header */}
+          <div className="max-w-3xl mx-auto text-center mb-10 md:mb-12 lg:mb-16 reveal-element">
+            <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-primary mb-2 md:mb-3 block">
+              Client Testimonials
+            </span>
+
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-gray-900 mb-3 md:mb-4">
+              Real Stories from Real Clients
+            </h2>
+
+            <p className="text-sm md:text-base lg:text-lg text-gray-500 px-4">
+              Hear what our clients have to say about their experience with FairClaims Roofing
+            </p>
+
+            <div className="flex items-center justify-center gap-2 mt-3 md:mt-4">
+              <Icons.Youtube />
+              <span className="text-xs md:text-sm text-gray-400">Featured on Designing Spaces & GAF</span>
+            </div>
+
+            <div className="w-12 md:w-16 h-0.5 bg-gradient-to-r from-primary to-primary/60 mx-auto mt-4 md:mt-6 rounded-full" />
+          </div>
+
+          {/* Featured Testimonial Carousel */}
+          <div className="max-w-4xl mx-auto mb-12 md:mb-16 lg:mb-20">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeIndex}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.3 }}
+              >
+                <TestimonialCard
+                  testimonial={testimonials[activeIndex]}
+                  isActive={true}
+                  onPlayVideo={handlePlayVideo}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Navigation */}
+            <div className="flex items-center justify-between mt-4 md:mt-6">
+              <div className="flex items-center gap-2">
+                <span className="text-xs md:text-sm font-mono font-medium text-primary">
+                  {String(activeIndex + 1).padStart(2, '0')}
+                </span>
+                <span className="text-xs md:text-sm font-mono text-gray-300">/</span>
+                <span className="text-xs md:text-sm font-mono text-gray-400">
+                  {String(testimonials.length).padStart(2, '0')}
+                </span>
+              </div>
+
+              <div className="flex gap-2">
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
                 >
-                  {t.avatar}
-                </div>
+                  <Icons.ArrowLeft />
+                </motion.button>
+
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={() => setActiveIndex((prev) => (prev + 1) % testimonials.length)}
+                  className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-primary/20 flex items-center justify-center hover:border-primary hover:bg-primary/5 transition-all duration-300"
+                >
+                  <Icons.ArrowRight />
+                </motion.button>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Gallery */}
+          <div className="mb-12 md:mb-16 lg:mb-20 reveal-element">
+            <div className="flex items-center gap-2 md:gap-3 mb-4 md:mb-6">
+              <div className="w-4 md:w-6 h-px bg-gradient-to-r from-primary to-primary/60" />
+              <span className="text-[10px] md:text-xs font-medium tracking-[0.2em] uppercase text-gray-400">
+                Featured Videos
+              </span>
+              <span className="text-[10px] md:text-xs text-primary ml-auto md:ml-2">403+ videos on YouTube</span>
+            </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4">
+              {videoGrid.map((video) => (
+                <VideoThumbnailCard
+                  key={video.id}
+                  video={video}
+                  onClick={() => handlePlayVideo(video.videoId, video.title)}
+                />
               ))}
             </div>
-            <div className="text-xs md:text-sm text-gray-600">
-              <span className="font-semibold text-gray-900">500+</span> projects delivered
+
+            <div className="text-center mt-4 md:mt-6">
+              <a
+                href="https://youtube.com/@fairclaimsroofing"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-xs md:text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                <Icons.Youtube />
+                Watch all 403+ videos on our YouTube channel
+              </a>
             </div>
           </div>
 
-          <div className="text-xs md:text-sm text-gray-400 font-mono">
-            <span className="text-primary">✦</span> Since 2007
+          {/* Stats */}
+          <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4 pt-4 md:pt-6 mt-4 md:mt-6 border-t border-primary/10 reveal-element">
+            <div className="flex items-center gap-2 md:gap-3">
+              <div className="flex -space-x-2">
+                {testimonials.slice(0, 4).map((t, i) => (
+                  <div
+                    key={i}
+                    className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-br from-primary/10 to-primary/20 border-2 border-white flex items-center justify-center text-primary text-[8px] md:text-xs font-medium shadow-sm"
+                  >
+                    {t.avatar}
+                  </div>
+                ))}
+              </div>
+              <div className="text-xs md:text-sm text-gray-600">
+                <span className="font-semibold text-gray-900">257</span> YouTube subscribers
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 md:gap-4 text-xs md:text-sm">
+              <span className="text-gray-400">
+                <span className="text-primary font-semibold">86K+</span> views
+              </span>
+              <span className="w-px h-3 md:h-4 bg-primary/20" />
+              <span className="text-gray-400">
+                <span className="text-primary font-semibold">Since 2002</span>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* Video Modal */}
+      <VideoModal
+        isOpen={showVideoModal}
+        onClose={() => setShowVideoModal(false)}
+        videoId={selectedVideo}
+        title={selectedVideoTitle}
+      />
+    </>
   );
 };
 

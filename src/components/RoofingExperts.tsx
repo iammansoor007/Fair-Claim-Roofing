@@ -189,7 +189,7 @@ export default function AggressiveRoofingSection() {
 
     // Stats data
     const stats = useMemo(() => [
-        { value: 500, suffix: "+", label: "Projects Completed" },
+        { value: 1200, suffix: "+", label: "Projects Completed" },
         { value: 100, suffix: "%", label: "Client Satisfaction" },
         { value: 24, suffix: "/7", label: "Emergency Service" }
     ], []);
@@ -317,7 +317,7 @@ export default function AggressiveRoofingSection() {
                                     <div className="bg-white/95 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-xl border border-gray-200">
                                         <span className="flex items-center gap-2 text-sm font-bold text-primary">
                                             <span className="text-lg">✓</span>
-                                            17+ Years Excellence
+                                            24+ Years Excellence
                                         </span>
                                     </div>
                                 </motion.div>
@@ -342,7 +342,7 @@ export default function AggressiveRoofingSection() {
                         >
                             <span className="text-primary text-lg">⚡</span>
                             <span className="text-primary uppercase tracking-[0.2em] text-xs sm:text-sm font-bold">
-                                Since 2009
+                                Since 2002
                             </span>
                         </motion.div>
 

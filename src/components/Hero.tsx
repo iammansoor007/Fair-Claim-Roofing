@@ -270,7 +270,7 @@ const Hero = () => {
           >
             {[
               { num: "1,200+", label: "Projects", icon: RiBuildingLine },
-              { num: "17+", label: "Years", icon: FiStar },
+              { num: "24+", label: "Years", icon: FiStar },
               { num: "98%", label: "Satisfaction", icon: FiThumbsUp },
               { num: "24/7", label: "Support", icon: RiShieldCheckLine },
             ].map((stat, idx) => (

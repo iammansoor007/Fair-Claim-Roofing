@@ -536,7 +536,7 @@ const Services = () => {
                 </div>
                 <div>
                   <div className="text-3xl md:text-4xl font-bold text-primary">
-                    <Counter value={20} suffix="+" />
+                    <Counter value={24} suffix="+" />
                   </div>
                   <div className="text-xs font-semibold tracking-wider uppercase text-gray-500 mt-1">
                     Years
